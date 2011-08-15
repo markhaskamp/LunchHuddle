@@ -1,2 +1,2 @@
-require './app/index'
+require './app/webstart'
 run Sinatra::Application
