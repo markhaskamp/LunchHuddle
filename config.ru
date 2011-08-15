@@ -1,2 +1,2 @@
-require './hello'
+require './app/hello'
 run Sinatra::Application
