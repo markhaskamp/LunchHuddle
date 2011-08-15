@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#txtName').attr('disabled', 'disabled');
   }
 
-  $('#vote').click(function() {
+  $('#btnVote').click(function() {
     var user_id = $('#txtName').val();
     
     if (textbox_is_empty('#txtName')) {
