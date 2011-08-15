@@ -27,7 +27,7 @@ $(document).ready(function() {
       msg.current_votes = current_votes;
 
       PUBNUB.publish({
-        channel : "mrh_pubnub1",
+        channel : "mrh_lunchhuddle.0815.1",
         message : msg
       })
     }

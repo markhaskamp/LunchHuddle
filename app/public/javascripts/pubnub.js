@@ -3,7 +3,7 @@ function pubnub_subscribe(){
 
     // LISTEN FOR MESSAGES
     PUBNUB.subscribe({
-        channel  : "mrh_pubnub1",      // CONNECT TO THIS CHANNEL.
+        channel  : "mrh_lunchhuddle.0815.1",      // CONNECT TO THIS CHANNEL.
         error    : function() {        // LOST CONNECTION (auto reconnects)
             alert("Connection Lost. Will auto-reconnect when Online.")
         },
