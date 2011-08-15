@@ -1,8 +1,26 @@
 !!!
 %html
   %head
+    %link(rel="stylesheet" href="css/styles.css")
+    %script{:type => "text/javascript", :src =>"javascripts/jquery-1.6.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/pubnub.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/restaurants.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/jjquery.cookie-modified.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/http://cdn.pubnub.com/pubnub-3.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/index.js"}
     %title Sinatra. index.haml
 
   %body
-    %p
-      hello from lunchhuddle, haml time!
+
+    %div(pub-key="pub-f692f5fb-58e7-4f72-b195-0b04d3960da8" sub-key="sub-a2494751-c5a0-11e0-b441-f562192438d2" ssl="off" origin="pubsub.pubnub.com" id="pubnub")
+
+    %form(action="#")
+      name: 
+      %input#txtName(type="text")
+      %br
+      vote for:
+      %input#txtVote(type="text")
+      %div.cursor_hover#vote vote
+
+    %div#vote_list
