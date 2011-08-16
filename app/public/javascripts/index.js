@@ -16,7 +16,19 @@ $(document).ready(function() {
   $('#btnVote').click(function() {
     i_vote();
   });
+
+
+  $('.vote_for').live('click', function() {
+    var ele = $(this);
+    vote_up_this_item(ele);
+  });
 });
+
+function vote_up_this_item(ele) {
+    var restaurant = ele.parent().find('#vote').text();
+    $('#txtVote').val(restaurant);
+    i_vote();
+}
 
 function set_cookie_for(json_var) {
   $.cookie(json_var.key, json_var.val, {expires: 1});
