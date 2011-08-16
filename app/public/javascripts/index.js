@@ -18,7 +18,7 @@ $(document).ready(function() {
       alert('who are you?');
     }
     else {
-      $.cookie('user_id', user_id, {expires: 1});
+      set_cookie_for({key: 'user_id', val: user_id});
       var foo = $.cookie('user_id');
 
       var msg = {};
@@ -36,6 +36,10 @@ $(document).ready(function() {
     }
   });
 });
+
+function set_cookie_for(json_var) {
+  $.cookie(json_var.key, json_var.val, {expires: 1});
+}
 
 function textbox_is_empty(selector) {
   var val = $(selector).val();
