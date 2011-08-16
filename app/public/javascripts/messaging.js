@@ -26,9 +26,12 @@ function send_my_votes(huddle_name, existing_votes) {
 }
 
 function send_checkin_notice(huddle_name) {
+    var message_package = {};
+    message_package.msg_type = 'checkin';
 
-    // PUBNUB.publish({
-    //   channel : huddle_name,
-    //   message : {msg_type: 'checkin'}
-    // })
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
 }
+

@@ -55,11 +55,16 @@ function i_vote() {
 }
 
 function vote_handler(message_package) {
-  // if (received_votes.checkin === undefined) {
-  //   i_vote();
-  // }
-  // else {
-  if (message_package.msg_type === 'votes') {
+  // console.log('vote_handler');
+  // console.log(message_package);
+
+  if (message_package.msg_type === 'checkin') {
+    // console.log("msg_type = 'checkin vote'");
+    i_vote();
+  }
+  else if (message_package.msg_type === 'votes') {
+    // console.log('msg_type = "votes"');
+
     var received_votes = message_package.votes;
     var existing_votes = restaurant_view.get_current_votes();
     var all_votes = merge_in_new_votes(existing_votes, received_votes);
@@ -67,7 +72,6 @@ function vote_handler(message_package) {
     var html_val = restaurant_view.get_display(all_votes);
     $('#vote_list').html(html_val);
   }
-  // }
 }
 
 function merge_in_new_votes(existing, new_votes) {
