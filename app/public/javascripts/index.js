@@ -5,7 +5,7 @@ $(document).ready(function() {
   huddle_name = $('#huddle_name').text();
 
   subscribe_to_huddle(huddle_name);
-  send_checkin_notice(huddle_name);
+  // send_checkin_notice(huddle_name);
 
   cookie_user_id = $.cookie('user_id');
   if (cookie_user_id.length > 0) {
