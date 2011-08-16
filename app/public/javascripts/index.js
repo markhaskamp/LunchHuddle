@@ -1,7 +1,10 @@
 var cookie_user_id;
+var huddle_name;
 
 $(document).ready(function() {
-  pubnub_subscribe();
+  huddle_name = $('#huddle_name').text();
+
+  pubnub_subscribe(huddle_name);
   cookie_user_id = $.cookie('user_id');
   if (cookie_user_id.length > 0) {
     $('#txtName').val(cookie_user_id);
@@ -27,7 +30,7 @@ $(document).ready(function() {
       msg.current_votes = current_votes;
 
       PUBNUB.publish({
-        channel : "mrh_lunchhuddle.0815.1",
+        channel : huddle_name,
         message : msg
       })
     }
