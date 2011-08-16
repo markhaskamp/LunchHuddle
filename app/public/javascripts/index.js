@@ -18,6 +18,7 @@ $(document).ready(function() {
       alert('who are you?');
     }
     else {
+      $('#txtName').attr('disabled', 'disabled');
       set_cookie_for({key: 'user_id', val: user_id});
       // var foo = $.cookie('user_id'); // for debugging
 
