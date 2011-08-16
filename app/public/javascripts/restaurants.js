@@ -1,6 +1,5 @@
 var restaurant_model = {
-
-};
+}
 
 var restaurant_view = {
 
@@ -9,15 +8,15 @@ var restaurant_view = {
 //     span#vote
 //     span#user_id
 
-  get_display: function(msg_json) {
+  get_display: function(all_votes) {
     var return_html = '';
-    // msg_json.current_votes.each(function(user, vote) {
-    for (var user_id in msg_json.current_votes) {
+
+    $.each(all_votes, function(u,r) {
           return_html += 
-              '<div id="vote_item"><span id="vote">' + msg_json.current_votes[user_id] + '</span>' +
-              ' (<span id="user_id">' + user_id + '</span>)' +
+              '<div id="vote_item"><span id="vote">' + r + '</span>' +
+              ' (<span id="user_id">' + u + '</span>)' +
               '</div>';
-    };
+    });
 
     return(return_html);
   },

@@ -19,19 +19,14 @@ $(document).ready(function() {
     }
     else {
       set_cookie_for({key: 'user_id', val: user_id});
-      var foo = $.cookie('user_id');
+      // var foo = $.cookie('user_id'); // for debugging
 
-      var msg = {};
-      msg.vote = $('#txtVote').val();
-      msg.user_id = user_id;
-
-      var current_votes = restaurant_view.get_current_votes();
-      current_votes[msg.user_id] = msg.vote;
-      msg.current_votes = current_votes;
+      var existing_votes = restaurant_view.get_current_votes();
+      existing_votes[user_id] = $('#txtVote').val();
 
       PUBNUB.publish({
         channel : huddle_name,
-        message : msg
+        message : existing_votes
       })
     }
   });
@@ -56,12 +51,20 @@ function textbox_is_empty(selector) {
 }
 
 
-function vote_handler(msg) {
-  var html_val = restaurant_view.get_display(msg);
-  $('#vote_list').html(html_val);
+function vote_handler(received_votes) {
+  var existing_votes = restaurant_view.get_current_votes();
+  var all_votes = merge_in_new_votes(existing_votes, received_votes);
 
-  // $.getJSON("http://jsonip.appspot.com?callback=?",function(data){
-	//   console.log( "Your ip: " + data.ip);
-	// });
+  var html_val = restaurant_view.get_display(all_votes);
+  $('#vote_list').html(html_val);
+}
+
+function merge_in_new_votes(existing, new_votes) {
+
+  $.each(new_votes, function(user_id) {
+    existing[user_id] = new_votes[user_id];
+  });
+
+  return (existing);
 }
 
