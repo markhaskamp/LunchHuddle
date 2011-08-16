@@ -15,6 +15,7 @@ var restaurant_view = {
           return_html += 
               '<div id="vote_item"><span id="vote">' + r + '</span>' +
               ' (<span id="user_id">' + u + '</span>)' +
+              ' <span class="vote_for cursor_hover">+1</span>' +
               '</div>';
     });
 

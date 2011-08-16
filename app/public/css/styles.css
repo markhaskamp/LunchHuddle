@@ -2,3 +2,27 @@
 body {
   color: #000099;
 }
+
+#huddle_name {
+  margin-bottom: 10px;
+}
+
+#vote_list {
+  width: 250px;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #a5a5a5;
+  border: 1px solid black;
+}
+
+#vote_item {
+  background-color: #d5d5d5;
+  margin: 2px;
+  padding: 3px;
+  padding-left: 5px;
+  border: 1px solid #0000cc;
+}
+
+.vote_for {
+  color: #009900;
+}
