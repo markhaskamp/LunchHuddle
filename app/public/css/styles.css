@@ -11,18 +11,27 @@ body {
   width: 250px;
   margin-top: 10px;
   padding: 5px;
-  background-color: #a5a5a5;
+  /* background-color: #a5a5a5; */
   border: 1px solid black;
 }
 
-#vote_item {
+.vote_item {
   background-color: #d5d5d5;
   margin: 2px;
   padding: 3px;
   padding-left: 5px;
   border: 1px solid #0000cc;
 }
+.my_vote_item {
+  background-color: #d5d5d5;
+  margin: 2px;
+  padding: 3px;
+  padding-left: 5px;
+  border: 3px solid #0000cc;
+}
 
 .vote_for {
-  color: #009900;
+  color: white;
+  background-color: #009900;
+  padding: 2px;
 }

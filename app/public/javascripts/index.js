@@ -81,7 +81,7 @@ function vote_handler(message_package) {
     var existing_votes = restaurant_view.get_current_votes();
     var all_votes = merge_in_new_votes(existing_votes, received_votes);
 
-    var html_val = restaurant_view.get_display(all_votes);
+    var html_val = restaurant_view.get_display(cookie_user_id, all_votes);
     $('#vote_list').html(html_val);
   }
 }
