@@ -19,5 +19,17 @@ describe("javascript", function() {
     });
   });
 
+  describe("underscore", function() {
+    it("select is underscores 'filter'", function() {
+      var ctrl = [1,2,3,4,5,6];
+      var actual = _.select(ctrl, function(n) {return (n % 2 === 0);});
+      expect(actual).toEqual([2,4,6]);
+    });
+
+    it("select with an array of objects", function() {
+
+    }
+  });
+
 });
 
