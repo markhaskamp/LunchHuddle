@@ -1,5 +1,28 @@
 describe("javascript", function() {
 
+  describe("Crockford's beget", function() {
+    var Klass = {
+      who: "eddie",
+      what: function() {
+        if(this.who === 'eddie') {
+          return('would go');
+        }
+        else if (this.who === 'kilroy') {
+          return('was here');
+        }
+      }
+    };
+
+    it("beget news up a javascript object", function() {
+      var k1 = Object.beget(Klass);  
+      var k2 = Object.beget(Klass);
+      k2.who = 'kilroy';
+
+      expect(k1.what()).toEqual('would go');
+      expect(k2.what()).toEqual('was here');
+    });
+  });
+
   describe("jquery", function() {
     it("get each key/value pair of a javascript var with '$.each(-var-, -func(k,v){...'", function() {
       var foo = {'one': 1, 'two': 22, 'three': 'three', 'four': 'fore!'};
