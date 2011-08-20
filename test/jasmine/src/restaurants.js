@@ -1,1 +1,0 @@
-/Users/mark/dev/lunchhuddle/app/public/javascripts/restaurants.js

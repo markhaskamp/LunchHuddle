@@ -1,6 +1,7 @@
 var cookie_user_id;
 var huddle_name;
 
+
 $(document).ready(function() {
   huddle_name = $('#huddle_name').text();
 
@@ -16,7 +17,6 @@ $(document).ready(function() {
   $('#btnVote').click(function() {
     i_vote();
   });
-
 
   $('.vote_for').live('click', function() {
     var ele = $(this);
@@ -57,7 +57,6 @@ function i_vote() {
   else {
     $('#txtName').attr('disabled', 'disabled');
     set_cookie_for({key: 'user_id', val: user_id});
-    // var foo = $.cookie('user_id'); // for debugging
 
     var existing_votes = restaurant_view.get_current_votes();
     existing_votes[user_id] = $('#txtVote').val();
