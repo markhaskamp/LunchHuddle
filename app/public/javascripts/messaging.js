@@ -12,16 +12,30 @@ var MessageFactory = {
 var MockSvc = {
   getName: function() {
     return('MockSvc');
+  },
+
+  send_my_votes: function() {
+  },
+  subscribe_to_huddle: function(huddle_name){
   }
 }
 
 var PubnubSvc = {
   getName: function() {
     return('PubnubSvc');
-  }
-}
+  },
 
-function subscribe_to_huddle(huddle_name){
+  send_my_votes: function (huddle_name, existing_votes) {
+    var message_package = {};
+    message_package.msg_type = 'votes';
+    message_package.votes = existing_votes;
+
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
+  },
+  subscribe_to_huddle: function(huddle_name){
 
     // LISTEN FOR MESSAGES
     PUBNUB.subscribe({
@@ -34,26 +48,9 @@ function subscribe_to_huddle(huddle_name){
         },
         connect  : function() {}        // CONNECTION ESTABLISHED.
     })
+  }
 }
 
-function send_my_votes(huddle_name, existing_votes) {
-    var message_package = {};
-    message_package.msg_type = 'votes';
-    message_package.votes = existing_votes;
 
-    PUBNUB.publish({
-      channel : huddle_name,
-      message : message_package
-    })
-}
 
-function send_checkin_notice(huddle_name) {
-    var message_package = {};
-    message_package.msg_type = 'checkin';
-
-    PUBNUB.publish({
-      channel : huddle_name,
-      message : message_package
-    })
-}
 

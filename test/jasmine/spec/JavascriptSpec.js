@@ -1,3 +1,7 @@
+function squared(n) {
+  return(n * n);
+};
+
 describe("javascript", function() {
 
   describe("Crockford's beget", function() {
@@ -106,6 +110,15 @@ describe("javascript", function() {
         var r = Foo.times_2(12);
         expect(r).toEqual(314);
         expect(Foo.double_it).toHaveBeenCalledWith(12);
+      });
+
+      it("spy on a stand-alone function", function() {
+        var foo = squared(9);
+        expect(foo).toEqual(81);
+
+        squared = jasmine.createSpy().andCallFake(function(value) { return 314; });;
+        foo = squared(3);
+        expect(foo).toEqual(314);
       });
     });
   });

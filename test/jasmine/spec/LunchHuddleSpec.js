@@ -19,13 +19,18 @@ describe("messaging", function() {
 });
 
 describe("Vote Action", function() {
-  // it("vote action collects the active votes", function() {
-  //   expect(false).toBeTruthy(); 
-  // });
+  it("i_vote() method calls message_svc.send_my_votes", function() {
+    textbox_is_empty = jasmine.createSpy().andCallFake(function() {return(false); });
+    set_cookie_for = jasmine.createSpy();
+    jasmine.createSpy(restaurant_view, 'get_current_votes').andCallFake(function() {return(null);});
 
-  // it("a vote action collects the user name",function() {
-  //   spyOn(UserView, 'getUserName');
-  //   handle_vote_action();
-  //   expect(UserView.getUserName.callCount).toEqual(1);
-  // });
+    huddle_name='foo';
+    existing_votes = 'too';
+    message_svc = MessageFactory.create('mock');
+    spyOn(MockSvc, 'send_my_votes');
+    i_vote();
+
+    expect(MockSvc.send_my_votes).toHaveBeenCalled();
+
+  });
 });
