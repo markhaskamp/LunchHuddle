@@ -1,7 +1,7 @@
-var restaurant_model = {
+var RestaurantModel = {
 }
 
-var restaurant_view = {
+var RestaurantView = {
 
 // div#vote_list
 //   div#vote_item

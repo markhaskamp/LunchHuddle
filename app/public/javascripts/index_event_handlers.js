@@ -32,7 +32,7 @@ function i_vote() {
     $('#txtName').attr('disabled', 'disabled');
     set_cookie_for({key: 'user_id', val: user_id});
 
-    var existing_votes = restaurant_view.get_current_votes();
+    var existing_votes = RestaurantView.get_current_votes();
     existing_votes[user_id] = $('#txtVote').val();
 
     message_svc.send_my_votes(huddle_name, existing_votes);

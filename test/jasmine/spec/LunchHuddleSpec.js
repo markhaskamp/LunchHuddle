@@ -22,7 +22,7 @@ describe("Vote Action", function() {
   it("i_vote() method calls message_svc.send_my_votes", function() {
     textbox_is_empty = jasmine.createSpy().andCallFake(function() {return(false); });
     set_cookie_for = jasmine.createSpy();
-    jasmine.createSpy(restaurant_view, 'get_current_votes').andCallFake(function() {return(null);});
+    jasmine.createSpy(RestaurantView, 'get_current_votes').andCallFake(function() {return(null);});
 
     huddle_name='foo';
     existing_votes = 'too';
@@ -33,4 +33,7 @@ describe("Vote Action", function() {
     expect(MockSvc.send_my_votes).toHaveBeenCalled();
 
   });
+});
+
+describe("RestaurantView", function() {
 });
