@@ -1,3 +1,17 @@
+var MessageFactory = {
+  create: function(svc_type) {
+                  if (svc_type === 'mock') {
+                    return (Object.beget(MockSvc));
+                  }
+          }
+};
+
+var MockSvc = {
+
+  getName: function() {
+    return('MockSvc');
+  }
+}
 
 function subscribe_to_huddle(huddle_name){
 
