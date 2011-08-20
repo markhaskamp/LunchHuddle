@@ -1,4 +1,7 @@
 var RestaurantModel = {
+  add_vote: function(user_vote, existing_votes) {
+    return(existing_votes.push(user_vote));
+  }
 }
 
 var RestaurantView = {
@@ -9,17 +12,6 @@ var RestaurantView = {
 //     span#user_id
 //     div.vote_for
 
-  count_votes_for: function(voted_for_list) {
-    return_list = {};
-    $.each(voted_for_list, function(u,r) {
-      return_list[r] = 0;
-    });
-    $.each(voted_for_list, function(u,r) {
-      return_list[r] += 1;
-    });
-
-    return(return_list);
-  },
 
   get_display: function(my_user_id, all_votes) {
     var return_html = '';
@@ -50,15 +42,6 @@ var RestaurantView = {
 
 
     return(return_html);
-  },
-
-  sort_counted_votes: function(counted_votes) {
-    var sorted_array = [];
-    for (var restaurant in counted_votes) {
-      sorted_array.push([restaurant, counted_votes[restaurant]])
-    }
-    var foo = sorted_array.sort(function(a,b) {return a[1] < b[1]});
-    return (foo);
   },
 
   get_current_votes: function() {
