@@ -36,4 +36,9 @@ describe("Vote Action", function() {
 });
 
 describe("RestaurantView", function() {
+  describe("get_current_votes", function() {
+    it("when no restaurants have been voted, then returns an empty list", function() {
+      expect(RestaurantView.get_current_votes().length).toEqual(0);
+    });
+  });
 });

@@ -1,4 +1,4 @@
 var Vote {
-  user = nil;
+  user_id = nil;
   vote = nil;
 }

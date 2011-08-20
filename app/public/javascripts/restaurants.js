@@ -48,20 +48,6 @@ var RestaurantView = {
       });
     });
 
-    // $.each(all_votes, function(u,r) {
-    //       var vote_item_style = 'vote_item';
-    //       if (u === my_user_id) {
-    //         vote_item_style = 'my_vote_item';
-    //       }
-    //       return_html += 
-    //           '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + r + '</span>' +
-    //           ' (<span id="user_id">' + u + '</span>)';
-
-    //       if ( u !== my_user_id) {
-    //         return_html += ' <span class="vote_for cursor_hover">+1</span>';
-    //       }
-    //       return_html += '</div>';
-    // });
 
     return(return_html);
   },
@@ -76,14 +62,15 @@ var RestaurantView = {
   },
 
   get_current_votes: function() {
-    var current_votes = {};
+    var current_votes = [];
     var vote_list = $('#vote_list #vote_item');
 
     vote_list.each(function() {
-      var u = $(this).find('#user_id').first().html();
-      var v = $(this).find('#vote').first().html();
+      var v = Object.beget(Vote);
+      v.user_id = $(this).find('#user_id').first().html();
+      v.vote = $(this).find('#vote').first().html();
 
-      current_votes[u] = v
+      current_votes.push(v);
     });
 
     return (current_votes);
