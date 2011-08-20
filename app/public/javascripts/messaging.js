@@ -3,13 +3,21 @@ var MessageFactory = {
                   if (svc_type === 'mock') {
                     return (Object.beget(MockSvc));
                   }
+                  else if(svc_type === 'pubnub') {
+                    return (Object.beget(PubnubSvc));
+                  }
           }
 };
 
 var MockSvc = {
-
   getName: function() {
     return('MockSvc');
+  }
+}
+
+var PubnubSvc = {
+  getName: function() {
+    return('PubnubSvc');
   }
 }
 
