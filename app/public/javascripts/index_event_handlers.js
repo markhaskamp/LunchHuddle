@@ -32,9 +32,9 @@ function i_vote() {
     $('#txtName').attr('disabled', 'disabled');
     set_cookie_for({key: 'user_id', val: user_id});
 
-    var current_vote = Object.beget(Vote);
+    var current_vote = Object.beget(LunchSpot);
     current_vote.user_id = user_id;
-    current_vote.vote = $('#txtVote').val();
+    current_vote.lunch_spot = $('#txtVote').val();
 
     var existing_votes = RestaurantView.get_current_votes();
     RestaurantModel.add_vote(current_vote, existing_votes);

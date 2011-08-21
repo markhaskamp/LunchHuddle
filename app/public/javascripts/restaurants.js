@@ -26,7 +26,7 @@ var RestaurantModel = {
   replace_user_vote:function(v, vl) {
     $.each(vl, function(ndx, o) {
       if(v.user_id === o.user_id) {
-        o.vote = v.vote;
+        o.lunch_spot = v.lunch_spot;
       }
     });
   }
@@ -50,7 +50,7 @@ var RestaurantView = {
           vote_item_style = 'my_vote_item';
         }
         return_html += 
-            '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + vote.vote + '</span>' +
+            '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + vote.lunch_spot + '</span>' +
             ' (<span id="user_id">' + vote.user_id + '</span>)';
 
         if ( vote.user_id !== my_user_id) {
@@ -67,9 +67,9 @@ var RestaurantView = {
     var vote_list = $('#vote_list #vote_item');
 
     vote_list.each(function() {
-      var v = Object.beget(Vote);
+      var v = Object.beget(LunchSpot);
       v.user_id = $(this).find('#user_id').first().html();
-      v.vote = $(this).find('#vote').first().html();
+      v.lunch_spot = $(this).find('#vote').first().html();
 
       current_votes.push(v);
     });

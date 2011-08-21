@@ -1,10 +1,10 @@
 var UserView = {
 }
 
-var Vote = {
+var LunchSpot = {
   user_display_name: null,
   user_id: null,
-  vote: null
+  lunch_spot: null
 }
 
 var VoteView = {

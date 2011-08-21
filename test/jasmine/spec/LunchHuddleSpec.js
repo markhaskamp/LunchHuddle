@@ -47,13 +47,13 @@ describe("RestaurantView", function() {
       var existing_votes = [];
       expect(existing_votes).toEqual([]);
 
-      var existing_vote = Object.beget(Vote);
+      var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
       existing_vote.vote = 'five guys';
       existing_votes.push(existing_vote);
 
-      var new_vote = Object.beget(Vote);
+      var new_vote = Object.beget(LunchSpot);
      new_vote.user_display_name = 'old';
       new_vote.user_id = 'old';
       new_vote.vote = 'chipotle';
@@ -65,13 +65,13 @@ describe("RestaurantView", function() {
       var existing_votes = [];
       expect(existing_votes).toEqual([]);
 
-      var existing_vote = Object.beget(Vote);
+      var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
       existing_vote.vote = 'five guys';
       existing_votes.push(existing_vote);
 
-      var new_vote = Object.beget(Vote);
+      var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'new';
       new_vote.user_id = 'new';
       new_vote.vote = 'chipotle';
@@ -85,13 +85,13 @@ describe("RestaurantView", function() {
       var existing_votes = [];
       expect(existing_votes).toEqual([]);
 
-      var existing_vote = Object.beget(Vote);
+      var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
       existing_vote.vote = 'five guys';
       existing_votes.push(existing_vote);
 
-      var new_vote = Object.beget(Vote);
+      var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'new';
       new_vote.user_id = 'new';
       new_vote.vote = 'chipotle';
@@ -105,7 +105,7 @@ describe("RestaurantView", function() {
       var existing_votes = [];
       expect(existing_votes).toEqual([]);
 
-      var existing_vote = Object.beget(Vote);
+      var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
       existing_vote.vote = 'five guys';
@@ -113,7 +113,7 @@ describe("RestaurantView", function() {
 
       expect(existing_votes[0].vote).toEqual('five guys');
 
-      var new_vote = Object.beget(Vote);
+      var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'old';
       new_vote.user_id = 'old';
       new_vote.vote = 'chipotle';
@@ -133,14 +133,14 @@ describe ("index_event_handlers", function() {
   it("merge_in_new_votes adds a new vote", function() {
     var existing_votes = [];
     var new_votes = [];
-    var v1 = Object.beget(Vote);
+    var v1 = Object.beget(LunchSpot);
     v1.user_id = 'old';
     v1.vote = 'subway';
     existing_votes.push(v1);
     expect(existing_votes.length).toEqual(1);
 
     var new_votes = [];
-    var v2 = Object.beget(Vote);
+    var v2 = Object.beget(LunchSpot);
     v2.user_id = 'new';
     v2.vote = 'five guys';
     new_votes.push(v2);
@@ -151,19 +151,19 @@ describe ("index_event_handlers", function() {
   it("merge_in_new_votes replaces an existing vote", function() {
     var existing_votes = [];
     var new_votes = [];
-    var v1 = Object.beget(Vote);
+    var v1 = Object.beget(LunchSpot);
     v1.user_id = 'old';
     v1.vote = 'subway';
     existing_votes.push(v1);
 
-    var v2 = Object.beget(Vote);
+    var v2 = Object.beget(LunchSpot);
     v2.user_id = 'new';
     v2.vote = 'five guys';
     existing_votes.push(v2);
     expect(existing_votes.length).toEqual(2);
 
     var new_votes = [];
-    var v3 = Object.beget(Vote);
+    var v3 = Object.beget(LunchSpot);
     v3.user_id = 'new';
     v3.vote = 'hothead burrito';
     new_votes.push(v3);
