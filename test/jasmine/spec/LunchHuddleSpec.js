@@ -79,27 +79,27 @@ describe("RestaurantView", function() {
     });
   });
 
-  // describe("add_user_vote_to_current_votes", function() {
+  describe("add_user_vote_to_current_votes", function() {
 
-  //   it("user's first vote is added to list of voted-for restaurants", function() {
-  //     var existing_votes = [];
-  //     expect(existing_votes).toEqual([]);
+    it("user's first vote is added to list of voted-for restaurants", function() {
+      var existing_votes = [];
+      expect(existing_votes).toEqual([]);
 
-  //     var existing_vote = Object.beget(Vote);
-  //     existing_vote.user_display_name = 'old';
-  //     existing_vote.user_id = 'old';
-  //     existing_vote.vote = 'five guys';
-  //     existing_votes.push(existing_vote);
+      var existing_vote = Object.beget(Vote);
+      existing_vote.user_display_name = 'old';
+      existing_vote.user_id = 'old';
+      existing_vote.vote = 'five guys';
+      existing_votes.push(existing_vote);
 
-  //     var new_vote = Object.beget(Vote);
-  //     new_vote.user_display_name = 'new';
-  //     new_vote.user_id = 'new';
-  //     new_vote.vote = 'chipotle';
+      var new_vote = Object.beget(Vote);
+      new_vote.user_display_name = 'new';
+      new_vote.user_id = 'new';
+      new_vote.vote = 'chipotle';
 
-  //     RestaurantModel.add_vote(new_vote, existing_votes);
+      RestaurantModel.add_vote(new_vote, existing_votes);
 
-  //     expect(existing_votes.length).toEqual(2);
-  //   });
+      expect(existing_votes.length).toEqual(2);
+    });
 
   //   it("user's subsequent vote replaces his old vote on the voted-for list", function() {
   //     var existing_votes = [];
@@ -126,5 +126,5 @@ describe("RestaurantView", function() {
   //     expect(existing_votes[0].vote).toEqual(chiptole);
   //   });
 
-  // });
+  });
 });
