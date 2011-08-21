@@ -50,13 +50,13 @@ describe("RestaurantView", function() {
       var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
-      existing_vote.vote = 'five guys';
+      existing_vote.lunch_spot = 'five guys';
       existing_votes.push(existing_vote);
 
       var new_vote = Object.beget(LunchSpot);
      new_vote.user_display_name = 'old';
       new_vote.user_id = 'old';
-      new_vote.vote = 'chipotle';
+      new_vote.lunch_spot = 'chipotle';
 
       expect(RestaurantModel.user_vote_exists(new_vote, existing_votes)).toBeTruthy();
     });
@@ -68,13 +68,13 @@ describe("RestaurantView", function() {
       var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
-      existing_vote.vote = 'five guys';
+      existing_vote.lunch_spot = 'five guys';
       existing_votes.push(existing_vote);
 
       var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'new';
       new_vote.user_id = 'new';
-      new_vote.vote = 'chipotle';
+      new_vote.lunch_spot = 'chipotle';
 
     });
   });
@@ -88,13 +88,13 @@ describe("RestaurantView", function() {
       var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
-      existing_vote.vote = 'five guys';
+      existing_vote.lunch_spot = 'five guys';
       existing_votes.push(existing_vote);
 
       var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'new';
       new_vote.user_id = 'new';
-      new_vote.vote = 'chipotle';
+      new_vote.lunch_spot = 'chipotle';
 
       RestaurantModel.add_vote(new_vote, existing_votes);
 
@@ -108,22 +108,22 @@ describe("RestaurantView", function() {
       var existing_vote = Object.beget(LunchSpot);
       existing_vote.user_display_name = 'old';
       existing_vote.user_id = 'old';
-      existing_vote.vote = 'five guys';
+      existing_vote.lunch_spot = 'five guys';
       existing_votes.push(existing_vote);
 
-      expect(existing_votes[0].vote).toEqual('five guys');
+      expect(existing_votes[0].lunch_spot).toEqual('five guys');
 
       var new_vote = Object.beget(LunchSpot);
       new_vote.user_display_name = 'old';
       new_vote.user_id = 'old';
-      new_vote.vote = 'chipotle';
+      new_vote.lunch_spot = 'chipotle';
 
       RestaurantModel.add_vote(new_vote, existing_votes);
 
       expect(existing_votes.length).toEqual(1);
       expect(existing_votes[0].user_display_name).toEqual('old');
       expect(existing_votes[0].user_id).toEqual('old');
-      expect(existing_votes[0].vote).toEqual('chipotle');
+      expect(existing_votes[0].lunch_spot).toEqual('chipotle');
     });
   });
 
@@ -135,14 +135,14 @@ describe ("index_event_handlers", function() {
     var new_votes = [];
     var v1 = Object.beget(LunchSpot);
     v1.user_id = 'old';
-    v1.vote = 'subway';
+    v1.lunch_spot = 'subway';
     existing_votes.push(v1);
     expect(existing_votes.length).toEqual(1);
 
     var new_votes = [];
     var v2 = Object.beget(LunchSpot);
     v2.user_id = 'new';
-    v2.vote = 'five guys';
+    v2.lunch_spot = 'five guys';
     new_votes.push(v2);
 
     merge_in_new_votes(new_votes, existing_votes);
@@ -153,19 +153,19 @@ describe ("index_event_handlers", function() {
     var new_votes = [];
     var v1 = Object.beget(LunchSpot);
     v1.user_id = 'old';
-    v1.vote = 'subway';
+    v1.lunch_spot = 'subway';
     existing_votes.push(v1);
 
     var v2 = Object.beget(LunchSpot);
     v2.user_id = 'new';
-    v2.vote = 'five guys';
+    v2.lunch_spot = 'five guys';
     existing_votes.push(v2);
     expect(existing_votes.length).toEqual(2);
 
     var new_votes = [];
     var v3 = Object.beget(LunchSpot);
     v3.user_id = 'new';
-    v3.vote = 'hothead burrito';
+    v3.lunch_spot = 'hothead burrito';
     new_votes.push(v3);
 
     merge_in_new_votes(new_votes, existing_votes);
