@@ -44,30 +44,20 @@ var RestaurantView = {
   get_display: function(my_user_id, all_votes) {
     var return_html = '';
 
-    var counted_votes = this.count_votes_for(all_votes);
-    var sorted_counted_votes = this.sort_counted_votes(counted_votes);
+    $.each(all_votes, function(ndx, vote) {
+        var vote_item_style = 'vote_item';
+        if (vote.user_id === my_user_id) {
+          vote_item_style = 'my_vote_item';
+        }
+        return_html += 
+            '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + vote.vote + '</span>' +
+            ' (<span id="user_id">' + vote.user_id + '</span>)';
 
-    $.each(sorted_counted_votes,function(re,vo) {
-      var votes_sub_list = _.select(all_votes, function(key,val) { 
-              vo[0] === key
-      });
-
-      $.each(votes_sub_list, function(u,r) {
-          var vote_item_style = 'vote_item';
-          if (u === my_user_id) {
-            vote_item_style = 'my_vote_item';
-          }
-          return_html += 
-              '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + r + '</span>' +
-              ' (<span id="user_id">' + u + '</span>)';
-
-          if ( u !== my_user_id) {
-            return_html += ' <span class="vote_for cursor_hover">+1</span>';
-          }
-          return_html += '</div>';
-      });
+        if ( vote.user_id !== my_user_id) {
+          return_html += ' <span class="vote_for cursor_hover">+1</span>';
+        }
+        return_html += '</div>';
     });
-
 
     return(return_html);
   },

@@ -14,8 +14,14 @@ var MockSvc = {
     return('MockSvc');
   },
 
-  send_my_votes: function() {
+  send_my_votes: function(huddle_name, existing_votes) {
+    var message_package = {};
+    message_package.msg_type = 'votes';
+    message_package.votes = existing_votes;
+
+    vote_handler(message_package);
   },
+
   subscribe_to_huddle: function(huddle_name){
   }
 }

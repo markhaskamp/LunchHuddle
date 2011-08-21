@@ -125,6 +125,50 @@ describe("RestaurantView", function() {
       expect(existing_votes[0].user_id).toEqual('old');
       expect(existing_votes[0].vote).toEqual('chipotle');
     });
+  });
 
+});
+
+describe ("index_event_handlers", function() {
+  it("merge_in_new_votes adds a new vote", function() {
+    var existing_votes = [];
+    var new_votes = [];
+    var v1 = Object.beget(Vote);
+    v1.user_id = 'old';
+    v1.vote = 'subway';
+    existing_votes.push(v1);
+    expect(existing_votes.length).toEqual(1);
+
+    var new_votes = [];
+    var v2 = Object.beget(Vote);
+    v2.user_id = 'new';
+    v2.vote = 'five guys';
+    new_votes.push(v2);
+
+    merge_in_new_votes(new_votes, existing_votes);
+    expect(existing_votes.length).toEqual(2);
+  });
+  it("merge_in_new_votes replaces an existing vote", function() {
+    var existing_votes = [];
+    var new_votes = [];
+    var v1 = Object.beget(Vote);
+    v1.user_id = 'old';
+    v1.vote = 'subway';
+    existing_votes.push(v1);
+
+    var v2 = Object.beget(Vote);
+    v2.user_id = 'new';
+    v2.vote = 'five guys';
+    existing_votes.push(v2);
+    expect(existing_votes.length).toEqual(2);
+
+    var new_votes = [];
+    var v3 = Object.beget(Vote);
+    v3.user_id = 'new';
+    v3.vote = 'hothead burrito';
+    new_votes.push(v3);
+
+    merge_in_new_votes(new_votes, existing_votes);
+    expect(existing_votes.length).toEqual(2);
   });
 });

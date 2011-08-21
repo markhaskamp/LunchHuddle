@@ -32,39 +32,40 @@ function i_vote() {
     $('#txtName').attr('disabled', 'disabled');
     set_cookie_for({key: 'user_id', val: user_id});
 
+    var current_vote = Object.beget(Vote);
+    current_vote.user_id = user_id;
+    current_vote.vote = $('#txtVote').val();
+
     var existing_votes = RestaurantView.get_current_votes();
-    existing_votes[user_id] = $('#txtVote').val();
+    RestaurantModel.add_vote(current_vote, existing_votes);
 
     message_svc.send_my_votes(huddle_name, existing_votes);
   }
 }
 
 function vote_handler(message_package) {
-  // console.log('vote_handler');
-  // console.log(message_package);
 
-  // if (message_package.msg_type === 'checkin') {
-  //   // console.log("msg_type = 'checkin vote'");
-  //   i_vote();
-  // }
   if (message_package.msg_type === 'votes') {
     // console.log('msg_type = "votes"');
 
     var received_votes = message_package.votes;
-    var existing_votes = restaurant_view.get_current_votes();
+    var existing_votes = RestaurantView.get_current_votes();
     var all_votes = merge_in_new_votes(existing_votes, received_votes);
 
-    var html_val = restaurant_view.get_display(cookie_user_id, all_votes);
+    var html_val = RestaurantView.get_display(cookie_user_id, all_votes);
     $('#vote_list').html(html_val);
   }
 }
 
-function merge_in_new_votes(existing, new_votes) {
+// take the votes on my web page
+// get the votes that were passed in to this function
+// merge my web pages into passed in votes
+function merge_in_new_votes(web_page_votes, passed_in_votes) {
 
-  $.each(new_votes, function(user_id) {
-    existing[user_id] = new_votes[user_id];
+  $.each(web_page_votes, function(ndx, web_page_vote) {
+    RestaurantModel.add_vote(web_page_vote, passed_in_votes); 
   });
 
-  return (existing);
+  return (passed_in_votes);
 }
 
