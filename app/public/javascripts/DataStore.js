@@ -27,6 +27,7 @@ var DataStore = {
     }
     else {
       return([]);
+    }
   }
 
 }
