@@ -18,6 +18,14 @@ var DataStore = {
     }
   },
 
+  remove_lunch_spot: function(lunch_spot) {
+    var saved_lunch_spots = [];
+    var saved_lunch_spots_string = localStorage.getItem('lh_lunch_spots');
+    var saved_lunch_spots_list = saved_lunch_spots_string.split(',');
+    var new_list = _.reject(saved_lunch_spots_list, function(o) { return(o === lunch_spot); });
+    localStorage.setItem('lh_lunch_spots', new_list);
+  },
+
   get_lunch_spots: function() {
     var lunch_spot_string = localStorage.getItem('lh_lunch_spots');
 

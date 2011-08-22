@@ -5,9 +5,17 @@ function vote_up_this_item(ele) {
 }
 
 function vote_up_this_saved_lunch_spot(ele) {
-    var restaurant = ele.prev().text();
-    $('#txtLunchSpot').val(restaurant);
+    var lunch_spot = ele.prev().text();
+    $('#txtLunchSpot').val(lunch_spot);
     i_vote();
+}
+
+function delete_saved_lunch_spot(ele) {
+    var lunch_spot = ele.prev().prev().text();
+    DataStore.remove_lunch_spot(lunch_spot);
+
+    var saved_lunch_spots = DataStore.get_lunch_spots();
+    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
 }
 
 function set_cookie_for(json_var) {
