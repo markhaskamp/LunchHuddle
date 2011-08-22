@@ -15,8 +15,13 @@ var DataStore = {
   get_lunch_spots: function() {
     var lunch_spot_string = localStorage.getItem('lh_lunch_spots');
 
-    var lunch_spot_list = lunch_spot_string.split(',');
-    return lunch_spot_list;
+    if (lunch_spot_string !== null) {
+      var lunch_spot_list = lunch_spot_string.split(',');
+      return lunch_spot_list;
+    }
+    else {
+      return([]);
+    }
   }
 
 }
