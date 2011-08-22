@@ -1,0 +1,27 @@
+
+start -> index.js: $('#btnVote').click
+index.js -> index_event_handlers.js: i_vote()
+index_event_handlers.js -> RestaurantView: get_current_votes()
+RestaurantView -> index_event_handlers.js: existing_votes
+index_event_handlers.js -> RestaurantModel: add_vote(current_vote, existing_votes)
+note over RestaurantModel
+  modifies existing_votes
+end note
+index_event_handlers.js -> message_svc: send_my_votes(existing_votes)
+note over message_svc
+  builds message_package
+end note
+message_svc -> PUBNUB:publish(message_package)
+
+
+start -> index_event_handlers.js: vote_handler
+index_event_handlers.js -> RestaurantView: get_current_votes()
+RestaurantView -> index_event_handlers.js: existing_votes
+index_event_handlers.js -> index_event_handlers.js: merge_in_new_votes(existing_votes, received_votes)
+
+loop existing_votes
+  index_event_handlers.js -> RestaurantModel: add_vote(existing_vote, received_votes)
+end vote
+
+index_event_handlers.js -> RestaurantView: get_display(received_votes)
+

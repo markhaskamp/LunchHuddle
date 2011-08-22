@@ -1,6 +1,6 @@
 function vote_up_this_item(ele) {
     var restaurant = ele.parent().find('#vote').text();
-    $('#txtVote').val(restaurant);
+    $('#txtLunchSpot').val(restaurant);
     i_vote();
 }
 
@@ -34,7 +34,7 @@ function i_vote() {
 
     var current_vote = Object.beget(LunchSpot);
     current_vote.user_id = user_id;
-    current_vote.lunch_spot = $('#txtVote').val();
+    current_vote.lunch_spot = $('#txtLunchSpot').val();
 
     var existing_votes = RestaurantView.get_current_votes();
     RestaurantModel.add_vote(current_vote, existing_votes);
@@ -46,26 +46,23 @@ function i_vote() {
 function vote_handler(message_package) {
 
   if (message_package.msg_type === 'votes') {
-    // console.log('msg_type = "votes"');
 
     var received_votes = message_package.votes;
-    var existing_votes = RestaurantView.get_current_votes();
-    var all_votes = merge_in_new_votes(existing_votes, received_votes);
+    var existing_lunch_spots = RestaurantView.get_current_votes();
+    merge_in_new_votes(existing_lunch_spots, received_votes);
+    // var all_votes = merge_in_new_votes(existing_votes, received_votes);
 
-    var html_val = RestaurantView.get_display(cookie_user_id, all_votes);
+    var html_val = RestaurantView.get_display(cookie_user_id, received_votes);
     $('#vote_list').html(html_val);
   }
 }
 
-// take the votes on my web page
-// get the votes that were passed in to this function
-// merge my web pages into passed in votes
 function merge_in_new_votes(web_page_votes, passed_in_votes) {
 
-  $.each(web_page_votes, function(ndx, web_page_vote) {
-    RestaurantModel.add_vote(web_page_vote, passed_in_votes); 
+  $.each(passed_in_votes, function(ndx, passed_in_vote) {
+    RestaurantModel.add_vote(passed_in_vote, web_page_votes); 
   });
 
-  return (passed_in_votes);
+  return (web_page_votes);
 }
 

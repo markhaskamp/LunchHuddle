@@ -8,6 +8,8 @@
     %script{:type => "text/javascript", :src =>"javascripts/util.jquery.js"}
     %script{:type => "text/javascript", :src =>"http://cdn.pubnub.com/pubnub-3.1.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/VoteView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/SavedLunchSpots.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/messaging.js"}
     %script{:type => "text/javascript", :src =>"javascripts/restaurants.js"}
     %script{:type => "text/javascript", :src =>"javascripts/jjquery.cookie-modified.js"}
@@ -25,8 +27,9 @@
       %input#txtName(type="text")
       %br
       vote for:
-      %input#txtVote(type="text")
+      %input#txtLunchSpot(type="text")
       %br
       %input#btnVote{:type => "button", :value => "vote"}
 
     %div#vote_list
+    %div#saved_lunch_spots

@@ -41,6 +41,7 @@ var PubnubSvc = {
       message : message_package
     })
   },
+
   subscribe_to_huddle: function(huddle_name){
 
     // LISTEN FOR MESSAGES

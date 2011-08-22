@@ -2,10 +2,13 @@ var RestaurantModel = {
   add_vote: function(user_vote, existing_votes) {
     var b = this.user_vote_exists(user_vote, existing_votes);
     if (this.user_vote_exists(user_vote, existing_votes)) {
-      return(this.replace_user_vote(user_vote, existing_votes));
+      this.replace_user_vote(user_vote, existing_votes);
+
+      return;
     }
     else {
-      return(existing_votes.push(user_vote));
+      existing_votes.push(user_vote);
+      return;
     }
 
     return(null);

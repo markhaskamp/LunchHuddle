@@ -8,7 +8,7 @@ var LunchSpot = {
 }
 
 var VoteView = {
-  getVote: function() {
-    return('#txtVote').val();
+  get_lunch_spot: function() {
+    return($('#txtLunchSpot').val());
   }
 }

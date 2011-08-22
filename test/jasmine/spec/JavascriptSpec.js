@@ -122,6 +122,16 @@ describe("javascript", function() {
       });
     });
   });
+
+  describe("localStorage", function() {
+    it("can write an array to localStorage", function() {
+      var foo = ['one', 'two', 'three', 'four'];
+      localStorage.setItem('foo', foo);
+
+      var get_it_back = localStorage.getItem('foo');
+      expect(get_it_back.length).toEqual(4);
+    });
+  });
 });
 
 var Foo = {
@@ -133,8 +143,6 @@ var Foo = {
   times_2: function(n) {
     return(this.double_it(n));
   }
-
-
 }
 
 function kv_pair_to_array(o) {
