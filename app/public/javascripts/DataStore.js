@@ -13,7 +13,7 @@ var DataStore = {
       }
     }
     else {
-      saved_lunch_spots.push(lunch_spot_);
+      saved_lunch_spots.push(lunch_spot);
       localStorage.setItem('lh_lunch_spots', saved_lunch_spots_list);
     }
   },
