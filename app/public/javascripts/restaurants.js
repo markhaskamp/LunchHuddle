@@ -44,25 +44,16 @@ var RestaurantView = {
 //     div.vote_for
 
 
+
   get_display: function(my_user_id, all_votes) {
     var return_html = '';
 
-    // count votes
-    var lunch_spot_counts = {};
-    // init to 0
-    $.each(all_votes, function(ndx, lunch_spot) {
-      lunch_spot_counts[lunch_spot.lunch_spot] = 0;
-    });
-
-    // add up votes
-    $.each(all_votes, function(ndx, lunch_spot) {
-      lunch_spot_counts[lunch_spot.lunch_spot] += 1;
-    });
+    var counted_lunch_spots = this.count_lunch_spots(all_votes);
 
     // sort lunch_spot hash by value(which = number of votes)?
     var lunch_spot_array = [];
-    $.each(lunch_spot_counts, function(key) { 
-      lunch_spot_array.push([key, lunch_spot_counts[key]]);
+    $.each(counted_lunch_spots, function(key) { 
+      lunch_spot_array.push([key, counted_lunch_spots[key]]);
     });
   
     var sorted_array = lunch_spot_array.sort(function(a,b) { return(a[1] < b[1]); });
@@ -72,7 +63,7 @@ var RestaurantView = {
     $.each(sorted_array, function(ndx, sorted_lunch_spot) {
       var foo = _.select(all_votes, function(cur_lunch_spot) { return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); });
 
-    $.each(foo, function(ndx, vote) {
+      $.each(foo, function(ndx, vote) {
         var vote_item_style = 'vote_item';
         if (vote.user_id === my_user_id) {
           vote_item_style = 'my_vote_item';
@@ -85,10 +76,26 @@ var RestaurantView = {
           return_html += ' <span class="vote_for cursor_hover">+1</span>';
         }
         return_html += '</div>';
-    });
+      });
     });
 
     return(return_html);
+  },
+
+  count_lunch_spots: function(lunch_spot_list) {
+    // count votes
+    var lunch_spot_counts = {};
+    // init to 0
+    $.each(lunch_spot_list, function(ndx, lunch_spot) {
+      lunch_spot_counts[lunch_spot.lunch_spot] = 0;
+    });
+    //
+    // add up votes
+    $.each(lunch_spot_list, function(ndx, lunch_spot) {
+      lunch_spot_counts[lunch_spot.lunch_spot] += 1;
+    });
+
+    return(lunch_spot_counts);
   },
 
   get_current_votes: function() {
