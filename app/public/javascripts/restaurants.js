@@ -47,7 +47,32 @@ var RestaurantView = {
   get_display: function(my_user_id, all_votes) {
     var return_html = '';
 
-    $.each(all_votes, function(ndx, vote) {
+    // count votes
+    var lunch_spot_counts = {};
+    // init to 0
+    $.each(all_votes, function(ndx, lunch_spot) {
+      lunch_spot_counts[lunch_spot.lunch_spot] = 0;
+    });
+
+    // add up votes
+    $.each(all_votes, function(ndx, lunch_spot) {
+      lunch_spot_counts[lunch_spot.lunch_spot] += 1;
+    });
+
+    // sort lunch_spot hash by value(which = number of votes)?
+    var lunch_spot_array = [];
+    $.each(lunch_spot_counts, function(key) { 
+      lunch_spot_array.push([key, lunch_spot_counts[key]]);
+    });
+  
+    var sorted_array = lunch_spot_array.sort(function(a,b) { return(a[1] < b[1]); });
+
+    // walk through sorted_array to get lunch_spot
+    // _.select into all_votes to get votes that match the sorted_array current item
+    $.each(sorted_array, function(ndx, sorted_lunch_spot) {
+      var foo = _.select(all_votes, function(cur_lunch_spot) { return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); });
+
+    $.each(foo, function(ndx, vote) {
         var vote_item_style = 'vote_item';
         if (vote.user_id === my_user_id) {
           vote_item_style = 'my_vote_item';
@@ -60,6 +85,7 @@ var RestaurantView = {
           return_html += ' <span class="vote_for cursor_hover">+1</span>';
         }
         return_html += '</div>';
+    });
     });
 
     return(return_html);
