@@ -4,6 +4,12 @@ function vote_up_this_item(ele) {
     i_vote();
 }
 
+function vote_up_this_saved_lunch_spot(ele) {
+    var restaurant = ele.prev().text();
+    $('#txtLunchSpot').val(restaurant);
+    i_vote();
+}
+
 function set_cookie_for(json_var) {
   $.cookie(json_var.key, json_var.val, {expires: 1});
 }

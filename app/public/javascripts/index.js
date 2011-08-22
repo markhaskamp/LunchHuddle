@@ -27,6 +27,12 @@ $(document).ready(function() {
     var ele = $(this);
     vote_up_this_item(ele);
   });
+
+  $('.vote_for_saved').live('click', function() {
+    var ele = $(this);
+    vote_up_this_saved_lunch_spot(ele);
+
+  });
 });
 
 

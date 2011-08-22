@@ -16,7 +16,7 @@ var SavedLunchSpotsView = {
       html_val = $('#saved_lunch_spots').val();
 
       $.each(lunch_spot_list, function(ndx, spot) {
-        var div_line = '<div><span class="lunch_spot">' + spot + '</span></div>';
+        var div_line = '<div><span class="lunch_spot">' + spot + '</span> &nbsp; <span class="vote_for_saved cursor_hover">+1</span></div>';
         html_val += div_line
       });
 
