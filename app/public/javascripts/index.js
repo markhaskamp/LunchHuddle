@@ -33,7 +33,7 @@ $(document).ready(function() {
     vote_up_this_saved_lunch_spot(ele);
   });
 
-  $('.delete_saved').click(function() {
+  $('.delete_saved').live('click', function() {
     var ele = $(this);
     delete_saved_lunch_spot(ele);
   });
