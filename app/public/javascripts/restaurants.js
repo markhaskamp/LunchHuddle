@@ -49,12 +49,7 @@ var RestaurantView = {
     var return_html = '';
 
     var counted_lunch_spots = this.count_lunch_spots(all_votes);
-
-    // sort lunch_spot hash by value(which = number of votes)?
-    var lunch_spot_array = [];
-    $.each(counted_lunch_spots, function(key) { 
-      lunch_spot_array.push([key, counted_lunch_spots[key]]);
-    });
+    var lunch_spot_array = this.convert_to_array(counted_lunch_spots);
   
     var sorted_array = lunch_spot_array.sort(function(a,b) { return(a[1] < b[1]); });
 
@@ -80,6 +75,16 @@ var RestaurantView = {
     });
 
     return(return_html);
+  },
+
+  convert_to_array: function(counted_lunch_spots) {
+    // sort lunch_spot hash by value(which = number of votes)
+    var lunch_spot_array = [];
+    $.each(counted_lunch_spots, function(key) { 
+      lunch_spot_array.push([key, counted_lunch_spots[key]]);
+    });
+
+    return(lunch_spot_array);
   },
 
   count_lunch_spots: function(lunch_spot_list) {
