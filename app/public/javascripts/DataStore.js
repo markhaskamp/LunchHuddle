@@ -26,7 +26,13 @@ var DataStore = {
       var saved_lunch_spots_string = localStorage.getItem('lh_lunch_spots');
       var saved_lunch_spots_list = saved_lunch_spots_string.split(',');
       var new_list = _.reject(saved_lunch_spots_list, function(o) { return(o === lunch_spot); });
-      localStorage.setItem('lh_lunch_spots', new_list);
+
+      if (new_list.length === 0) {
+        localStorage.removeItem('lh_lunch_spots');
+      }
+      else {
+        localStorage.setItem('lh_lunch_spots', new_list);
+      }
     }
   },
 
