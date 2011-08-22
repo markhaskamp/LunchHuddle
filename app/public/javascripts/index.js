@@ -29,6 +29,10 @@ $(document).ready(function() {
   $('.vote_for').live('click', function() {
     var ele = $(this);
     vote_up_this_item(ele);
+
+    DataStore.save_lunch_spot(VoteView.get_lunch_spot());
+    var saved_lunch_spots = DataStore.get_lunch_spots();
+    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
   });
 
   $('.vote_for_saved').live('click', function() {
