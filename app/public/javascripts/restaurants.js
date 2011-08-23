@@ -64,8 +64,12 @@ var RestaurantView = {
           vote_item_style = 'my_vote_item';
         }
         return_html += 
-            '<div id="vote_item" class="' + vote_item_style + '"><span id="vote">' + vote.lunch_spot + '</span>' +
-            ' (<span id="user_id">' + vote.user_id + '</span>)';
+            '<div id="vote_item_container">' +
+              '<span class="' + vote_item_style + '">' +
+                '<span class="vote">' + vote.lunch_spot + '</span>' +
+              ' (<span class="user_id">' + vote.user_id + '</span>)' +
+              '</span>';
+          
 
         if ( vote.user_id !== my_user_id) {
           return_html += ' <span class="vote_for cursor_hover">+1</span>';
@@ -105,12 +109,12 @@ var RestaurantView = {
 
   get_current_votes: function() {
     var current_votes = [];
-    var vote_list = $('#vote_list #vote_item');
+    var vote_list = $('#vote_list .vote_item');
 
     vote_list.each(function() {
       var v = Object.beget(LunchSpot);
-      v.user_id = $(this).find('#user_id').first().html();
-      v.lunch_spot = $(this).find('#vote').first().html();
+      v.user_id = $(this).find('.user_id').first().html();
+      v.lunch_spot = $(this).find('.vote').first().html();
 
       current_votes.push(v);
     });

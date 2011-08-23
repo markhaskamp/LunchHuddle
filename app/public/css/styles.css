@@ -1,6 +1,11 @@
 
 body {
   color: #000099;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: #cc0000;
 }
 
 #huddle_name {
@@ -8,30 +13,46 @@ body {
 }
 
 #vote_list {
-  width: 250px;
-  margin-top: 10px;
-  padding: 5px;
-  /* background-color: #a5a5a5; */
-  border: 1px solid black;
+  /* margin-top: 10px; */
+  /* padding: 5px; */
+  /* background-color: #55bdbd; */
+  /* border: 1px solid black; */
+  /* -moz-border-radius: 3px; */
+  /* border-radius: 3px; */
 }
 
 .vote_item {
-  background-color: #d5d5d5;
-  margin: 2px;
+  display: inline-block;
+  width: 240px;
+  background-color: #007a7a;
+  color: white;
+  font-size: 85%;
+  margin: 3px;
   padding: 3px;
   padding-left: 5px;
-  border: 1px solid #0000cc;
+  border: 1px solid #005050;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 .my_vote_item {
-  background-color: #d5d5d5;
-  margin: 2px;
+  display: inline-block;
+  width: 240px;
+  background-color: #007a7a;
+  color: white;
+  font-size: 85%;
+  margin: 3px;
   padding: 3px;
   padding-left: 5px;
-  border: 3px solid #0000cc;
+  border: 3px solid #005050;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 
 .vote_for {
+  font-size: 75%;
   color: white;
-  background-color: #009900;
-  padding: 2px;
+  background-color: #7fbe00;
+  padding: 4px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }

@@ -1,5 +1,5 @@
 function vote_up_this_item(ele) {
-    var restaurant = ele.parent().find('#vote').text();
+    var restaurant = ele.prev().find('.vote').text();
     $('#txtLunchSpot').val(restaurant);
     i_vote();
 }
