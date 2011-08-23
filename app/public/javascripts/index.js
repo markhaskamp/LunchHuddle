@@ -6,6 +6,10 @@ var message_svc = MessageFactory.create('pubnub');
 
 
 $(document).ready(function() {
+  if (!Logger.log_is_on()) {
+    LoggerView.hide();
+  }
+
   huddle_name = $('#huddle_name').text();
 
   message_svc.subscribe_to_huddle(huddle_name);
@@ -20,6 +24,7 @@ $(document).ready(function() {
   SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
 
   $('#btnVote').click(function() {
+    Logger.append('#btnVote.click');
     DataStore.save_lunch_spot(VoteView.get_lunch_spot());
     i_vote();
 

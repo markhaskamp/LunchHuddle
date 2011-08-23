@@ -99,3 +99,9 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
+#log {
+  border: 1px solid black;
+  color: black;
+  font-family: courier;
+  font-size: 80%;
+}
