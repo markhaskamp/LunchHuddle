@@ -14,11 +14,22 @@ var Logger = {
 
   log_is_on: function() {
     return (LoggerView.log_toggle() === 'y');
+  },
+
+  error: function(s) {
+    LoggerView.show();
+    var html_text = LoggerView.get_html();
+    html_text += '<br>\n' + s;
+    LoggerView.set_html(html_text);
   }
 
 }
 
 var LoggerView = {
+
+  show: function() {
+    $('#log').show();
+  },
 
   hide: function() {
     $('#log').hide();

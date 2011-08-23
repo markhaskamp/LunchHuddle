@@ -6,6 +6,7 @@ var message_svc = MessageFactory.create('pubnub');
 
 
 $(document).ready(function() {
+  try {
   if (!Logger.log_is_on()) {
     LoggerView.hide();
   }
@@ -50,6 +51,11 @@ $(document).ready(function() {
     var ele = $(this);
     delete_saved_lunch_spot(ele);
   });
+
+  }
+  catch(exc) {
+          Logger.error(exc);
+  }
 });
 
 
