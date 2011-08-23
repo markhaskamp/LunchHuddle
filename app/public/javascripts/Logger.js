@@ -13,7 +13,7 @@ var Logger = {
   },
 
   log_is_on: function() {
-    return (LoggerView.log_switch() === 'y');
+    return (LoggerView.log_toggle() === 'y');
   }
 
 }
@@ -32,7 +32,7 @@ var LoggerView = {
     $('#log_content').html(s);
   },
 
-  log_switch: function() {
-    return($('#log_switch').html());
+  log_toggle: function() {
+    return($('#log_toggle').html());
   }
 }
