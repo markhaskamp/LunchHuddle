@@ -37,18 +37,22 @@ var DataStore = {
   },
 
   get_lunch_spots: function() {
-    if (Modernizr.localstorage) {
-      var lunch_spot_string = localStorage.getItem('lh_lunch_spots');
-  
-      if (lunch_spot_string !== null) {
-        var lunch_spot_list = lunch_spot_string.split(',');
-        return lunch_spot_list;
-      }
-      else {
-        return([]);
+    try {
+      if (Modernizr.localstorage) {
+        var lunch_spot_string = localStorage.getItem('lh_lunch_spots');
+    
+        if (lunch_spot_string !== null) {
+          var lunch_spot_list = lunch_spot_string.split(',');
+          return lunch_spot_list;
+        }
+        else {
+          return([]);
+        }
       }
     }
+    catch err {
+      throw 'DataStore.get_lunch_spots() - ' + err;
+    }
   }
-
 }
 
