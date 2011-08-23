@@ -37,13 +37,13 @@ h1, h2, h3, h4 {
 .my_vote_item {
   display: inline-block;
   width: 240px;
-  background-color: #007a7a;
+  background-color: #005050;
   color: white;
   font-size: 85%;
   margin: 3px;
   padding: 3px;
   padding-left: 5px;
-  border: 3px solid #005050;
+  /* border: 3px solid #005050; */
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
