@@ -63,10 +63,10 @@ function vote_handler(message_package) {
 
     var received_votes = message_package.votes;
     var existing_lunch_spots = RestaurantView.get_current_votes();
-    merge_in_new_votes(existing_lunch_spots, received_votes);
-    // var all_votes = merge_in_new_votes(existing_votes, received_votes);
+    // merge_in_new_votes(existing_lunch_spots, received_votes);
+    var all_votes = merge_in_new_votes(existing_lunch_spots, received_votes);
 
-    var html_val = RestaurantView.get_display(cookie_user_id, received_votes);
+    var html_val = RestaurantView.get_display(cookie_user_id, all_votes);
     $('#vote_list').html(html_val);
   }
 }
