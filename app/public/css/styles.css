@@ -27,7 +27,7 @@ h1, h2, h3, h4 {
   background-color: #007a7a;
   color: white;
   font-size: 85%;
-  margin: 3px;
+  margin: 1px;
   padding: 3px;
   padding-left: 5px;
   border: 1px solid #005050;
@@ -40,7 +40,7 @@ h1, h2, h3, h4 {
   background-color: #005050;
   color: white;
   font-size: 85%;
-  margin: 3px;
+  margin: 1px;
   padding: 3px;
   padding-left: 5px;
   /* border: 3px solid #005050; */
@@ -79,10 +79,23 @@ h1, h2, h3, h4 {
   background-color: #537c00;
   color: white;
   font-size: 85%;
-  margin: 3px;
+  margin: 1px;
   padding: 3px;
   padding-left: 5px;
   border: 1px solid #005050;
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
+
+.section {
+  width: 350px;
+  background-color: #f0f0f0;
+  border: 1px solid black;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  padding-left: 5px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+

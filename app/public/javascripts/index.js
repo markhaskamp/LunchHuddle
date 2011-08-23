@@ -2,6 +2,7 @@ var cookie_user_id;
 var huddle_name;
 
 var message_svc = MessageFactory.create('pubnub');
+// var message_svc = MessageFactory.create('mock');
 
 
 $(document).ready(function() {
