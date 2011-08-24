@@ -12,8 +12,10 @@ var SavedLunchSpotsView = {
   display_lunch_spots: function(lunch_spot_list) {
     try {
 
-      if (lunch_spot_list !== null ||
-          lunch_spot_list !== undefined) {
+      if (lunch_spot_list === undefined) {
+        return;
+      }
+      if (lunch_spot_list !== null) {
   
         // var html_val = $('#saved_lunch_spots').val();
         var html_val = '';
@@ -35,7 +37,7 @@ var SavedLunchSpotsView = {
       }
     }
     catch(err) {
-      Logger.error('SavedLunchSpots. display_lunch_spots()');
+      Logger.error('SavedLunchSpots. display_lunch_spots(). Error. ' + err);
     }
   }
 }
