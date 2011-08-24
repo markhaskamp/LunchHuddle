@@ -50,7 +50,7 @@ var DataStore = {
         }
       }
     }
-    catch err {
+    catch(err) {
       throw 'DataStore.get_lunch_spots() - ' + err;
     }
   }
