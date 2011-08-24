@@ -24,6 +24,7 @@ $(document).ready(function() {
     }
   
     var saved_lunch_spots = DataStore.get_lunch_spots();
+    Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
     SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
   
     $('#btnVote').click(function() {
