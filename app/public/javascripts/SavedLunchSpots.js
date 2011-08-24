@@ -11,7 +11,8 @@ var SavedLunchSpotsView = {
 
   display_lunch_spots: function(lunch_spot_list) {
 
-    if (lunch_spot_list !== null) {
+    if (lunch_spot_list !== null ||
+        lunch_spot_list !== undefined) {
 
       // var html_val = $('#saved_lunch_spots').val();
       var html_val = '';
