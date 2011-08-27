@@ -46,14 +46,21 @@ function i_vote() {
     $('#txtName').attr('disabled', 'disabled');
     set_cookie_for({key: 'user_id', val: user_id});
 
-    var current_vote = Object.beget(LunchSpot);
-    current_vote.user_id = user_id;
-    current_vote.lunch_spot = $('#txtLunchSpot').val();
+    var input_lunch_spot = VoteView.get_lunch_spot();
+    voted_lunch_spot = LunchSpot.clean(input_lunch_spot);
 
-    var existing_votes = RestaurantView.get_current_votes();
-    RestaurantModel.add_vote(current_vote, existing_votes);
+    if (LunchSpot.is_valid(voted_lunch_spot)) {
+      DataStore.save_lunch_spot(voted_lunch_spot);
+      var current_vote = Object.beget(LunchSpot);
+      current_vote.user_id = user_id;
+      current_vote.lunch_spot = voted_lunch_spot;
 
-    message_svc.send_my_votes(huddle_name, existing_votes);
+      var existing_votes = RestaurantView.get_current_votes();
+      RestaurantModel.add_vote(current_vote, existing_votes);
+
+      message_svc.send_my_votes(huddle_name, existing_votes);
+    }
+
   }
 }
 

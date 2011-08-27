@@ -28,10 +28,8 @@ $(document).ready(function() {
     SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
   
     $('#btnVote').click(function() {
-      Logger.append('#btnVote.click');
-      DataStore.save_lunch_spot(VoteView.get_lunch_spot());
       i_vote();
-  
+
       var saved_lunch_spots = DataStore.get_lunch_spots();
       SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
     });
