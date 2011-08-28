@@ -12,3 +12,8 @@ get '/' do
   haml :index
 end
 
+get '/utility' do
+  @huddle = params[:huddle]
+  haml :utility
+end
+

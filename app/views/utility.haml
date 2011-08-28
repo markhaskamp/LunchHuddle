@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %link(rel="stylesheet" href="css/styles.css")
+    %script{:type => "text/javascript", :src =>"javascripts/jquery-1.6.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/underscore.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/Modernizr.dev.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/utility.js"}
+
+  %body
+
+    %h3.main_title Lunch Huddle
+    %a{:href => "/?huddle=#{@huddle}"} Return to Huddle
+
+    %h4 Utility Page
+    .div.section
+      %h4 Information
+      this browser supports localstorage? 
+      %b
+        %span#local_storage
+
+    .div.section
+      %h4 Local Data
+
+      %div.cursor_hover#clear_local_storage clear local storage
+      %div.cursor_hover#clear_cookies clear cookies
