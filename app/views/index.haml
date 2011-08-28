@@ -23,23 +23,26 @@
     %div(pub-key="pub-f692f5fb-58e7-4f72-b195-0b04d3960da8" sub-key="sub-a2494751-c5a0-11e0-b441-f562192438d2" ssl="off" origin="pubsub.pubnub.com" id="pubnub")
 
 
-    %h4#huddle_name #{@huddle}
+    %h3.main_title Lunch Huddle
 
     %div#log
       %div#log_toggle #{@log_toggle} 
       %div#log_content
 
-    %form(action="#")
-      name: 
-      %input#txtName(type="text")
-      %br
-      vote for:
-      %input#txtLunchSpot(type="text")
-      %br
-      %input#btnVote{:type => "button", :value => "vote"}
+    %div.section
+      %form(action="#")
+        name: 
+        %input#txtName(type="text")
+        %br
+        vote for:
+        %input#txtLunchSpot(type="text")
+        %br
+        %input#btnVote{:type => "button", :value => "vote"}
 
     %div.section
-      %h3 Our Votes
+      %h3
+        %span.foo Huddle name: 
+        %span#huddle_name #{@huddle}
       %div#vote_list
 
     %div.section

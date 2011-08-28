@@ -29,6 +29,8 @@ var LunchSpot = {
 
 var VoteView = {
   get_lunch_spot: function() {
-    return($('#txtLunchSpot').val());
+    var lunch_spot = $('#txtLunchSpot').val();
+    Logger.append('VoteView. get_lunch_spot: [' + lunch_spot + ']');
+    return(lunch_spot);
   }
 }

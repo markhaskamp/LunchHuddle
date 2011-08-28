@@ -8,6 +8,20 @@ h1, h2, h3, h4 {
   color: #cc0000;
 }
 
+.main_title {
+  color: white;
+  background-color: #850000;
+  padding: 2px;
+  padding-left: 5px;
+  width: 350px;
+}
+
+h3 span.foo {
+  color: #005050;
+  font-weight: normal;
+  font-size: 90%;
+}
+
 #huddle_name {
   margin-bottom: 10px;
 }

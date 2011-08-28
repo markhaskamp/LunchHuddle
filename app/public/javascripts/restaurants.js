@@ -56,7 +56,10 @@ var RestaurantView = {
     // walk through sorted_array to get lunch_spot
     // _.select into all_votes to get votes that match the sorted_array current item
     $.each(sorted_array, function(ndx, sorted_lunch_spot) {
-      var foo = _.select(all_votes, function(cur_lunch_spot) { return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); });
+      var foo = _.select(all_votes, 
+              function(cur_lunch_spot) { 
+                      return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); 
+              });
 
       $.each(foo, function(ndx, vote) {
         var vote_item_style = 'vote_item';
