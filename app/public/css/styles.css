@@ -4,6 +4,11 @@ body {
   font-family: Tahoma, Geneva, sans-serif;
 }
 
+#all_content {
+  /* border: 1px solid black; */
+  width: 320px;
+}
+
 h1, h2, h3, h4 {
   color: #cc0000;
 }
@@ -13,7 +18,7 @@ h1, h2, h3, h4 {
   background-color: #850000;
   padding: 2px;
   padding-left: 5px;
-  width: 350px;
+  width: 300px;
 }
 
 #util_link {
@@ -49,7 +54,7 @@ h3 span.foo {
 
 .vote_item {
   display: inline-block;
-  width: 240px;
+  width: 200px;
   background-color: #007a7a;
   color: white;
   font-size: 85%;
@@ -62,7 +67,7 @@ h3 span.foo {
 }
 .my_vote_item {
   display: inline-block;
-  width: 240px;
+  width: 200px;
   background-color: #005050;
   color: white;
   font-size: 85%;
@@ -101,7 +106,7 @@ h3 span.foo {
 
 .lunch_spot {
   display: inline-block;
-  width: 240px;
+  width: 200px;
   background-color: #537c00;
   color: white;
   font-size: 85%;
@@ -114,7 +119,7 @@ h3 span.foo {
 }
 
 .section {
-  width: 350px;
+  width: 290px;
   background-color: #f0f0f0;
   border: 1px solid black;
   -moz-border-radius: 5px;

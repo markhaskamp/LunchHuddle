@@ -11,9 +11,10 @@ var LunchSpot = {
     str1 = input_lunch_spot.replace(/eval/gi, '');
     str2 = str1.replace(/script/gi, '');
     str3 = str2.replace(/java/gi, '');
-    str4 = str3.replace(/[,\.'"\$#\{\};\(\)\$]/g, ' ');
-    Logger.append('LunchSpot.clean. after: [' + str4 + ']');
-    return(str4);
+    str4 = str3.replace(/[,\.\$#\{\};\(\)\$]/g, ' ');
+    str5 = str4.replace(/['"]/g, '');
+    Logger.append('LunchSpot.clean. after: [' + str5 + ']');
+    return(str5);
   },
 
   is_valid: function(s) {
