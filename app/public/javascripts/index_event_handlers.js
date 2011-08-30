@@ -22,28 +22,14 @@ function set_cookie_for(json_var) {
   $.cookie(json_var.key, json_var.val, {expires: 1});
 }
 
-function textbox_is_empty(selector) {
-  var val = $(selector).val();
-  if (val === "") {
-    return(true);
-  }
-
-  var new_val = val.replace(/\s/g, "");
-  if (new_val.length === 0) {
-    return(true);
-  }
-
-  return(false);
-}
-
 function i_vote() {
   var user_id = UserInfoView.get_name();
     
-  if (textbox_is_empty('#txtName')) {
+  if (UserInfoView.name_is_empty()) {
     alert('who are you?');
   }
   else {
-    $('#txtName').attr('disabled', 'disabled');
+    UserInfoView.disable_user_name();
     set_cookie_for({key: 'user_id', val: user_id});
 
     var input_lunch_spot = VoteView.get_lunch_spot();
