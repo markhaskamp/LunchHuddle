@@ -37,7 +37,7 @@ function textbox_is_empty(selector) {
 }
 
 function i_vote() {
-  var user_id = $('#txtName').val();
+  var user_id = UserInfoView.get_name();
     
   if (textbox_is_empty('#txtName')) {
     alert('who are you?');
