@@ -1,5 +1,15 @@
 
 $(document).ready( function() {
+  // pull name and id from cookies
+  var user_json = UserInfo.pull_user_info_from_cookies();
+  if (type(user_json.user_name) === 'String') {
+    UserInfoView.set_name(user_json.user_name);
+  }
+
+  if (type(user_json.user_id) === 'String') {
+    UserInfoView.set_id(user_json.user_id);
+  }
+
   $('#joinHuddle').click(
           function() {
             UserInfo.save_form_info();
