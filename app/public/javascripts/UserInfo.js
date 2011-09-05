@@ -4,9 +4,15 @@ $(document).ready( function() {
           function() {
             UserInfo.save_form_info();
 
+            var huddle_param = '';
             var huddle_name = UserInfoView.get_huddle_name();
-            var url =  "/?huddle=" + huddle_name;
-            // window.location = url;
+            huddle_name = $.trim(huddle_name);
+            if (huddle_name.length >= 0) {
+              huddle_param = '?huddle=' + huddle_name;
+            }
+            var url =  "/" + huddle_param;
+            window.location = url;
+
           });
 });
 
