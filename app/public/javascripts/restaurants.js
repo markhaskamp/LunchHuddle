@@ -53,6 +53,7 @@ var RestaurantView = {
   
     var sorted_array = lunch_spot_array.sort(function(a,b) { return(a[1] < b[1]); });
 
+    var is_top_voted_lunch_spot = true;
     // walk through sorted_array to get lunch_spot
     // _.select into all_votes to get votes that match the sorted_array current item
     $.each(sorted_array, function(ndx, sorted_lunch_spot) {
@@ -77,7 +78,12 @@ var RestaurantView = {
           return_html += ' <span class="vote_for cursor_hover">+1</span>';
         }
         return_html += '</div>';
+
       });
+        if (is_top_voted_lunch_spot) {
+          return_html += '<p />';
+        }
+        is_top_voted_lunch_spot = false;
     });
 
     return(return_html);
