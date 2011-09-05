@@ -54,6 +54,18 @@ function vote_handler(message_package) {
 
     var html_val = RestaurantView.get_display(cookie_user_id, cookie_user_name, all_votes);
     $('#vote_list').html(html_val);
+
+    // set_style_for_my_vote();
+    $('.vote_item > .user_id').each(function(ndx) {
+      var ele = $(this);
+      if (ele.html() === cookie_user_id) {
+        ele.parent().find('.vote').first().removeClass('vote_color');
+        ele.parent().find('.vote').first().addClass('my_vote_color');
+
+        ele.parent().find('.user_name').first().removeClass('vote_color');
+        ele.parent().find('.user_name').first().addClass('my_vote_color');
+      }
+    });
   }
 }
 

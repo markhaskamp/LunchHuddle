@@ -39,7 +39,7 @@ var RestaurantView = {
 
 // div#vote_item_container
 //   div.vote_item 
-//     span.vote  or .my_vote
+//     span.vote
 //     span.user_name
 //     span.user_id
 //   div.vote_for
@@ -64,15 +64,11 @@ var RestaurantView = {
       $.each(foo, function(ndx, vote) {
         var vote_style = 'vote';
         var user_name_style = 'user_name';
-        // if (vote.user_id === my_user_id) {
-        //   vote_style = 'my_vote';
-        //   user_name_style = 'my_user_name';
-        // }
         return_html += 
             '<div id="vote_item_container">' +
               '<span class="vote_item">' +
-              '  <span class="' + vote_style + '">' + vote.lunch_spot + '</span>' +
-              '  <span class="' + user_name_style + '">' + vote.user_name + '</span>' +
+              '  <span class="vote vote_color">' + vote.lunch_spot + '</span>' +
+              '  <span class="user_name vote_color">' + vote.user_name + '</span>' +
               '  <span class="user_id">' + vote.user_id + '</span>' +
               '</span>';
           

@@ -44,36 +44,20 @@ h3 span.foo {
 }
 
 #vote_list {
-  /* margin-top: 10px; */
-  /* padding: 5px; */
-  /* background-color: #55bdbd; */
-  /* border: 1px solid black; */
-  /* -moz-border-radius: 3px; */
-  /* border-radius: 3px; */
 }
 
-.my_vote {
+.vote_color {
+  background-color: #007a7a;
+}
+.my_vote_color {
   background-color: #005050;
-  display: inline-block;
-  width: 130px;
-  color: white;
-  font-size: 85%;
-  margin: 1px;
-  padding: 3px;
-  padding-left: 5px;
-  border: 1px solid #005050;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
 }
 
-/* .vote_item { */
-/*   background-color: #007a7a; */
-/* } */
 
 .vote {
   display: inline-block;
-  width: 130px;
-  background-color: #007a7a;
+  width: 145px;
+  /* background-color: #007a7a; */
   color: white;
   font-size: 85%;
   margin: 1px;
@@ -86,21 +70,7 @@ h3 span.foo {
 
 .user_name {
   display: inline-block;
-  width: 65px;
-  background-color: #007a7a;
-  color: white;
-  font-size: 85%;
-  margin: 1px;
-  padding: 3px;
-  padding-left: 5px;
-  border: 1px solid #005050;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-}
-.my_user_name {
-  display: inline-block;
-  width: 65px;
-  background-color: #005050;
+  width: 60px;
   color: white;
   font-size: 85%;
   margin: 1px;
