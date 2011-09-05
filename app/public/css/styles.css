@@ -84,6 +84,32 @@ h3 span.foo {
   border-radius: 7px;
 }
 
+.user_name {
+  display: inline-block;
+  width: 65px;
+  background-color: #007a7a;
+  color: white;
+  font-size: 85%;
+  margin: 1px;
+  padding: 3px;
+  padding-left: 5px;
+  border: 1px solid #005050;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.my_user_name {
+  display: inline-block;
+  width: 65px;
+  background-color: #005050;
+  color: white;
+  font-size: 85%;
+  margin: 1px;
+  padding: 3px;
+  padding-left: 5px;
+  border: 1px solid #005050;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
 .user_id {
   display: none;
 }
