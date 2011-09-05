@@ -18,7 +18,6 @@
       Lunch Huddle
 
     %div.section
-      huddle: #{@huddle}
       %form(action="/")
         name: 
         %input#txtName{:type => "text"}
@@ -29,8 +28,9 @@
         %br
 
         huddle: 
-        %input#txtHuddleName{:name => "huddle",
-                             :type => "text"}
+        %input#txtHuddleName{:name  => "huddle",
+                             :type  => "text",
+                             :value => "#{@huddle}"}
 
         %input#joinHuddle{:type => "button",
                           :value => "join huddle"}
