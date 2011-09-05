@@ -5,12 +5,12 @@ body {
 }
 
 #all_content {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   width: 320px;
 }
 
 h1, h2, h3, h4 {
-  color: #cc0000;
+  color: #850000;
 }
 
 .main_title {

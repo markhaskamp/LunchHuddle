@@ -23,58 +23,17 @@ $(document).ready(function() {
             ele.removeClass('white_text');
           }
   );
-  $('#util_link').click(function() { window.location.replace('/utility?huddle=' + huddle_name ) });;
 
+  $('#util_link').click(
+          function() { window.location.replace('/utility?huddle=' + huddle_name ) }
+  );
 
 
   try {
-    if (!Logger.log_is_on()) {
-      LoggerView.hide();
-    }
-  
-    huddle_name = $('#huddle_name').text();
-  
-    message_svc.subscribe_to_huddle(huddle_name);
-  
-    cookie_user_id = $.cookie('user_id');
-    if (cookie_user_id.length > 0) {
-      $('#txtName').val(cookie_user_id);
-      $('#txtName').attr('disabled', 'disabled');
-    }
-  
-    var saved_lunch_spots = DataStore.get_lunch_spots();
-    Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
-    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
-  
-    $('#btnVote').click(function() {
-      i_vote();
-
-      var saved_lunch_spots = DataStore.get_lunch_spots();
-      SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
-    });
-  
-    $('.vote_for').live('click', function() {
-      var ele = $(this);
-      vote_up_this_item(ele);
-  
-      DataStore.save_lunch_spot(VoteView.get_lunch_spot());
-      var saved_lunch_spots = DataStore.get_lunch_spots();
-      SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
-    });
-  
-    $('.vote_for_saved').live('click', function() {
-      var ele = $(this);
-      vote_up_this_saved_lunch_spot(ele);
-    });
-  
-    $('.delete_saved').live('click', function() {
-      var ele = $(this);
-      delete_saved_lunch_spot(ele);
-    });
-
+    handle_user_enters_root_page();
   }
   catch(exc) {
-          Logger.error(exc);
+    Logger.error(exc);
   }
 });
 

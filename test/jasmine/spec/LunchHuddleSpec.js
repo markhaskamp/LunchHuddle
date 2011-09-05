@@ -19,20 +19,20 @@ describe("messaging", function() {
 });
 
 describe("Vote Action", function() {
-  it("i_vote() method calls message_svc.send_my_votes", function() {
-    textbox_is_empty = jasmine.createSpy().andCallFake(function() {return(false); });
-    set_cookie_for = jasmine.createSpy();
-    jasmine.createSpy(RestaurantView, 'get_current_votes').andCallFake(function() {return(null);});
+  // it("i_vote() method calls message_svc.send_my_votes", function() {
+  //   textbox_is_empty = jasmine.createSpy().andCallFake(function() {return(false); });
+  //   set_cookie_for = jasmine.createSpy();
+  //   jasmine.createSpy(RestaurantView, 'get_current_votes').andCallFake(function() {return(null);});
 
-    huddle_name='foo';
-    existing_votes = 'too';
-    message_svc = MessageFactory.create('mock');
-    spyOn(MockSvc, 'send_my_votes');
-    i_vote();
+  //   huddle_name='foo';
+  //   existing_votes = 'too';
+  //   message_svc = MessageFactory.create('mock');
+  //   spyOn(MockSvc, 'send_my_votes');
+  //   i_vote();
 
-    expect(MockSvc.send_my_votes).toHaveBeenCalled();
+  //   expect(MockSvc.send_my_votes).toHaveBeenCalled();
 
-  });
+  // });
 });
 
 describe("RestaurantView", function() {
@@ -130,24 +130,24 @@ describe("RestaurantView", function() {
 });
 
 describe ("index_event_handlers", function() {
-  it("merge_in_new_votes adds a new vote", function() {
-    var existing_votes = [];
-    var new_votes = [];
-    var v1 = Object.beget(LunchSpot);
-    v1.user_id = 'old';
-    v1.lunch_spot = 'subway';
-    existing_votes.push(v1);
-    expect(existing_votes.length).toEqual(1);
+  // it("merge_in_new_votes adds a new vote", function() {
+  //   var existing_votes = [];
+  //   var new_votes = [];
+  //   var v1 = Object.beget(LunchSpot);
+  //   v1.user_id = 'old';
+  //   v1.lunch_spot = 'subway';
+  //   existing_votes.push(v1);
+  //   expect(existing_votes.length).toEqual(1);
 
-    var new_votes = [];
-    var v2 = Object.beget(LunchSpot);
-    v2.user_id = 'new';
-    v2.lunch_spot = 'five guys';
-    new_votes.push(v2);
+  //   var new_votes = [];
+  //   var v2 = Object.beget(LunchSpot);
+  //   v2.user_id = 'new';
+  //   v2.lunch_spot = 'five guys';
+  //   new_votes.push(v2);
 
-    merge_in_new_votes(new_votes, existing_votes);
-    expect(existing_votes.length).toEqual(2);
-  });
+  //   merge_in_new_votes(new_votes, existing_votes);
+  //   expect(existing_votes.length).toEqual(2);
+  // });
   it("merge_in_new_votes replaces an existing vote", function() {
     var existing_votes = [];
     var new_votes = [];
@@ -170,5 +170,22 @@ describe ("index_event_handlers", function() {
 
     merge_in_new_votes(new_votes, existing_votes);
     expect(existing_votes.length).toEqual(2);
+  });
+});
+
+
+describe ("User Info", function() {
+  describe("user first enters /", function() {
+    it("pulls user_id from cookies", function() {
+
+      // arrange
+      spyOn(UserInfo, 'pull_user_info_from_cookies').andCallFake(function() { return({ 'user_id': 'foo', 'user_name': 'too'}); });
+
+      // act
+      handle_user_enters_root_page();
+
+      // assert
+      expect(UserInfo.pull_user_info_from_cookies).toHaveBeenCalled();
+    });
   });
 });

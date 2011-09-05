@@ -23,30 +23,24 @@ function set_cookie_for(json_var) {
 }
 
 function i_vote() {
-  var user_id = UserInfoView.get_name();
+  var user_json = UserInfo.pull_user_info_from_cookies();
+  var user_id = user_json.user_id;
+  var user_name = user_json.user_name;
     
-  if (UserInfoView.name_is_empty()) {
-    alert('who are you?');
-  }
-  else {
-    UserInfoView.disable_user_name();
-    set_cookie_for({key: 'user_id', val: user_id});
+  var input_lunch_spot = VoteView.get_lunch_spot();
+  voted_lunch_spot = LunchSpot.clean(input_lunch_spot);
 
-    var input_lunch_spot = VoteView.get_lunch_spot();
-    voted_lunch_spot = LunchSpot.clean(input_lunch_spot);
+  if (LunchSpot.is_valid(voted_lunch_spot)) {
+    DataStore.save_lunch_spot(voted_lunch_spot);
+    var current_vote = Object.beget(LunchSpot);
+    current_vote.user_id = user_id;
+    current_vote.user_name = user_name;
+    current_vote.lunch_spot = voted_lunch_spot;
 
-    if (LunchSpot.is_valid(voted_lunch_spot)) {
-      DataStore.save_lunch_spot(voted_lunch_spot);
-      var current_vote = Object.beget(LunchSpot);
-      current_vote.user_id = user_id;
-      current_vote.lunch_spot = voted_lunch_spot;
+    var existing_votes = RestaurantView.get_current_votes();
+    RestaurantModel.add_vote(current_vote, existing_votes);
 
-      var existing_votes = RestaurantView.get_current_votes();
-      RestaurantModel.add_vote(current_vote, existing_votes);
-
-      message_svc.send_my_votes(huddle_name, existing_votes);
-    }
-
+    message_svc.send_my_votes(huddle_name, existing_votes);
   }
 }
 
@@ -58,7 +52,7 @@ function vote_handler(message_package) {
     var existing_lunch_spots = RestaurantView.get_current_votes();
     var all_votes = merge_in_new_votes(existing_lunch_spots, received_votes);
 
-    var html_val = RestaurantView.get_display(cookie_user_id, all_votes);
+    var html_val = RestaurantView.get_display(cookie_user_id, cookie_user_name, all_votes);
     $('#vote_list').html(html_val);
   }
 }
@@ -70,5 +64,59 @@ function merge_in_new_votes(web_page_votes, passed_in_votes) {
   });
 
   return (web_page_votes);
+}
+
+function handle_user_enters_root_page() {
+  var users_cookie_info = UserInfo.pull_user_info_from_cookies();
+
+  cookie_user_id = users_cookie_info.user_id;
+  cookie_user_name = users_cookie_info.user_name;
+  if (!Logger.log_is_on()) {
+    LoggerView.hide();
+  }
+
+  huddle_name = $('#huddle_name').text();
+
+  message_svc.subscribe_to_huddle(huddle_name);
+
+  Logger.append('cookie_user_id: [' + cookie_user_id + ']');
+  Logger.append('cookie_user_id.length: [' + cookie_user_id.length + ']');
+
+  if (type(cookie_user_id) !== 'String') {
+    window.location = "/userinfo"
+  }
+  if (type(cookie_user_name) === 'String') {
+    UserInfoView.set_name_on_index(cookie_user_name);
+  }
+
+  var saved_lunch_spots = DataStore.get_lunch_spots();
+  Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
+  SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+
+  $('#btnVote').click(function() {
+    i_vote();
+
+    var saved_lunch_spots = DataStore.get_lunch_spots();
+    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+  });
+
+  $('.vote_for').live('click', function() {
+    var ele = $(this);
+    vote_up_this_item(ele);
+
+    DataStore.save_lunch_spot(VoteView.get_lunch_spot());
+    var saved_lunch_spots = DataStore.get_lunch_spots();
+    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+  });
+
+  $('.vote_for_saved').live('click', function() {
+    var ele = $(this);
+    vote_up_this_saved_lunch_spot(ele);
+  });
+
+  $('.delete_saved').live('click', function() {
+    var ele = $(this);
+    delete_saved_lunch_spot(ele);
+  });
 }
 

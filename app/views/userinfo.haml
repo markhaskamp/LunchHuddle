@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %link(rel="stylesheet" href="css/styles.css")
+    %script{:type => "text/javascript", :src =>"javascripts/jquery-1.6.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/underscore.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/jjquery.cookie-modified.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
+    %title Lunch Huddle, User Info
+
+  %body
+
+  %div#all_content
+    %h3.main_title 
+      Lunch Huddle
+
+    %div.section
+      huddle: #{@huddle}
+      %form(action="/")
+        name: 
+        %input#txtName{:type => "text"}
+        %br
+
+        email address: 
+        %input#txtEmailAddr{:type => "text"}
+        %br
+
+        huddle: 
+        %input#txtHuddleName{:name => "huddle",
+                             :type => "text"}
+
+        %input#joinHuddle{:type => "button",
+                          :value => "join huddle"}

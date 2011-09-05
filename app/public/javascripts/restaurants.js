@@ -44,8 +44,7 @@ var RestaurantView = {
 //     div.vote_for
 
 
-
-  get_display: function(my_user_id, all_votes) {
+  get_display: function(my_user_id, my_user_name, all_votes) {
     var return_html = '';
 
     var counted_lunch_spots = this.count_lunch_spots(all_votes);
@@ -70,7 +69,7 @@ var RestaurantView = {
             '<div id="vote_item_container">' +
               '<span class="' + vote_item_style + '">' +
                 '<span class="vote">' + vote.lunch_spot + '</span>' +
-              ' (<span class="user_id">' + vote.user_id + '</span>)' +
+              ' (<span class="user_id">' + vote.user_name + '</span>)' +
               '</span>';
           
 

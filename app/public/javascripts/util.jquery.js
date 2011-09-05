@@ -16,3 +16,6 @@ $('.cursor_hover').hover( function() {
   $('.cursor_hover').live('mouseover', function() { $(this).css('cursor', 'pointer'); });
   $('.cursor_hover').live('mouseout', function() { $(this).css('cursor', 'default'); });
 
+function type(obj){
+    return Object.prototype.toString.call(obj).match(/^\[object (.*)\]$/)[1]
+}
