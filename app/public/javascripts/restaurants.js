@@ -1,6 +1,6 @@
 var RestaurantModel = {
   add_vote: function(user_vote, existing_votes) {
-    var b = this.user_vote_exists(user_vote, existing_votes);
+    // var b = this.user_vote_exists(user_vote, existing_votes);
     if (this.user_vote_exists(user_vote, existing_votes)) {
       this.replace_user_vote(user_vote, existing_votes);
 
@@ -40,6 +40,7 @@ var RestaurantView = {
 // div#vote_list
 //   div#vote_item
 //     span#vote
+//     span#user_name
 //     span#user_id
 //     div.vote_for
 
@@ -69,7 +70,8 @@ var RestaurantView = {
             '<div id="vote_item_container">' +
               '<span class="' + vote_item_style + '">' +
                 '<span class="vote">' + vote.lunch_spot + '</span>' +
-              ' (<span class="user_id">' + vote.user_name + '</span>)' +
+              ' (<span class="user_name">' + vote.user_name + '</span>)' +
+              ' (<span class="user_id">' + vote.user_id + '</span>)' +
               '</span>';
           
 
@@ -116,6 +118,7 @@ var RestaurantView = {
     vote_list.each(function() {
       var v = Object.beget(LunchSpot);
       v.user_id = $(this).find('.user_id').first().html();
+      v.user_name = $(this).find('.user_name').first().html();
       v.lunch_spot = $(this).find('.vote').first().html();
 
       current_votes.push(v);
