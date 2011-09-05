@@ -62,7 +62,9 @@ var RestaurantView = {
                       return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); 
               });
 
+      var count_of_top_voted = 0;
       $.each(foo, function(ndx, vote) {
+        count_of_top_voted += 1;
         var vote_style = 'vote';
         var user_name_style = 'user_name';
         return_html += 
@@ -80,10 +82,10 @@ var RestaurantView = {
         return_html += '</div>';
 
       });
-        if (is_top_voted_lunch_spot) {
-          return_html += '<p />';
-        }
-        is_top_voted_lunch_spot = false;
+      if (is_top_voted_lunch_spot && count_of_top_voted > 1) {
+        return_html += '<p />';
+      }
+      is_top_voted_lunch_spot = false;
     });
 
     return(return_html);
