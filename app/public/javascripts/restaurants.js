@@ -37,12 +37,12 @@ var RestaurantModel = {
 
 var RestaurantView = {
 
-// div#vote_list
-//   div#vote_item
-//     span#vote
-//     span#user_name
-//     span#user_id
-//     div.vote_for
+// div#vote_item_container
+//   div.vote_item 
+//     span.vote  or .my_vote
+//     span.user_name
+//     span.user_id
+//   div.vote_for
 
 
   get_display: function(my_user_id, my_user_name, all_votes) {
@@ -62,16 +62,16 @@ var RestaurantView = {
               });
 
       $.each(foo, function(ndx, vote) {
-        var vote_item_style = 'vote_item';
+        var vote_item_style = 'vote';
         if (vote.user_id === my_user_id) {
-          vote_item_style = 'my_vote_item';
+          vote_item_style = 'my_vote';
         }
         return_html += 
             '<div id="vote_item_container">' +
-              '<span class="' + vote_item_style + '">' +
-                '<span class="vote">' + vote.lunch_spot + '</span>' +
-              ' (<span class="user_name">' + vote.user_name + '</span>)' +
-              ' (<span class="user_id">' + vote.user_id + '</span>)' +
+              '<span class="vote_item">' +
+              '  <span class="' + vote_item_style + '">' + vote.lunch_spot + '</span>' +
+              '  <span class="user_name">' + vote.user_name + '</span>' +
+              '  <span class="user_id">' + vote.user_id + '</span>' +
               '</span>';
           
 
