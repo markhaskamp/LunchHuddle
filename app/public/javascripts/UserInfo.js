@@ -1,5 +1,12 @@
 
 $(document).ready( function() {
+  UserInfoView.disable_join_huddle_action();
+
+  $('#txtName').blur( function() { UserInfo.enable_join_button(); });
+  $('#txtEmailAddr').blur( function() { UserInfo.enable_join_button(); });
+  $('#txtHuddleName').blur( function() { UserInfo.enable_join_button(); });
+
+
   // pull name and id from cookies
   var user_json = UserInfo.pull_user_info_from_cookies();
   if (type(user_json.user_name) === 'String') {
@@ -9,6 +16,9 @@ $(document).ready( function() {
   if (type(user_json.user_id) === 'String') {
     UserInfoView.set_id(user_json.user_id);
   }
+
+  UserInfo.enable_join_button();
+
 
   $('#joinHuddle').click(
           function() {
@@ -32,6 +42,18 @@ $(document).ready( function() {
 
 
 var UserInfo = {
+  enable_join_button: function() {
+    if (UserInfoView.name_is_empty()       ||
+        UserInfoView.email_addr_is_empty() ||
+        UserInfoView.huddle_is_empty()) {
+
+      UserInfoView.disable_join_huddle_action();
+    }
+    else {
+      UserInfoView.enable_join_huddle_action();
+    }
+  },
+
   pull_user_info_from_cookies: function() {
     var user_id = $.cookie('user_id');
     var user_name = $.cookie('user_name');
@@ -65,6 +87,13 @@ var UserInfo = {
 }
 
 var UserInfoView = {
+  disable_join_huddle_action: function() {
+    $('#joinHuddle').attr('disabled', 'disabled');
+  },
+
+  enable_join_huddle_action: function() {
+    $('#joinHuddle').removeAttr('disabled');
+  },
 
   get_name: function() {
     return($('#txtName').val());
@@ -95,32 +124,34 @@ var UserInfoView = {
   },
 
   name_is_empty: function() {
-
-    var val = $('#txtName').val();
-    if (val === "") {
-      return(true);
-    }
-  
-    var new_val = val.replace(/\s/g, "");
-    if (new_val.length === 0) {
-      return(true);
-    }
-  
-    return(false);
+    return(this.form_field_is_empty('#txtName'));
   },
 
   email_addr_is_empty: function() {
+    return(this.form_field_is_empty('#txtEmailAddr'));
+  },
 
-    var val = $('#txtEmailAddr').val();
-    if (val === "") {
+  huddle_is_empty: function() {
+    return(this.form_field_is_empty('#txtHuddleName'));
+  },
+
+  form_field_is_empty: function(selector_string) {
+
+    var form_val = $(selector_string).val();
+    if (form_val === "") {
       return(true);
     }
   
-    var new_val = val.replace(/\s/g, "");
-    if (new_val.length === 0) {
+    if (form_val === undefined) {
+      return (false);
+    }
+
+    var new_form_val = form_val.replace(/\s/g, "");
+    if (new_form_val.length === 0) {
       return(true);
     }
   
     return(false);
   }
+
 }

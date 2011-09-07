@@ -25,9 +25,8 @@ $(document).ready(function() {
   );
 
   $('#util_link').click(
-          function() { window.location.replace('/utility?huddle=' + huddle_name ) }
+    function() { window.location.replace('/utility?huddle=' + huddle_name ) }
   );
-
 
   try {
     handle_user_enters_root_page();
