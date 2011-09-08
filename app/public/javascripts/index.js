@@ -29,7 +29,7 @@ $(document).ready(function() {
   );
 
   try {
-    handle_user_enters_root_page();
+    handle_user_enters_root_page(huddle_name);
   }
   catch(exc) {
     Logger.error(exc);

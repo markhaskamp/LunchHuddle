@@ -78,13 +78,21 @@ function merge_in_new_votes(web_page_votes, passed_in_votes) {
   return (web_page_votes);
 }
 
-function handle_user_enters_root_page() {
+function handle_user_enters_root_page(huddle_name) {
   var users_cookie_info = UserInfo.pull_user_info_from_cookies();
 
   cookie_user_id = users_cookie_info.user_id;
   cookie_user_name = users_cookie_info.user_name;
   if (!Logger.log_is_on()) {
     LoggerView.hide();
+  }
+
+  Logger.append('huddle_name: [' + huddle_name + ']');
+
+  if (type(cookie_user_id) !== 'String') {
+    var userinfo_loc = '/userinfo?huddle=' + huddle_name;
+    Logger.append('userinfo_loc: ' + userinfo_loc + ']');
+    window.location = userinfo_loc;
   }
 
   huddle_name = $('#huddle_name').text();
@@ -94,9 +102,6 @@ function handle_user_enters_root_page() {
   Logger.append('cookie_user_id: [' + cookie_user_id + ']');
   Logger.append('cookie_user_id.length: [' + cookie_user_id.length + ']');
 
-  if (type(cookie_user_id) !== 'String') {
-    window.location = "/userinfo"
-  }
   if (type(cookie_user_name) === 'String') {
     UserInfoView.set_name_on_index(cookie_user_name);
   }
