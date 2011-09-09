@@ -9,6 +9,15 @@ $(document).ready(function() {
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();
 
+  $("form input").keypress(function (e) {
+      if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+          $('.defaultButton').click();
+          return false;
+      } else {
+          return true;
+      }
+  });
+
   $('#util_link').hover(
           function() { 
             var ele = $(this);
