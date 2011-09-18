@@ -85,7 +85,8 @@ var RestaurantView = {
 
       });
       if (is_top_voted_lunch_spot && count_of_top_voted > 1) {
-        return_html += '<p />';
+        // return_html += '<p />';
+        return_html += '<hr width="80%" />';
       }
       is_top_voted_lunch_spot = false;
     });
