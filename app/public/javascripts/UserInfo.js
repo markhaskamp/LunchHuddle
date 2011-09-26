@@ -81,8 +81,8 @@ var UserInfo = {
     var tmp_user_name = UserInfoView.get_name();
     var tmp_user_id = UserInfoView.get_id();
 
-    $.cookie('user_name', tmp_user_name, {expires: 1});
-    $.cookie('user_id', tmp_user_id, {expires: 1});
+    $.cookie('user_name', tmp_user_name, {expires: 30});
+    $.cookie('user_id', tmp_user_id, {expires: 30});
   }
 }
 
