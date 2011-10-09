@@ -78,7 +78,7 @@ var RestaurantView = {
           
 
         if ( vote.user_id !== my_user_id) {
-          return_html += ' <span class="vote_for cursor_hover">+1</span>';
+          return_html += ' <span class="vote_for cursor_hover"><img src="../images/vote_yes.png" /></span>';
         }
         return_html += '</div>';
         return_html += '<div class="user_msg">' + vote.user_msg + '</div>';

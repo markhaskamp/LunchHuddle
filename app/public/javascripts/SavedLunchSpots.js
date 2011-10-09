@@ -26,9 +26,9 @@ var SavedLunchSpotsView = {
                 '<div id="saved_list">' +
                   '<span class="lunch_spot">' + spot + '</span>' +
                   ' &nbsp; ' +
-                  '<span class="vote_for_saved cursor_hover">+1</span>' +
+                  '<span class="vote_for_saved cursor_hover"><img src="../images/vote_yes.png" alt="I want to eat here"></img></span>' +
                   ' &nbsp; ' +
-                  '<span class="delete_saved cursor_hover">X</span>' +
+                  '<span class="delete_saved cursor_hover"><img src="../images/stop.png" /></span>' +
                 '</div>';
             html_val += div_line
         });
