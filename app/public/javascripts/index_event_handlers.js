@@ -41,7 +41,7 @@ function i_vote() {
     current_vote.lunch_spot = voted_lunch_spot;
     current_vote.user_msg = user_msg;
 
-    var existing_votes = RestaurantView.get_current_votes();
+    var existing_votes = vf_lunch_spots_view.get_current_votes();
     RestaurantModel.add_vote(current_vote, existing_votes);
 
     message_svc.send_my_votes(huddle_name, existing_votes);
@@ -53,10 +53,10 @@ function vote_handler(message_package) {
   if (message_package.msg_type === 'votes') {
 
     var received_votes       = message_package.votes;
-    var existing_lunch_spots = RestaurantView.get_current_votes();
+    var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
     var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
 
-    var html_val = RestaurantView.get_display(cookie_user_id, cookie_user_name, all_votes);
+    var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
     $('#vote_list').html(html_val);
 
     // set_style_for_my_vote();
