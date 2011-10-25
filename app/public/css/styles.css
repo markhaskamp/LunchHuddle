@@ -85,20 +85,20 @@ h3 span.foo {
 }
 
 .vote_for {
-  font-size: 75%;
-  color: white;
+  /* font-size: 75%;
+  color: white; */
   /* background-color: #7fbe00; */
-  padding: 4px;
+  /* padding: 4px;
   -moz-border-radius: 2px;
-  border-radius: 2px;
+  border-radius: 2px; */
 }
 .vote_for_saved {
-  font-size: 75%;
-  color: white;
+  /* font-size: 75%;
+  color: white; */
   /* background-color: #7fbe00; */
-  padding: 4px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  /* padding: 4px; */
+  /* -moz-border-radius: 2px;
+  border-radius: 2px; */
 }
 
 .user_msg {
@@ -115,14 +115,14 @@ h3 span.foo {
   font-size: 75%;
   color: white;
   /* background-color: #850000; */
-  padding: 4px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  /* padding: 4px; */
+  /* -moz-border-radius: 2px;
+  border-radius: 2px; */
 }
 
 .lunch_spot {
   display: inline-block;
-  width: 200px;
+  width: 210px;
   background-color: #537c00;
   color: white;
   font-size: 85%;
