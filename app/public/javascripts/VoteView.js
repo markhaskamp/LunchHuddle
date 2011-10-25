@@ -1,6 +1,3 @@
-var UserView = {
-}
-
 var LunchSpot = {
   user_display_name: null,
   user_id: null,
