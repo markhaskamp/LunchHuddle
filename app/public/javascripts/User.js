@@ -1,5 +1,0 @@
-var UserView = {
-  getUserName: function() {
-               }
-}
-
