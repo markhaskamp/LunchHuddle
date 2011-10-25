@@ -15,7 +15,7 @@ function delete_saved_lunch_spot(ele) {
     DataStore.remove_lunch_spot(lunch_spot);
 
     var saved_lunch_spots = DataStore.get_lunch_spots();
-    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
 }
 
 function set_cookie_for(json_var) {
@@ -112,13 +112,13 @@ function handle_user_enters_root_page(huddle_name) {
 
   var saved_lunch_spots = DataStore.get_lunch_spots();
   Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
-  SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+  saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
 
   $('#btnVote').click(function() {
     i_vote();
 
     var saved_lunch_spots = DataStore.get_lunch_spots();
-    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   });
 
   $('.vote_for').live('click', function() {
@@ -127,7 +127,7 @@ function handle_user_enters_root_page(huddle_name) {
 
     DataStore.save_lunch_spot(VoteView.get_lunch_spot());
     var saved_lunch_spots = DataStore.get_lunch_spots();
-    SavedLunchSpotsView.display_lunch_spots(saved_lunch_spots);
+    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   });
 
   $('.vote_for_saved').live('click', function() {

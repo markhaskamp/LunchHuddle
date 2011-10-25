@@ -1,5 +1,5 @@
 
-var SavedLunchSpotsView = {
+var SavedLunchSpotsView = Backbone.View.extend({
   get_lunch_spots: function() {
     var return_array = [];
     var saved_lunch_spots = $('#saved_lunch_spots .lunch_spot');
@@ -41,4 +41,5 @@ var SavedLunchSpotsView = {
     }
   }
 }
+)
 
