@@ -27,10 +27,10 @@ function i_vote() {
   var user_id = user_json.user_id;
   var user_name = user_json.user_name;
     
-  var input_lunch_spot = VoteView.get_lunch_spot();
+  var input_lunch_spot = vote_view.get_lunch_spot();
   var voted_lunch_spot = LunchSpot.clean(input_lunch_spot);
 
-  var user_msg = VoteView.get_message();
+  var user_msg = vote_view.get_message();
   user_msg = LunchSpot.clean(user_msg);
 
   if (LunchSpot.is_valid(voted_lunch_spot)) {

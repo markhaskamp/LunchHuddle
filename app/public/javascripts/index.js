@@ -2,6 +2,7 @@ var cookie_user_id;
 var huddle_name;
 var vf_lunch_spots_view;
 var saved_lunch_spots_view;
+var vote_voew
 
 // var message_svc = MessageFactory.create('pubnub');
 var message_svc = MessageFactory.create('mock');
@@ -10,6 +11,7 @@ var message_svc = MessageFactory.create('mock');
 $(document).ready(function() {
   vf_lunch_spots_view = new VFLunchSpotsView({"el": $("#vote_list") });
   saved_lunch_spots_view = new SavedLunchSpotsView({"el": $("#vote_list") });
+  vote_view = new VoteView();
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();
