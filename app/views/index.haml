@@ -12,6 +12,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/messaging.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/index_event_handlers.js"}
     %script{:type => "text/javascript", :src =>"javascripts/model/RestaurantModel.js"}
     %script{:type => "text/javascript", :src =>"javascripts/model/LunchSpot.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VFLunchSpotsView.js"}
@@ -19,7 +20,6 @@
     %script{:type => "text/javascript", :src =>"javascripts/view/VoteView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
     %script{:type => "text/javascript", :src =>"javascripts/index.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/index_event_handlers.js"}
     %title Lunch Huddle
 
   %body
@@ -37,18 +37,19 @@
         %div#log_content
   
       %div.section
-        %form(action="#")
-          Welcome
-          %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
-          %br
-
-          where to eat? &nbsp;
-          %input#txtLunchSpot(type="text")
-          %br
-          comment: &nbsp;
-          %input#txtMessage(type="text")
-          %br
-          %input#btnVote.defaultButton{:type => "button", :value => "vote and/or comment"}
+        %div.vote_view
+          %form(action="#")
+            Welcome
+            %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
+            %br
+  
+            where to eat? &nbsp;
+            %input#txtLunchSpot(type="text")
+            %br
+            comment: &nbsp;
+            %input#txtMessage(type="text")
+            %br
+            %input#btnVote.defaultButton{:type => "button", :value => "vote and/or comment"}
   
       %div.section
         %h3

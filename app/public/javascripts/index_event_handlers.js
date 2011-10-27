@@ -114,13 +114,6 @@ function handle_user_enters_root_page(huddle_name) {
   Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
   saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
 
-  $('#btnVote').click(function() {
-    i_vote();
-
-    var saved_lunch_spots = DataStore.get_lunch_spots();
-    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
-  });
-
   $('.vote_for').live('click', function() {
     var ele = $(this);
     vote_up_this_item(ele);
