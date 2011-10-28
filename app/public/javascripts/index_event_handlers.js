@@ -23,6 +23,7 @@ function set_cookie_for(json_var) {
 }
 
 function i_vote() {
+  Logger.append("i_vote. enter.");
   var user_json = UserInfo.pull_user_info_from_cookies();
   var user_id = user_json.user_id;
   var user_name = user_json.user_name;
@@ -49,6 +50,8 @@ function i_vote() {
 }
 
 function vote_handler(message_package) {
+  Logger.append('vote_handler. enter');
+  Logger.append('vote_handler. msg_type: [' + message_package.msg_type + ']');
 
   if (message_package.msg_type === 'votes') {
 
@@ -71,6 +74,12 @@ function vote_handler(message_package) {
       }
     });
   }
+
+  if (message_package.msg_type === 'join_huddle') {
+    Logger.append('vote_handler. join_huddle');
+    i_vote();
+    i_vote();
+  }
 }
 
 function merge_in_new_votes(web_page_votes, passed_in_votes) {
@@ -83,6 +92,7 @@ function merge_in_new_votes(web_page_votes, passed_in_votes) {
 }
 
 function handle_user_enters_root_page(huddle_name) {
+  Logger.append('handle_user_enters_root_page. enter.');
   var users_cookie_info = UserInfo.pull_user_info_from_cookies();
 
   cookie_user_id = users_cookie_info.user_id;
@@ -127,5 +137,7 @@ function handle_user_enters_root_page(huddle_name) {
     var ele = $(this);
     delete_saved_lunch_spot(ele);
   });
+
+  message_svc.send_join_huddle_message(huddle_name);
 }
 
