@@ -10,8 +10,8 @@ var message_svc = MessageFactory.create('pubnub');
 
 $(document).ready(function() {
   vf_lunch_spots_view    = new VFLunchSpotsView({"el": $("#vote_list") });
-  saved_lunch_spots_view = new SavedLunchSpotsView({"el": $("#vote_list") });
-  vote_view              = new VoteView( {"el": $(".vote_view") });
+  saved_lunch_spots_view = new SavedLunchSpotsView({"el": $("#saved_lunch_spots_view") });
+  vote_view              = new VoteView( {"el": $("#vote_view") });
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();

@@ -123,11 +123,6 @@ function handle_user_enters_root_page(huddle_name) {
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   });
 
-  $('.vote_for_saved').live('click', function() {
-    var ele = $(this);
-    vote_up_this_saved_lunch_spot(ele);
-  });
-
   $('.delete_saved').live('click', function() {
     var ele = $(this);
     delete_saved_lunch_spot(ele);

@@ -37,7 +37,7 @@
         %div#log_content
   
       %div.section
-        %div.vote_view
+        %div#vote_view
           %form(action="#")
             Welcome
             %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
@@ -58,5 +58,7 @@
         %div#vote_list
   
       %div.section
-        %h3 Saved Lunch Spots
-        %div#saved_lunch_spots
+        %div#saved_lunch_spots_view
+          %h3 Saved Lunch Spots
+          %div#saved_lunch_spots
+
