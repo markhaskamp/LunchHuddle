@@ -17,6 +17,12 @@ get '/userinfo' do
   haml :userinfo
 end
 
+get '/huddle' do
+  @huddle = params[:huddle]
+  @huddle ||= 'lunch_huddle'
+  haml :huddle
+end
+
 get '/utility' do
   @huddle = params[:huddle]
   @huddle ||= 'lunch_huddle'

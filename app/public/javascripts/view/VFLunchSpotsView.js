@@ -1,13 +1,5 @@
 var VFLunchSpotsView = Backbone.View.extend({
 
-// div#vote_item_container
-//   div.vote_item 
-//     span.vote
-//     span.user_name
-//     span.user_id
-//   div.vote_for
-
-
   get_display: function(my_user_id, my_user_name, all_votes) {
     var return_html = '';
 
