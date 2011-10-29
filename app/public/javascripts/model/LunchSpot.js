@@ -24,7 +24,7 @@ var LunchSpot = {
     if (new_str.length > 0) {
       b = true;
     }
-    Logger.append('is_valid. return [' + b + ']');
+    // Logger.append('is_valid. return [' + b + ']');
     return(b);
   }
 }

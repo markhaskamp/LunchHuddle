@@ -50,8 +50,7 @@ function i_vote() {
 }
 
 function vote_handler(message_package) {
-  Logger.append('vote_handler. enter');
-  Logger.append('vote_handler. msg_type: [' + message_package.msg_type + ']');
+  Logger.append('vote_handler. enter. msg_type: [' + message_package.msg_type + ']');
 
   if (message_package.msg_type === 'votes') {
 
@@ -76,8 +75,6 @@ function vote_handler(message_package) {
   }
 
   if (message_package.msg_type === 'join_huddle') {
-    Logger.append('vote_handler. join_huddle');
-    i_vote();
     i_vote();
   }
 }
@@ -92,7 +89,7 @@ function merge_in_new_votes(web_page_votes, passed_in_votes) {
 }
 
 function handle_user_enters_root_page(huddle_name) {
-  Logger.append('handle_user_enters_root_page. enter.');
+  // Logger.append('handle_user_enters_root_page. enter.');
   var users_cookie_info = UserInfo.pull_user_info_from_cookies();
 
   cookie_user_id = users_cookie_info.user_id;
@@ -101,11 +98,11 @@ function handle_user_enters_root_page(huddle_name) {
     LoggerView.hide();
   }
 
-  Logger.append('huddle_name: [' + huddle_name + ']');
+  // Logger.append('huddle_name: [' + huddle_name + ']');
 
   if (type(cookie_user_id) !== 'String') {
     var userinfo_loc = '/userinfo?huddle=' + huddle_name;
-    Logger.append('userinfo_loc: ' + userinfo_loc + ']');
+    // Logger.append('userinfo_loc: ' + userinfo_loc + ']');
     window.location = userinfo_loc;
   }
 
@@ -113,15 +110,15 @@ function handle_user_enters_root_page(huddle_name) {
 
   message_svc.subscribe_to_huddle(huddle_name);
 
-  Logger.append('cookie_user_id: [' + cookie_user_id + ']');
-  Logger.append('cookie_user_id.length: [' + cookie_user_id.length + ']');
+  // Logger.append('cookie_user_id: [' + cookie_user_id + ']');
+  // Logger.append('cookie_user_id.length: [' + cookie_user_id.length + ']');
 
   if (type(cookie_user_name) === 'String') {
     UserInfoView.set_name_on_index(cookie_user_name);
   }
 
   var saved_lunch_spots = DataStore.get_lunch_spots();
-  Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
+  // Logger.append('index.js. saved_lunch_spots: [' + saved_lunch_spots + ']');
   saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
 
   $('.vote_for').live('click', function() {

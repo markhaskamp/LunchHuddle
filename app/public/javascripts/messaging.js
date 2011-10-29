@@ -34,6 +34,7 @@ var PubnubSvc = {
   },
 
   send_my_votes: function (huddle_name, existing_votes) {
+    Logger.append('send_my_votes. enter.');
     var message_package = {};
     message_package.msg_type = 'votes';
     message_package.votes = existing_votes;
