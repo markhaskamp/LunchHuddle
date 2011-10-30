@@ -4,11 +4,16 @@
     %link(rel="stylesheet" href="css/styles.css")
     %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.6.1.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/backbone-min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
     %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/AddInviteeView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/InviteeListView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/huddle.js"}
+
     %title Lunch Huddle, Huddle Info
 
   %body
@@ -18,16 +23,19 @@
 
     Invite Others to Huddle #{@huddle}
 
-    %form(action="*")
-      name: 
-      %input#txtName{:type => "text"}
+    %div#frmAdd
+      %form(action="*")
+        name: 
+        %input#txtName{:type => "text"}
+  
+        email address: 
+        %input#txtEmailAddr{:type => "text"}
+  
+        %input#btnAdd{:type => "button", :value => "Add"}
 
-      email address: 
-      %input#txtEmailAddr{:type => "text"}
+    %div#invitee_list
 
-      %input#btnAdd{:type => "button", :value => "Add"}
-
-    %h4 List of Invitees
-
-    %form(action="/")
-      %input#btnSend{:type => "button", :value => "Send Invitation"}
+      %h4 List of Invitees
+  
+      %form(action="/")
+        %input#btnSend{:type => "button", :value => "Send Invitation"}
