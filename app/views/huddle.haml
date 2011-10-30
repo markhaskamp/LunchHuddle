@@ -23,7 +23,7 @@
 
     Invite Others to Huddle #{@huddle}
 
-    %div#frmAdd
+    %div#add_invitee_view
       %form(action="*")
         name: 
         %input#txtName{:type => "text"}
@@ -33,9 +33,10 @@
   
         %input#btnAdd{:type => "button", :value => "Add"}
 
-    %div#invitee_list
+    %div#invitee_list_view
 
       %h4 List of Invitees
+      %div#invitee_list
   
       %form(action="/")
         %input#btnSend{:type => "button", :value => "Send Invitation"}
