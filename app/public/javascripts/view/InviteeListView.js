@@ -10,7 +10,11 @@ var InviteeListView = Backbone.View.extend({
     var html_str = '';
 
     _.each(this.invitees, function(invitee) {
-      html_str += '<span class="invitee_item">' + invitee + '</span><br />';
+      html_str += 
+            '<div class="invitee_item">' +
+              '<span class="invitee_item_name">' + 'foo' + '</span>' + 
+              '<span class="invitee_item_email">' + invitee + '</span>' +
+            '</div>';
     });
     $('#invitee_list').html(html_str);
   }
