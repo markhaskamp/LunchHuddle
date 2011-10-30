@@ -154,3 +154,10 @@ h3 span.foo {
   font-family: courier;
   font-size: 80%;
 }
+
+.invitee_item {
+  margin-bottom: 3px;
+}
+.invitee_item_name {
+  margin-right: 10px;
+}
