@@ -17,7 +17,7 @@ class MyMailer < ActionMailer::Base
          mail(
           :to         => to_addr,
           :from       => "app760353@heroku.com",
-          :subject    => "test email",
+          :subject    => "LunchHuddle invitation",
           :body       => "http://lunchhuddle.heroku.com/?huddle=" + huddle
          )
   end
@@ -58,5 +58,7 @@ post '/huddle/invite' do
   puts "---> to_addr: #{to_addr} <---"
 
   MyMailer.email(to_addr, huddle).deliver
+
+  redirect "/?huddle=#{huddle}"
 end
 
