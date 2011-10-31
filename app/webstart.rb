@@ -51,8 +51,8 @@ get '/utility' do
 end
 
 post '/huddle/invite' do
-  to_addr = #{params[:txtAddr]}
-  puts "---> to_addr: #{to_addr}"
+  to_addr = params[:txtEmailAddr]
+  puts "---> to_addr: #{to_addr} <---"
   MyMailer.email(to_addr).deliver
 end
 
