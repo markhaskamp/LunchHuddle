@@ -26,7 +26,7 @@
 
     %div#send_invites_view
       %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
-
+        %input#txtHuddle{:type => "text", :name => "txtHuddle", :value => @huddle}
         %p
           To: 
           %br
