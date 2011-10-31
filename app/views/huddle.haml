@@ -10,7 +10,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/view/AddInviteeView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/SendInvitesView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/InviteeListView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/model/Invitee.js"}
     %script{:type => "text/javascript", :src =>"javascripts/huddle.js"}
@@ -24,20 +24,12 @@
 
     Invite Others to Huddle #{@huddle}
 
-    %div#add_invitee_view
-      %form(action="*")
-        name: 
-        %input#txtName{:type => "text"}
+    %div#send_invites_view
+      %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
+
+        %p
+          To: 
+          %br
+          %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4, :cols => 35}
   
-        email address: 
-        %input#txtEmailAddr{:type => "text"}
-  
-        %input#btnAdd{:type => "button", :value => "Add"}
-
-    %div#invitee_list_view
-
-      %h4 List of Invitees
-      %div#invitee_list
-
-      %form(action="/huddle/invite")
-        %input#btnInvite{:type => "submit", :value => "Invite"}
+        %input#btnInvite{:type => "button", :value => "Send Invitation"}

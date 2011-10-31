@@ -5,8 +5,6 @@ var SendInvitesView = Backbone.View.extend({
   }
 
   , on_btnInvite_click: function() {
-
-    // submit form to huddle/invite
     $('#frmSendInvite').submit();
   }
 
