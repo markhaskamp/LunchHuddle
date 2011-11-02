@@ -4,11 +4,12 @@
     %link(rel="stylesheet" href="css/styles.css")
     %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.6.1.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/backbone-min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
     %title Lunch Huddle, User Info
 
@@ -27,7 +28,7 @@
   
           email address: 
           %input#txtEmailAddr{:type => "text"}
-          %a.why_email{:href => "#"} ?
+          %a#why_email{:href => "#"} ?
           %br
   
           huddle: 

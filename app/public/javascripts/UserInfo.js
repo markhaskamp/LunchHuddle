@@ -37,9 +37,6 @@ $(document).ready( function() {
 
           });
 
-  $('.why_email').click(function() {
-    alert("We use your email address as a way to uniquely identify users, which is handy in case more than one user has the same name*. The only place we store it is locally on your machine in a cookie. \n\n* Don't tell anyone but we don't even verify it.");
-  });
 });
 
 
