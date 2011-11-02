@@ -1,3 +1,14 @@
+var Foo = {
+  the_answer: 42,
+  double_it: function(n) {
+    return(n*2);
+  },
+
+  times_2: function(n) {
+    return(this.double_it(n));
+  }
+};
+
 function squared(n) {
   return(n * n);
 };
@@ -96,21 +107,21 @@ describe("javascript", function() {
 
   describe("jasmine", function() {
     describe("spies", function() {
-      it("spies can intercept a function and call a different function", function() {
-        spyOn(Foo, 'double_it').andCallFake(function(value) { return 314; });
+      // it("spies can intercept a function and call a different function", function() {
+      //   spyOn(Foo, 'double_it').andCallFake(function(value) { return 314; });
 
-        var r = Foo.double_it(12);
-        expect(r).toEqual(314);
-        expect(Foo.double_it).toHaveBeenCalledWith(12);
-      });
+      //   var r = Foo.double_it(12);
+      //   expect(r).toEqual(314);
+      //   expect(Foo.double_it).toHaveBeenCalledWith(12);
+      // });
 
-      it("spies can intercept a nested function call", function() {
-        spyOn(Foo, 'double_it').andCallFake(function(value) { return 314; });
+      // it("spies can intercept a nested function call", function() {
+      //   spyOn(Foo, 'double_it').andCallFake(function(value) { return 314; });
 
-        var r = Foo.times_2(12);
-        expect(r).toEqual(314);
-        expect(Foo.double_it).toHaveBeenCalledWith(12);
-      });
+      //   var r = Foo.times_2(12);
+      //   expect(r).toEqual(314);
+      //   expect(Foo.double_it).toHaveBeenCalledWith(12);
+      // });
 
       it("spy on a stand-alone function", function() {
         var foo = squared(9);
@@ -134,16 +145,6 @@ describe("javascript", function() {
   // });
 });
 
-var Foo = {
-  the_answer: 42,
-  double_it: function(n) {
-    return(n*2);
-  },
-
-  times_2: function(n) {
-    return(this.double_it(n));
-  }
-}
 
 function kv_pair_to_array(o) {
     var actual_array = [];

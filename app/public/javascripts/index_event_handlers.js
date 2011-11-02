@@ -125,7 +125,7 @@ function handle_user_enters_root_page(huddle_name) {
     var ele = $(this);
     vote_up_this_item(ele);
 
-    DataStore.save_lunch_spot(VoteView.get_lunch_spot());
+    DataStore.save_lunch_spot(vote_view.get_lunch_spot());
     var saved_lunch_spots = DataStore.get_lunch_spots();
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   });

@@ -6,6 +6,7 @@ var VoteView = Backbone.View.extend ({
 
   ,on_vote: function() {
     i_vote();
+    $('#txtMessage').val('');
 
     var saved_lunch_spots = DataStore.get_lunch_spots();
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
