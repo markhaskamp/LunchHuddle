@@ -23,13 +23,11 @@ var UserInfoView = Backbone.View.extend ({
   }
 
   , disable_join_huddle_action: function() {
-    // $('#joinHuddle').attr('disabled', 'disabled');
-    $('#joinHuddle').hide();
+    $('#joinHuddle').attr('disabled', 'disabled');
   },
 
   enable_join_huddle_action: function() {
-    // $('#joinHuddle').removeAttr('disabled');
-    $('#joinHuddle').show();
+    $('#joinHuddle').removeAttr('disabled');
   },
 
   get_name: function() {
