@@ -11,7 +11,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/SendInvitesView.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/view/InviteeListView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/model/Invitee.js"}
     %script{:type => "text/javascript", :src =>"javascripts/huddle.js"}
 
@@ -28,6 +28,7 @@
       %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
         %input#txtHuddle{:type => "text", :name => "txtHuddle", :value => @huddle}
         %p
+          %br enter a valid email address list
           To: 
           %br
           %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4, :cols => 35}

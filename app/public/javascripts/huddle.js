@@ -8,5 +8,7 @@ $(document).ready(function() {
   var cookie_name = $('#txtHuddle').val() + '_invitees';
   var previous_invitees = $.cookie(cookie_name);
 
-  $('#txtEmailAddr').val(previous_invitees);
+  if (type(previous_invitees) === "String") {
+    $('#txtEmailAddr').val(previous_invitees);
+  }
 });
