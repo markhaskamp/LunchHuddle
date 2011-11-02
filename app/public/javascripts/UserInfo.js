@@ -21,22 +21,6 @@ $(document).ready( function() {
 
   UserInfo.enable_join_button();
 
-
-  $('#joinHuddle').click(
-          function() {
-            UserInfo.save_form_info();
-
-            var huddle_param = '';
-            var huddle_name = user_info_view.get_huddle_name();
-            huddle_name = $.trim(huddle_name);
-            if (huddle_name.length >= 0) {
-              huddle_param = '?huddle=' + huddle_name;
-            }
-            var url =  "/" + huddle_param;
-            window.location = url;
-
-          });
-
 });
 
 

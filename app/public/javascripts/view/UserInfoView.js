@@ -2,10 +2,29 @@ var UserInfoView = Backbone.View.extend ({
 
   events: {
     "click #why_email":  "onClickForWhyEmail"
+    , "click #why_name":  "onClickForWhyName"
+    , "click #joinHuddle": "onClickJoinHuddle"
   }
 
   , onClickForWhyEmail: function() {
-    alert("We use your email address as a way to uniquely identify users, which is handy in case more than one user has the same name*. The only place we store it is locally on your machine in a cookie. \n\n* Don't tell anyone but we don't even verify it.");
+    alert("We use your email address as a way to uniquely identify users, which is handy in case more than one huddler has the same name*. The only place we store it is locally on your machine in a cookie. \n\n* Don't tell anyone but we don't even verify it.");
+  }
+
+  , onClickForWhyName: function() {
+    alert("This is your name that the other huddlers will see for you.");
+  }
+
+  , onClickJoinHuddle: function() {
+    UserInfo.save_form_info();
+
+    var huddle_param = '';
+    var huddle_name = user_info_view.get_huddle_name();
+    huddle_name = $.trim(huddle_name);
+    if (huddle_name.length >= 0) {
+      huddle_param = '?huddle=' + huddle_name;
+    }
+    var url =  "/" + huddle_param;
+    window.location = url;
   }
 
   , disable_join_huddle_action: function() {

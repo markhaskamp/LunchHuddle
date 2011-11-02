@@ -20,10 +20,13 @@
       Lunch Huddle
 
     %div.section
+      %h3 User Information
+      %p All fields are required
       %div#user_info_view
         %form(action="/")
           name: 
           %input#txtName{:type => "text"}
+          %a#why_name{:href => "#"} ?
           %br
   
           email address: 
@@ -38,3 +41,4 @@
   
           %input#joinHuddle{:type => "button",
                             :value => "join huddle"}
+
