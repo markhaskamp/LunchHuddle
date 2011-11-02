@@ -21,12 +21,11 @@
 
     %div.section
       %h3 User Information
-      %p All fields are required
+      %p Fill in all the fields and join the huddle
       %div#user_info_view
         %form(action="/")
           name: 
           %input#txtName{:type => "text"}
-          %a#why_name{:href => "#"} ?
           %br
   
           email address: 
@@ -39,6 +38,7 @@
                                :type  => "text",
                                :value => "#{@huddle}"}
   
+          %p
           %input#joinHuddle{:type => "button",
                             :value => "join huddle"}
 
