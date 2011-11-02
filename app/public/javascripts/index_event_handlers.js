@@ -114,7 +114,7 @@ function handle_user_enters_root_page(huddle_name) {
   // Logger.append('cookie_user_id.length: [' + cookie_user_id.length + ']');
 
   if (type(cookie_user_name) === 'String') {
-    UserInfoView.set_name_on_index(cookie_user_name);
+    user_info_view.set_name_on_index(cookie_user_name);
   }
 
   var saved_lunch_spots = DataStore.get_lunch_spots();

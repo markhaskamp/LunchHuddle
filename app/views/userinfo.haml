@@ -6,6 +6,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
     %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
@@ -18,20 +19,21 @@
       Lunch Huddle
 
     %div.section
-      %form(action="/")
-        name: 
-        %input#txtName{:type => "text"}
-        %br
-
-        email address: 
-        %input#txtEmailAddr{:type => "text"}
-        %a.why_email{:href => "#"} ?
-        %br
-
-        huddle: 
-        %input#txtHuddleName{:name  => "huddle",
-                             :type  => "text",
-                             :value => "#{@huddle}"}
-
-        %input#joinHuddle{:type => "button",
-                          :value => "join huddle"}
+      %div#user_info_view
+        %form(action="/")
+          name: 
+          %input#txtName{:type => "text"}
+          %br
+  
+          email address: 
+          %input#txtEmailAddr{:type => "text"}
+          %a.why_email{:href => "#"} ?
+          %br
+  
+          huddle: 
+          %input#txtHuddleName{:name  => "huddle",
+                               :type  => "text",
+                               :value => "#{@huddle}"}
+  
+          %input#joinHuddle{:type => "button",
+                            :value => "join huddle"}

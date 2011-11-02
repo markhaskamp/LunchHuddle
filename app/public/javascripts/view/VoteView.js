@@ -1,4 +1,3 @@
-
 var VoteView = Backbone.View.extend ({
   events: {
     "click #btnVote": "on_vote"
