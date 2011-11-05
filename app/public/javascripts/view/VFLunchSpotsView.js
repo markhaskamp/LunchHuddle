@@ -1,6 +1,13 @@
 var VFLunchSpotsView = Backbone.View.extend({
+  events: {
+    "click #.veto_vote": "on_veto_vote"
+  }
 
-  get_display: function(my_user_id, my_user_name, all_votes) {
+  , on_veto_vote: function(event_object) {
+    vetoed_lunch_spots_view.on_veto_vote(event_object.currentTarget);
+  }
+
+  ,get_display: function(my_user_id, my_user_name, all_votes) {
     var return_html = '';
 
     var counted_lunch_spots = this.count_lunch_spots(all_votes);
@@ -33,6 +40,7 @@ var VFLunchSpotsView = Backbone.View.extend({
 
         if ( vote.user_id !== my_user_id) {
           return_html += ' <span class="vote_for cursor_hover"><img src="../images/vote_yes.png" /></span>';
+          return_html += ' <span class="veto_vote cursor_hover"><img src="../images/vote_no.png" /></span>';
         }
         return_html += '</div>';
         return_html += '<div class="user_msg">' + vote.user_msg + '</div>';
@@ -46,9 +54,13 @@ var VFLunchSpotsView = Backbone.View.extend({
     });
 
     return(return_html);
-  },
+  }
 
-  convert_to_array: function(counted_lunch_spots) {
+  , get_huddle: function() {
+    return $('#huddle_name').html();
+  }
+
+  , convert_to_array: function(counted_lunch_spots) {
     // sort lunch_spot hash by value(which = number of votes)
     var lunch_spot_array = [];
     $.each(counted_lunch_spots, function(key) { 
@@ -56,9 +68,9 @@ var VFLunchSpotsView = Backbone.View.extend({
     });
 
     return(lunch_spot_array);
-  },
+  }
 
-  count_lunch_spots: function(lunch_spot_list) {
+  , count_lunch_spots: function(lunch_spot_list) {
     // count votes
     var lunch_spot_counts = {};
     // init to 0

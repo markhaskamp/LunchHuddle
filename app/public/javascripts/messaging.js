@@ -33,30 +33,7 @@ var PubnubSvc = {
     return('PubnubSvc');
   },
 
-  send_my_votes: function (huddle_name, existing_votes) {
-    Logger.append('send_my_votes. enter.');
-    var message_package = {};
-    message_package.msg_type = 'votes';
-    message_package.votes = existing_votes;
-
-    PUBNUB.publish({
-      channel : huddle_name,
-      message : message_package
-    })
-  },
-
-  send_join_huddle_message: function(huddle_name) {
-    Logger.append('send_join_huddle_message. enter.');
-
-    var message_package = {};
-    message_package.msg_type = 'join_huddle';
-    PUBNUB.publish({
-      channel : huddle_name,
-      message : message_package
-    })
-  },
-
-  subscribe_to_huddle: function(huddle_name){
+  subscribe_to_huddle: function(huddle_name) {
 
     // LISTEN FOR MESSAGES
     PUBNUB.subscribe({
@@ -70,6 +47,40 @@ var PubnubSvc = {
         connect  : function() {}        // CONNECTION ESTABLISHED.
     })
   }
+
+  , send_my_votes: function (huddle_name, existing_votes) {
+    Logger.append('send_my_votes. enter.');
+    var message_package = {};
+    message_package.msg_type = 'votes';
+    message_package.votes = existing_votes;
+
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
+  }
+
+  , send_join_huddle_message: function(huddle_name) {
+    Logger.append('send_join_huddle_message. enter.');
+
+    var message_package = {};
+    message_package.msg_type = 'join_huddle';
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
+  }
+
+  , send_veto_message: function(lunch_spot) {
+    Logger.append('send_veto_message. enter.');
+    var message_package = {};
+    message_package.msg_type = 'veto';
+    PUBNUB.publish({
+            channel: vf_lunch_spots_view.get_huddle()
+            , message: message_package
+    })
+  }
+
 }
 
 

@@ -17,6 +17,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/model/LunchSpot.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VFLunchSpotsView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/VetoedLunchSpotsView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/SavedLunchSpotsView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VoteView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
@@ -53,13 +54,18 @@
             %input#btnVote.defaultButton{:type => "button", :value => "vote and/or comment"}
   
       %div.section
-        %h3
-          %span.foo Huddle name: 
-          %span#huddle_name #{@huddle}
-        %div#vote_list
-        %hr
-          %a{:href => "/huddle?huddle=#{@huddle}"}invite others to huddle
+        %div#vf_lunch_spots_view
+          %h3
+            %span.foo Huddle name: 
+            %span#huddle_name #{@huddle}
+          %div#vote_list
+          %hr
+            %a{:href => "/huddle?huddle=#{@huddle}"}invite others to huddle
   
+      %div.section
+        %div#vetoed_lunch_spots_view
+          %h3 Veto
+
       %div.section
         %div#saved_lunch_spots_view
           %h3 Saved Lunch Spots
