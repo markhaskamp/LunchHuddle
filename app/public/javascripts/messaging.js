@@ -75,6 +75,7 @@ var PubnubSvc = {
     Logger.append('send_veto_message. enter.');
     var message_package = {};
     message_package.msg_type = 'veto';
+    message_package.lunch_spot = lunch_spot;
     PUBNUB.publish({
             channel: vf_lunch_spots_view.get_huddle()
             , message: message_package

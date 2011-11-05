@@ -79,7 +79,7 @@ function vote_handler(message_package) {
   }
 
   if (message_package.msg_type === 'veto') {
-    console.log('received a veto vote');
+    console.log('received a veto vote for(against?) ' + message_package.lunch_spot);
   }
 }
 
