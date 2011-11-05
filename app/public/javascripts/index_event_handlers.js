@@ -79,7 +79,9 @@ function vote_handler(message_package) {
   }
 
   if (message_package.msg_type === 'veto') {
-    console.log(message_package.lunch_spot + ', ' + message_package.user_name + ', ' + message_package.user_id);
+    vetoed_lunch_spots_view.render(message_package.lunch_spot, 
+                                   message_package.user_name, 
+                                   message_package.user_id);
   }
 }
 
