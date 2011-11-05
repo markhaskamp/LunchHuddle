@@ -71,11 +71,14 @@ var PubnubSvc = {
     })
   }
 
-  , send_veto_message: function(lunch_spot) {
+  , send_veto_message: function(lunch_spot, user_name, user_id) {
     Logger.append('send_veto_message. enter.');
     var message_package = {};
-    message_package.msg_type = 'veto';
+    message_package.msg_type   = 'veto';
     message_package.lunch_spot = lunch_spot;
+    message_package.user_name  = user_name;
+    message_package.user_id    = user_id;
+
     PUBNUB.publish({
             channel: vf_lunch_spots_view.get_huddle()
             , message: message_package

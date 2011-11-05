@@ -4,7 +4,12 @@ var VFLunchSpotsView = Backbone.View.extend({
   }
 
   , on_veto_vote: function(event_object) {
-    vetoed_lunch_spots_view.on_veto_vote(event_object.currentTarget);
+    var ele_parent = $(event_object.currentTarget).parent();
+    var lunch_spot = $(ele_parent).find('.vote').html();
+    var user_name  = $(ele_parent).find('.user_name').html();
+    var user_id    = $(ele_parent).find('.user_id').html();
+
+    vetoed_lunch_spots_view.on_veto_vote(lunch_spot, user_name, user_id);
   }
 
   ,get_display: function(my_user_id, my_user_name, all_votes) {
@@ -19,13 +24,13 @@ var VFLunchSpotsView = Backbone.View.extend({
     // walk through sorted_array to get lunch_spot
     // _.select into all_votes to get votes that match the sorted_array current item
     $.each(sorted_array, function(ndx, sorted_lunch_spot) {
-      var foo = _.select(all_votes, 
+      var list = _.select(all_votes, 
               function(cur_lunch_spot) { 
                       return ( cur_lunch_spot.lunch_spot === sorted_lunch_spot[0]); 
               });
 
       var count_of_top_voted = 0;
-      $.each(foo, function(ndx, vote) {
+      $.each(list, function(ndx, vote) {
         count_of_top_voted += 1;
         var vote_style = 'vote';
         var user_name_style = 'user_name';
