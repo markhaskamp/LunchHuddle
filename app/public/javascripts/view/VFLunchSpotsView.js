@@ -6,8 +6,8 @@ var VFLunchSpotsView = Backbone.View.extend({
   , on_veto_vote: function(event_object) {
     var ele_parent = $(event_object.currentTarget).parent();
     var lunch_spot = $(ele_parent).find('.vote').html();
-    var user_name  = $(ele_parent).find('.user_name').html();
-    var user_id    = $(ele_parent).find('.user_id').html();
+    var user_name  = user_info_view.get_name();
+    var user_id    = user_info_view.get_id();
 
     vetoed_lunch_spots_view.on_veto_vote(lunch_spot, user_name, user_id);
   }
