@@ -19,14 +19,21 @@ var VetoedLunchSpotsView = Backbone.View.extend({
                                            "user_id":    user_id });
 
     $('#vetoed_lunch_spots_view #veto_list').html(rendered_html);
-    // console.log('VetoedLunchSpotsView.render.' + rendered_html);
+    this.display({ "display": true });
   }
 
   , on_veto_vote: function(lunch_spot, user_name, user_id) {
     message_svc.send_veto_message(lunch_spot, user_name, user_id);
   }
 
- 
+  , display: function(display_toggle) {
+    if (display_toggle.display === true) {
+      $('#vetoed_lunch_spots_view').parent().show(); 
+    }
+    else {
+      $('#vetoed_lunch_spots_view').parent().hide(); 
+    }
+  }
   
 
 });

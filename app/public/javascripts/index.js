@@ -16,6 +16,7 @@ $(document).ready(function() {
   vote_view               = new VoteView( {"el": $("#vote_view") });
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
   vetoed_lunch_spots_view = new VetoedLunchSpotsView( {"el": $("#vetoed_lunch_spots_view") });
+  vetoed_lunch_spots_view.display({"display": false});
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();
