@@ -5,11 +5,13 @@ var VFLunchSpotsView = Backbone.View.extend({
 
   , on_veto_vote: function(event_object) {
     var ele_parent = $(event_object.currentTarget).parent();
-    var lunch_spot = $(ele_parent).find('.vote').html();
-    var user_name  = user_info_view.get_name();
-    var user_id    = user_info_view.get_id();
+    var lunch_spot = Object.beget(LunchSpot);
 
-    vetoed_lunch_spots_view.on_veto_vote(lunch_spot, user_name, user_id);
+    lunch_spot.lunch_spot         = $(ele_parent).find('.vote').html();
+    lunch_spot.user_display_name  = user_info_view.get_name();
+    lunch_spot.user_id            = $.cookie('user_id');
+
+    vetoed_lunch_spots_view.on_veto_vote(lunch_spot);
   }
 
   ,get_display: function(my_user_id, my_user_name, all_votes) {
