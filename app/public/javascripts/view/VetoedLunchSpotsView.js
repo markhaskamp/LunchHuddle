@@ -10,13 +10,6 @@ var vetoed_lunch_spots_view_template =
 var VetoedLunchSpotsView = Backbone.View.extend({
 
   view_template: vetoed_lunch_spots_view_template 
-        // '<div class="veto_item_container">' +
-        // '  <span class="vote_item">' +
-        // '    <span class="veto veto_color">{{lunch_spot}}</span>' +
-        // '    <span class="veto_user_name veto_color">{{user_name}}</span>' +
-        // '    <span class="veto_user_id">{{user_id}}</span>' +
-        // '  </span>' +
-        // '</div>'
 
   , events: {
   }
@@ -46,15 +39,15 @@ var VetoedLunchSpotsView = Backbone.View.extend({
 
   , get_my_veto_list: function() {
     var current_veto_list = [];
-    var vote_list = $('#veto_item_container .vote_item');
+    var vote_list = $('#veto_list .vote_item');
 
     vote_list.each(function() {
       var ele = $(this);
       var v = Object.beget(LunchSpot);
-      v.user_id    = ele.find('.user_id').first().html();
-      v.user_name  = ele.find('.user_name').first().html();
-      v.lunch_spot = ele.find('.vote').first().html();
-      v.user_msg   = ele.parent().next().html();
+      v.lunch_spot         = ele.find('.veto').first().html();
+      v.user_display_name  = ele.find('.veto_user_name').first().html();
+      v.user_id            = ele.find('.veto_user_id').first().html();
+      v.user_msg           = ele.parent().next().html();
 
       current_veto_list.push(v);
     });
