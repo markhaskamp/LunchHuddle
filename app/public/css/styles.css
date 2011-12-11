@@ -59,7 +59,6 @@ h3 span.foo {
 .vote {
   display: inline-block;
   width: 145px;
-  /* background-color: #007a7a; */
   color: white;
   font-size: 85%;
   margin: 1px;
@@ -197,3 +196,20 @@ h3 span.foo {
 .invitee_item_name {
   margin-right: 10px;
 }
+
+.ui-draggable {
+}
+
+.section .drag_handle {
+  cursor: move;
+}
+
+.ui-draggable-dragging {
+  background-color: #c0c0c0;
+}
+
+.draggable-hover {
+  background-color: #c0c0c0;
+}
+
+

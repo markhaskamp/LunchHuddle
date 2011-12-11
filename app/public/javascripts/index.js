@@ -16,7 +16,13 @@ $(document).ready(function() {
   vote_view               = new VoteView( {"el": $("#vote_view") });
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
   vetoed_lunch_spots_view = new VetoedLunchSpotsView( {"el": $("#vetoed_lunch_spots_view") });
-  $('.section').draggable();
+
+  $('.section').draggable({ 'handle': '.drag_handle'});
+  $('.section .drag_handle').hover(
+          function() { $(this).addClass('draggable-hover');},
+          function() { $(this).removeClass('draggable-hover');}
+          );
+
 
   vetoed_lunch_spots_view.display({"display": false});
 
