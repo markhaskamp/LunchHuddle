@@ -43,10 +43,11 @@
       %div.section
         %div#vote_view
           %form(action="#")
-            Welcome
-            %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
+            %span.drag_handle
+              Welcome
+              %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
             %br
-  
+
             where to eat? &nbsp;
             %input#txtLunchSpot(type="text")
             %br
