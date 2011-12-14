@@ -19,7 +19,8 @@
 
   %body
 
-    %h3.main_title Lunch Huddle
+    %h3.main_title
+      %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
     %h4 Huddle Info
 
     Invite Others to Huddle #{@huddle}

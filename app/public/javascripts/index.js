@@ -57,12 +57,7 @@ $(document).ready(function() {
     function() { window.location.replace('/utility?huddle=' + huddle_name ) }
   );
 
-  // try {
     handle_user_enters_root_page(huddle_name);
-  // }
-  // catch(exc) {
-  //   Logger.error(exc);
-  // }
 });
 
 

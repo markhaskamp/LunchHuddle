@@ -18,18 +18,19 @@ class MyMailer < ActionMailer::Base
           :to      => to_addr,
           :from    => "app760353@heroku.com",
           :subject => "LunchHuddle invitation",
-          :body    => "http://lunchhuddle.heroku.com/?huddle=" + huddle
+          :body    => "http://lunchhuddle.heroku.com/land?huddle=" + huddle
          )
   end
 end
 
 get '/land' do
+  @huddle = params[:huddle]
+
   haml :land
 end
 
 get '/' do
   @huddle = params[:huddle]
-  @huddle ||= 'lunch_huddle'
 
   @log_toggle = params[:log_toggle]
   @log_toggle ||= 'n'

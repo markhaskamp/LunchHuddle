@@ -14,4 +14,12 @@
 
     %h3.main_title Lunch Huddle
 
-    %h4 the landing page
+    %div.land_content
+
+      %div.land_link 
+        %a{:href => "/userinfo"} register
+
+      %div.land_link
+        %a{:href => "/?huddle=#{@huddle}"} join huddle
+
+      %div.land_link create new huddle

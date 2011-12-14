@@ -23,6 +23,11 @@ h1, h2, h3, h4 {
   border-radius: 7px;
 }
 
+.home_link {
+  color: white;
+  text-decoration: none;
+}
+
 #util_link {
   color: #850000;
   background-color: #850000;
