@@ -18,5 +18,13 @@ var VoteView = Backbone.View.extend ({
   ,get_message: function() {
     return ($('#txtMessage').val());
   }
+
+  ,set_position: function() {
+    var left_coord = $.cookie('vote_view_left');
+    var top_coord = $.cookie('vote_view_top');
+
+    var $section = $('div#vote_view').parent('div.section');
+    $section.offset({top: top_coord, left: left_coord});
+  }
 }
 )

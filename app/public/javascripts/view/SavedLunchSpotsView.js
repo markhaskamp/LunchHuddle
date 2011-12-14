@@ -49,7 +49,16 @@ var SavedLunchSpotsView = Backbone.View.extend({
     catch(err) {
       Logger.error('SavedLunchSpots. display_lunch_spots(). Error. ' + err);
     }
+  },
+
+  set_position: function() {
+    var left_coord = $.cookie('saved_lunch_spots_view_left');
+    var top_coord = $.cookie('saved_lunch_spots_view_top');
+
+    var $section = $('div#saved_lunch_spots_view').parent('div.section');
+    $section.offset({top: top_coord, left: left_coord});
   }
+
 }
 )
 

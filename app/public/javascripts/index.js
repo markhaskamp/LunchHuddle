@@ -17,7 +17,18 @@ $(document).ready(function() {
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
   vetoed_lunch_spots_view = new VetoedLunchSpotsView( {"el": $("#vetoed_lunch_spots_view") });
 
-  $('.section').draggable({ 'handle': '.drag_handle'});
+  $('.section').draggable(
+          { 'handle': '.drag_handle'
+            ,'stop': function() { 
+                    var $ele = $(this);
+                    var dragged_view = $ele.find('div').first().attr('id');
+
+                    var offset = $ele.offset();
+                    $.cookie(dragged_view + '_left', offset.left);
+                    $.cookie(dragged_view + '_top', offset.top);
+            }
+          });
+
   $('.section .drag_handle').hover(
           function() { $(this).addClass('draggable-hover');},
           function() { $(this).removeClass('draggable-hover');}
@@ -57,7 +68,13 @@ $(document).ready(function() {
     function() { window.location.replace('/utility?huddle=' + huddle_name ) }
   );
 
-    handle_user_enters_root_page(huddle_name);
+  vote_view.set_position();
+  saved_lunch_spots_view.set_position();
+  vf_lunch_spots_view.set_position();
+  vetoed_lunch_spots_view.set_position();
+
+  handle_user_enters_root_page(huddle_name);
+
 });
 
 
