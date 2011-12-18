@@ -56,6 +56,7 @@ var SavedLunchSpotsView = Backbone.View.extend({
     var top_coord = $.cookie('saved_lunch_spots_view_top');
 
     var $section = $('div#saved_lunch_spots_view').parent('div.section');
+    $section.css('position', 'fixed');
     $section.offset({top: top_coord, left: left_coord});
   }
 

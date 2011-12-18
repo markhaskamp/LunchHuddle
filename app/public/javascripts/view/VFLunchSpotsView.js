@@ -116,6 +116,7 @@ var VFLunchSpotsView = Backbone.View.extend({
     var top_coord = $.cookie('vf_lunch_spots_view_top');
 
     var $section = $('div#vf_lunch_spots_view').parent('div.section');
+    $section.css('position', 'static');
     $section.offset({top: top_coord, left: left_coord});
   }
 });

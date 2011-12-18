@@ -23,8 +23,11 @@ var VoteView = Backbone.View.extend ({
     var left_coord = $.cookie('vote_view_left');
     var top_coord = $.cookie('vote_view_top');
 
-    var $section = $('div#vote_view').parent('div.section');
-    $section.offset({top: top_coord, left: left_coord});
+    if (! isEmpty(top_coord)) {
+      var $section = $('div#vote_view').parent('div.section');
+      $section.css('position', 'fixed');
+      $section.offset({top: top_coord, left: left_coord});
+    }
   }
 }
 )
