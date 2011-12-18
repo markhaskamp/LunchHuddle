@@ -45,14 +45,14 @@
             %span.drag_handle
               Welcome
               %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
-            %br
 
-            where to eat? &nbsp;
-            %input#txtLunchSpot(type="text")
-            %br
-            comment: &nbsp;
-            %input#txtMessage(type="text")
-            %br
+            %p
+              where to eat? &nbsp;
+              %input#txtLunchSpot(type="text")
+              %br
+              comment: &nbsp;
+              %input#txtMessage(type="text")
+
             %input#btnVote.defaultButton{:type => "button", :value => "vote and/or comment"}
   
       %div.section
