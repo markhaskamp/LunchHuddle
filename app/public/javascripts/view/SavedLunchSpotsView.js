@@ -2,12 +2,18 @@
 var SavedLunchSpotsView = Backbone.View.extend({
   events: {
     "click .vote_for_saved": "on_vote_for_saved"
+    ,"click .toggle_view": "on_toggle_view_click"
   }
 
   , on_vote_for_saved: function() {
     // var ele = $(this);
     var ele = $(arguments[0].currentTarget);
     vote_up_this_saved_lunch_spot(ele);
+  }
+
+  , on_toggle_view_click: function() {
+    $('.toggle_view').toggle();
+    $('#saved_lunch_spots_view #saved_lunch_spots').toggle();
   }
 
   ,get_lunch_spots: function() {

@@ -67,3 +67,7 @@ get '/utility' do
   haml :utility
 end
 
+get '/scratch' do
+  haml :scratch
+end
+

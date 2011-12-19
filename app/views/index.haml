@@ -71,6 +71,11 @@
 
       %div.section
         %div#saved_lunch_spots_view
-          %h3.drag_handle Saved Lunch Spots
+          %h3.drag_handle
+            %div#foo Saved Lunch Spots
+            %div#bar
+              %img.cursor_hover.toggle_view{:src => "images/up.png"}
+              %img.cursor_hover.toggle_view{:src => "images/down.png", :style => "display: none"}
+
           %div#saved_lunch_spots
 

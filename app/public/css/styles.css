@@ -210,6 +210,14 @@ h3 span.foo {
   cursor: move;
 }
 
+h3 #foo {
+  float: left;
+}
+
+h3 #bar {
+  float: right;
+}
+
 .ui-draggable-dragging {
   background-color: #c0c0c0;
 }
@@ -218,4 +226,18 @@ h3 span.foo {
   background-color: #c0c0c0;
 }
 
+
+#scratch div {
+  border: 1px solid black;
+}
+
+#scratch_container #left {
+  float: left;
+}
+#scratch_container #right {
+  float: right;
+}
+#scratch_container #next_section {
+  clear: both;
+}
 
