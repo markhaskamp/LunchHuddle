@@ -37,7 +37,7 @@ var PubnubSvc = {
 
     // LISTEN FOR MESSAGES
     PUBNUB.subscribe({
-        channel  : huddle_name,        // CONNECT TO THIS CHANNEL.
+        channel  : huddle_name.toLowerCase(),        // CONNECT TO THIS CHANNEL.
         error    : function() {        // LOST CONNECTION (auto reconnects)
             alert("Connection Lost. Will auto-reconnect when Online.")
         },
@@ -55,18 +55,19 @@ var PubnubSvc = {
     message_package.votes = existing_votes;
 
     PUBNUB.publish({
-      channel : huddle_name,
+      channel : huddle_name.toLowerCase(),
       message : message_package
     })
   }
 
   , send_join_huddle_message: function(huddle_name) {
     Logger.append('send_join_huddle_message. enter.');
+    Logger.append('lowercase huddle_name: ' + huddle_name.toLowerCase());
 
     var message_package = {};
     message_package.msg_type = 'join_huddle';
     PUBNUB.publish({
-      channel : huddle_name,
+      channel : huddle_name.toLowerCase(),
       message : message_package
     })
   }
@@ -78,11 +79,10 @@ var PubnubSvc = {
     message_package.lunch_spot_list = lunch_spot_list;
 
     PUBNUB.publish({
-            channel: vf_lunch_spots_view.get_huddle()
+            channel: vf_lunch_spots_view.get_huddle().toLowerCase()
             , message: message_package
     })
   }
-
 }
 
 
