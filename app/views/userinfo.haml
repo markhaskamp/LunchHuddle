@@ -16,29 +16,31 @@
   %body
 
   %div#all_content
-    %h3.main_title 
+    %h3.main_title.header
       %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
 
     %div.section
-      %h3 User Information
-      %p Fill in all the fields before joining the huddle
-      %div#user_info_view
+      %div#user_info_view.view.has_header
+        %h3 User Information
+        %p Fill in all the fields before joining the huddle
         %form(action="/")
-          name: 
-          %input#txtName{:type => "text"}
-          %br
-  
-          email address: 
-          %input#txtEmailAddr{:type => "text"}
-          %a#why_email{:href => "#"} ?
-          %br
-  
-          huddle: 
-          %input#txtHuddleName{:name  => "huddle",
+          %p
+            name: 
+            %input#txtName{:type => "text"}
+          
+          %p
+            email address: 
+            %input#txtEmailAddr{:type => "text"}
+            %a#why_email{:href => "#"} ?
+          
+          %p
+            huddle: 
+            %input#txtHuddleName{:name  => "huddle",
                                :type  => "text",
                                :value => "#{@huddle}"}
   
           %p
-          %input#joinHuddle{:type => "button",
+            %input#joinHuddle{:type => "button",
                             :value => "join huddle"}
-
+        
+        %div.clear
