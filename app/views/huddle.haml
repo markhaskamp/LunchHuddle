@@ -18,20 +18,27 @@
     %title Lunch Huddle, Huddle Info
 
   %body
-
-    %h3.main_title
-      %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
-    %h4 Huddle Info
-
-    Invite Others to Huddle #{@huddle}
-
-    %div#send_invites_view
-      %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
-        %input#txtHuddle{:type => "text", :name => "txtHuddle", :value => @huddle}
-        %p
-          %br enter a valid email address list
-          To: 
-          %br
-          %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4, :cols => 35}
+    
+    %div.section
+    
+      %h3.main_title.header
+        %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
   
-        %input#btnInvite{:type => "button", :value => "Send Invitation"}
+      %div#send_invites_view.view.has_header
+        %h4 Huddle Info
+    
+        %p Invite Others to Huddle #{@huddle}
+  
+        %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
+          %input#txtHuddle{:type => "text", :name => "txtHuddle", :value => @huddle}
+          %p
+            %br enter a valid email address list
+            To: 
+            %br
+            %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4}
+            %br
+            %br
+            %input#btnInvite{:type => "button", :value => "Send Invitation"}
+        
+        %div.clear
+        

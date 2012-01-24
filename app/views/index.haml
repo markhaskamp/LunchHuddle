@@ -31,51 +31,56 @@
     %div(pub-key="pub-f692f5fb-58e7-4f72-b195-0b04d3960da8" sub-key="sub-a2494751-c5a0-11e0-b441-f562192438d2" ssl="off" origin="pubsub.pubnub.com" id="pubnub")
 
     %div#all_content
-
-      %h3.main_title 
-        %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
   
       %div#log
         %div#log_toggle #{@log_toggle} 
         %div#log_content
   
       %div.section
-        %div#vote_view
+        %h3.main_title.header 
+          %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
+
+        %div#vote_view.view.has_header
           %form(action="#")
-            %span.drag_handle
+            %span.drag_handle.foo
               Welcome
-              %a#txtName{:href => "/userinfo?huddle=#{@huddle}"} 
+              %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
 
             %p
-              where to eat? &nbsp;
+              %label where to eat? &nbsp;
               %input#txtLunchSpot(type="text")
-              %br
-              comment: &nbsp;
+              
+            %p
+              %label comment: &nbsp;
               %input#txtMessage(type="text")
 
-            %input#btnVote.defaultButton{:type => "button", :value => "vote and/or comment"}
+            %input#btnVote.defaultButton{:type => "button", :value => "Send"}
+            
+          %div.clear
   
       %div.section
-        %div#vf_lunch_spots_view
-          %h3.drag_handle
-            %span.foo Huddle name: 
-            %span#huddle_name #{@huddle}
+        %div#vf_lunch_spots_view.view
+          %span.foo.drag_handle Huddle: 
+          %span#huddle_name.highlight #{@huddle}
           %div#vote_list
           %hr
-            %a{:href => "/huddle?huddle=#{@huddle}"}invite others to huddle
+            %a.invite{:href => "/huddle?huddle=#{@huddle}"}invite others
   
       %div.section
-        %div#vetoed_lunch_spots_view
-          %h3.drag_handle I Won't Eat There
+        %h4.drag_handle.header
+          %span I Won't Eat There
+
+        %div#vetoed_lunch_spots_view.view.has_header
           %div#veto_list
 
       %div.section
-        %div#saved_lunch_spots_view
-          %h3.drag_handle
-            %div#foo Saved Lunch Spots
-            %div#bar
-              %img.cursor_hover.toggle_view{:src => "images/up.png"}
-              %img.cursor_hover.toggle_view{:src => "images/down.png", :style => "display: none"}
+        %h4.drag_handle.header
+          %span#bar
+            %img.cursor_hover.toggle_view{:src => "images/up.png"}
+            %img.cursor_hover.toggle_view{:src => "images/down.png", :style => "display: none"}
 
+          %span#foo Saved Lunch Spots
+
+        %div#saved_lunch_spots_view.view.has_header
           %div#saved_lunch_spots
 
