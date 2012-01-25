@@ -22,16 +22,15 @@
     %div.section
       %div#user_info_view.view.has_header
         %h3 User Information
-        %p Fill in all the fields before joining the huddle
+        %p We need to collect some information before you join the huddle
         %form(action="/")
           %p
             name: 
             %input#txtName{:type => "text"}
           
           %p
-            email address: 
-            %input#txtEmailAddr{:type => "text"}
-            %a#why_email{:href => "#"} ?
+            probably unique id 
+            %input#txtUniqueId{:type => "text", :disabled => "disabled"}
           
           %p
             huddle: 
