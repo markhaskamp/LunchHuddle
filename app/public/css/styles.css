@@ -383,6 +383,11 @@ h3 #foo {
   clear: both;
 }
 
+.toggle_view.open {
+  margin-top: 3px;
+}
+
 .clear {
   clear: both;
 }
+

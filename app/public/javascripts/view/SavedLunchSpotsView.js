@@ -13,7 +13,14 @@ var SavedLunchSpotsView = Backbone.View.extend({
 
   , on_toggle_view_click: function() {
     $('.toggle_view').toggle();
-    $('#saved_lunch_spots_view #saved_lunch_spots').toggle();
+    
+    var $toggleDiv = $('#saved_lunch_spots_view #saved_lunch_spots');
+    $toggleDiv.toggle();
+    
+    if ($toggleDiv.css('display') === 'none')
+      $('#saved_lunch_spots_view .header').addClass('closed');
+    else
+      $('#saved_lunch_spots_view .header').removeClass('closed');
   }
 
   ,get_lunch_spots: function() {
