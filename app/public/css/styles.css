@@ -31,6 +31,15 @@ label {
   width: 120px;
 }
 
+.form_control_section {
+  margin-top: 40px;
+}
+
+.user_info_explanation {
+  font-size: .85em;
+  margin-left: 15px;
+}
+
 textarea,
 input {
   background-color: #FFFAF5;
@@ -345,11 +354,6 @@ h3 span.foo {
   cursor: move;
 }
 
-/*
-h3 #foo {
-  float: left;
-}
-*/
 .header #bar {
   float: right;
 }
