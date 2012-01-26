@@ -27,8 +27,6 @@
     %title Lunch Huddle
 
   %body
-    %img.cursor_hover.toggle_view{:src => "images/up.png"}
-
     %div(pub-key="pub-f692f5fb-58e7-4f72-b195-0b04d3960da8" sub-key="sub-a2494751-c5a0-11e0-b441-f562192438d2" ssl="off" origin="pubsub.pubnub.com" id="pubnub")
 
     %div#all_content
@@ -74,7 +72,7 @@
         %div#vetoed_lunch_spots_view.view.has_header
           %div#veto_list
 
-      %div.section
+      %div#saved_lunch_spots_view.section
         %h4.drag_handle.header
           %span#bar
             %img.cursor_hover.toggle_view{:src => "images/up.png"}
@@ -82,6 +80,5 @@
 
           %span#foo Saved Lunch Spots
 
-        %div#saved_lunch_spots_view.view.has_header
-          %div#saved_lunch_spots
+        %div#saved_lunch_spots.view.has_header
 

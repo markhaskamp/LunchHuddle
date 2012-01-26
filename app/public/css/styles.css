@@ -101,6 +101,10 @@ textarea {
   text-shadow: -1px 1px 1px #333;
 }
 
+.header.closed {
+  border-radius: 7px;
+}
+
 h4.header {
   background-color: #6C6C6C;
   background-image: -moz-linear-gradient(84deg, #6C6C6C, #B1B1B1);
