@@ -11,15 +11,17 @@
     %script{:type => "text/javascript", :src =>"javascripts/utility.js"}
 
   %body
-
-    %h3.main_title Lunch Huddle
-
-    %div.land_content
-
-      %div.land_link 
-        %a{:href => "/userinfo"} register
-
-      %div.land_link
-        %a{:href => "/?huddle=#{@huddle}"} join huddle
-
-      %div.land_link create new huddle
+    %div.section
+    
+      %h3.main_title.header
+        %span Lunch Huddle
+  
+      %div.land_content.view.has_header
+  
+        %div.land_link 
+          %a{:href => "/userinfo"} register
+  
+        %div.land_link
+          %a{:href => "/?huddle=#{@huddle}"} join huddle
+  
+        %div.land_link create new huddle

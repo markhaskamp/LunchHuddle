@@ -25,16 +25,16 @@
         %p Fill in all the fields before joining the huddle
         %form(action="/")
           %p
-            name: 
+            %label name: 
             %input#txtName{:type => "text"}
           
           %p
-            email address: 
+            %label email address: 
             %input#txtEmailAddr{:type => "text"}
             %a#why_email{:href => "#"} ?
           
           %p
-            huddle: 
+            %label huddle: 
             %input#txtHuddleName{:name  => "huddle",
                                :type  => "text",
                                :value => "#{@huddle}"}
