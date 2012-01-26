@@ -31,6 +31,7 @@ end
 
 get '/' do
   @huddle = params[:huddle]
+  redirect "/userinfo" if @huddle == nil
 
   @log_toggle = params[:log_toggle]
   @log_toggle ||= 'n'
