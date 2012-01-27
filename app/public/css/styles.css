@@ -30,16 +30,18 @@ p {
 
 label {
   width: 120px;
-  line-height: 25px;
+  line-height: 26px;
 }
 
 .form_control_section {
-  margin-top: 40px;
+  margin-top: 22px;
 }
 
 .user_info_explanation {
-  font-size: .85em;
-  margin-left: 15px;
+  font-size: .80em;
+  text-align: right;
+  font-style: italic;
+  padding-right: 5px;
 }
 
 textarea,
