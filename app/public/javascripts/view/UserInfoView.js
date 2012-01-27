@@ -1,15 +1,17 @@
 var UserInfoView = Backbone.View.extend ({
 
-  events: {
-    "click #why_email":  "onClickForWhyEmail"
-    , "click #joinHuddle": "onClickJoinHuddle"
+  initialize: function() {
+    $('#txtUniqueId').hide();
+    this.enable_join_button();
   }
 
-  , onClickForWhyEmail: function() {
-    alert("We use your email address as a way to uniquely identify users, which is handy in case more than one huddler has the same name*. The only place we store it is locally on your machine in a cookie. \n\n* Don't tell anyone but we don't even verify it.");
+  ,events: {
+    "keyup #txtName"       : "enable_join_button"
+    ,"keyup #txtHuddleName": "enable_join_button"
+    ,"click #joinHuddle"   : "onClickJoinHuddle"
   }
 
-  , onClickJoinHuddle: function() {
+  ,onClickJoinHuddle: function() {
     UserInfo.save_form_info();
 
     var huddle_param = '';
@@ -22,55 +24,60 @@ var UserInfoView = Backbone.View.extend ({
     window.location = url;
   }
 
-  , disable_join_huddle_action: function() {
-    $('#joinHuddle').attr('disabled', 'disabled');
-  },
+  ,enable_join_button: function() {
+    if (this.name_is_empty() || this.huddle_is_empty()) {
+      this.disable_join_huddle_action();
+    }
+    else {
+      this.enable_join_huddle_action();
+    }
+  }
 
-  enable_join_huddle_action: function() {
-    $('#joinHuddle').removeAttr('disabled');
-  },
+  ,disable_join_huddle_action: function() {
+    $('#joinHuddle').hide();
+  }
 
-  get_name: function() {
+  ,enable_join_huddle_action: function() {
+    $('#joinHuddle').show();
+  }
+
+  ,get_name: function() {
     return($('#txtName').val());
-  },
+  }
 
-  set_name: function(s) {
+  ,set_name: function(s) {
     return($('#txtName').val(s));
-  },
+  }
 
-  set_name_on_index: function(s) {
+  ,set_name_on_index: function(s) {
     $('#txtName').text(s);
-  },
+  }
 
-  get_id: function() {
-    return($('#txtEmailAddr').val());
-  },
+  ,get_id: function() {
+    return($('#txtUniqueId').val());
+  }
 
-  set_id: function(s) {
-    return($('#txtEmailAddr').val(s));
-  },
+  ,set_id: function(s) {
+    return($('#txtUniqueId').val(s));
+  }
 
-  get_huddle_name: function() {
+  ,get_huddle_name: function() {
     return($('#txtHuddleName').val());
-  },
+  }
 
-  set_huddle_name: function(s) {
+  ,set_huddle_name: function(s) {
     return($('#txtHuddleName').val(s));
-  },
+  }
 
-  name_is_empty: function() {
+  ,name_is_empty: function() {
     return(this.form_field_is_empty('#txtName'));
-  },
+  }
 
-  email_addr_is_empty: function() {
-    return(this.form_field_is_empty('#txtEmailAddr'));
-  },
-
-  huddle_is_empty: function() {
+  ,huddle_is_empty: function() {
     return(this.form_field_is_empty('#txtHuddleName'));
-  },
+  }
 
-  form_field_is_empty: function(selector_string) {
+  ,form_field_is_empty: function(selector_string) {
 
     var form_val = $(selector_string).val();
     if (form_val === "") {
@@ -90,6 +97,6 @@ var UserInfoView = Backbone.View.extend ({
   }
 
 }
-)
+);
 
 

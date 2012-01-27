@@ -1,11 +1,11 @@
 var user_info_view;
 $(document).ready( function() {
   user_info_view = new UserInfoView({ "el": $('#user_info_view') });
-
   user_info_view.disable_join_huddle_action();
 
+  $('#txtUniqueId').val($('#txtName').val() + '.' + new Date().getTime());
   $('#txtName').blur( function() { UserInfo.enable_join_button(); });
-  $('#txtEmailAddr').blur( function() { UserInfo.enable_join_button(); });
+  // $('#txtEmailAddr').blur( function() { UserInfo.enable_join_button(); });
   $('#txtHuddleName').blur( function() { UserInfo.enable_join_button(); });
 
 
@@ -26,8 +26,8 @@ $(document).ready( function() {
 
 var UserInfo = {
   enable_join_button: function() {
+    $('#txtUniqueId').val($('#txtName').val() + '.' + new Date().getTime());
     if (user_info_view.name_is_empty()       ||
-        user_info_view.email_addr_is_empty() ||
         user_info_view.huddle_is_empty()) {
 
       user_info_view.disable_join_huddle_action();
@@ -49,10 +49,6 @@ var UserInfo = {
 
   user_is_logged_in: function() {
     if(user_info_view.name_is_empty()) {
-      return(false);
-    }
-
-    if(user_info_view.email_addr_is_empty()) {
       return(false);
     }
 

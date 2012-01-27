@@ -22,23 +22,27 @@
     %div.section
       %div#user_info_view.view.has_header
         %h3 User Information
-        %p Fill in all the fields before joining the huddle
+        %p We need to collect some information before you join the huddle
         %form(action="/")
           %p
-            %label name: 
-            %input#txtName{:type => "text"}
-          
-          %p
-            %label email address: 
-            %input#txtEmailAddr{:type => "text"}
-            %a#why_email{:href => "#"} ?
-          
-          %p
-            %label huddle: 
+            %label Huddle 
             %input#txtHuddleName{:name  => "huddle",
                                :type  => "text",
                                :value => "#{@huddle}"}
-  
+
+          %p.user_info_explanation
+            The huddle name. All your lunch buds need to use this same name.
+
+          %p.form_control_section
+            %label Your Name 
+            %input#txtName{:type => "text"}
+          
+          %p.user_info_explanation
+            The name you'll use in the huddle.
+
+          %span
+            %input#txtUniqueId{:type => "text", :disabled => "disabled"}
+          
           %p
             %input#joinHuddle{:type => "button",
                             :value => "join huddle"}
