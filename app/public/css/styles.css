@@ -396,3 +396,9 @@ h3 span.foo {
 .clear {
   clear: both;
 }
+
+#invitee_list input {
+  display: inline;
+  width: 20px;
+}
+

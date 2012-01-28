@@ -21,7 +21,7 @@
 
   %body
     
-    %div.section
+    %div.section#huddle_invite
     
       %h3.main_title.header
         %a.home_link{:href => "/land?huddle=#{@huddle}"} Lunch Huddle
@@ -33,14 +33,13 @@
   
         %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
           %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
-          %p
-            %br enter a valid email address list
-            To: 
-            %br
-            %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4}
-            %br
-            %br
+          %p 
+            Send an invite from the list below
             %div#invitee_list
+
+          %p 
+            along with
+            %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4}
 
             %input#btnInvite{:type => "button", :value => "Send Invitation"}
         

@@ -12,9 +12,8 @@ var SendInvitesView = Backbone.View.extend({
     var invitees_email_list = invitees_email_string.split(',');
     var list_json = {};
     list_json.list = invitees_email_list;
-    var checkbox_template = '{{#list}}<input type="checkbox" name="chkInvitee" value="{{.}}" checked="checked" />{{.}}{{/list}}';
+    var checkbox_template = '{{#list}}<p><input type="checkbox" name="chkInvitee" value="{{.}}" checked="checked" />{{.}}</p>{{/list}}';
     $('#invitee_list').html(Mustache.to_html(checkbox_template, list_json));
-
   }
 
   ,on_btnInvite_click: function() {
