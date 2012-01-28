@@ -11,4 +11,8 @@ $(document).ready(function() {
   if (type(previous_invitees) === "String") {
     $('#txtEmailAddr').val(previous_invitees);
   }
+
+  var invitees_email_string = DataStore.get_invitees_list();
+  send_invites_view.display_invitee_list(invitees_email_string);
+
 });

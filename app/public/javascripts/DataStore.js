@@ -1,7 +1,25 @@
 
 var DataStore = {
 
-  save_lunch_spot: function(lunch_spot) {
+  ping: function() {
+    return('DataStore');
+  }
+
+  ,save_invitees_list: function(invitees_list) {
+    if (Modernizr.localstorage) {
+      localStorage.setItem('lh_invitees', invitees_list);
+    }
+  }
+
+  ,get_invitees_list: function(invitees_list) {
+    if (Modernizr.localstorage) {
+      var invitees_list = localStorage.getItem('lh_invitees');
+      return invitees_list;
+    }
+    return null;
+  }
+
+  ,save_lunch_spot: function(lunch_spot) {
     if (Modernizr.localstorage) {
       var saved_lunch_spots = [];
       var saved_lunch_spots_string = localStorage.getItem('lh_lunch_spots');
@@ -18,9 +36,9 @@ var DataStore = {
         localStorage.setItem('lh_lunch_spots', saved_lunch_spots);
       }
     }
-  },
+  }
 
-  remove_lunch_spot: function(lunch_spot) {
+  ,remove_lunch_spot: function(lunch_spot) {
     if (Modernizr.localstorage) {
       var saved_lunch_spots = [];
       var saved_lunch_spots_string = localStorage.getItem('lh_lunch_spots');
@@ -34,9 +52,9 @@ var DataStore = {
         localStorage.setItem('lh_lunch_spots', new_list);
       }
     }
-  },
+  }
 
-  get_lunch_spots: function() {
+  ,get_lunch_spots: function() {
     try {
       if (Modernizr.localstorage) {
         var lunch_spot_string = localStorage.getItem('lh_lunch_spots');

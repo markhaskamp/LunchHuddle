@@ -54,9 +54,6 @@ post '/huddle/invite' do
   huddle = params[:txtHuddle]
   to_addr = params[:txtEmailAddr]
 
-  puts "---> huddle: #{huddle} <---"
-  puts "---> to_addr: #{to_addr} <---"
-
   MyMailer.email(to_addr, huddle).deliver
 
   redirect "/?huddle=#{huddle}"
