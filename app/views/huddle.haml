@@ -33,6 +33,7 @@
   
         %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
           %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
+          %input#hdnEmailAddr{:type => "hidden", :name => "hdnEmailAddr"}
           %p 
             Send an invite from the list below
             %div#invitee_list

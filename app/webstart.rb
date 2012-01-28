@@ -51,8 +51,8 @@ get '/huddle' do
 end
 
 post '/huddle/invite' do
-  huddle = params[:txtHuddle]
-  to_addr = params[:txtEmailAddr]
+  huddle  = params[:txtHuddle]
+  to_addr = params[:hdnEmailAddr]
 
   MyMailer.email(to_addr, huddle).deliver
 

@@ -5,12 +5,12 @@ $(document).ready(function() {
 
   send_invites_view = new SendInvitesView({"el": $("#send_invites_view")});
 
-  var cookie_name = $('#txtHuddle').val() + '_invitees';
-  var previous_invitees = $.cookie(cookie_name);
+  // var cookie_name = $('#txtHuddle').val() + '_invitees';
+  // var previous_invitees = $.cookie(cookie_name);
 
-  if (type(previous_invitees) === "String") {
-    $('#txtEmailAddr').val(previous_invitees);
-  }
+  // if (type(previous_invitees) === "String") {
+  //   $('#txtEmailAddr').val(previous_invitees);
+  // }
 
   var invitees_email_string = DataStore.get_invitees_list();
   send_invites_view.display_invitee_list(invitees_email_string);
