@@ -15,6 +15,9 @@ ActionMailer::Base.smtp_settings = {
 class MyMailer < ActionMailer::Base
   def email to_addr, huddle
 
+    puts "===== SENDGRID_DOMAIN #{ENV['SENDGRID_DOMAIN']}\n"
+    puts "===== SENDGRID_USERNAME #{ENV['SENDGRID_USERNAME ']}\n"
+
     if (ENV['SENDGRID_DOMAIN'] == nil) 
       puts "===== SENDGRID_DOMAIN is nil."
       puts "===== to_addr: #{to_addr}\n"
@@ -62,7 +65,8 @@ post '/huddle/invite' do
   to_addr = params[:hdnEmailAddr]
 
   mailer = MyMailer.email(to_addr, huddle)
-  mailer.deliver if ENV['SENDGRID_DOMAIN'] != nil
+  # mailer.deliver if ENV['SENDGRID_DOMAIN'] != nil
+  mailer.deliver
 
   redirect "/?huddle=#{huddle}"
 end
