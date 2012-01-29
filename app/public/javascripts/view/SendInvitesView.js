@@ -10,8 +10,20 @@ var SendInvitesView = Backbone.View.extend({
   }
 
   ,delete_email_address: function(e) {
-    // debugger;
-    console.log( $(e.currentTarget).prev().text() );
+    var deleted_addr = $(e.currentTarget).prev().text();
+    var old_invitee_string = DataStore.get_invitees_list();
+    var old_invitee_list = old_invitee_string.split(',');
+    var new_invitee_list = [];
+
+    $.each(old_invitee_list, function(ndx, item) {
+      if (item !== deleted_addr) {
+        new_invitee_list.push(item);
+      }
+    });
+
+    DataStore.save_invitees_list(new_invitee_list);
+
+    $(e.currentTarget).parent().html('');
   }
 
   ,display_invitee_list: function(invitees_email_string) {
@@ -36,9 +48,10 @@ var SendInvitesView = Backbone.View.extend({
 
   ,on_btnInvite_click: function() {
     var existing_invitees = this.get_checked_email_addrs();
-    var new_invitees = $('#txtEmailAddr').val();
-    new_invitees = this.normalize_invitees(new_invitees);
+    var new_invitees      = $('#txtEmailAddr').val();
+    new_invitees          = this.normalize_invitees(new_invitees);
     var new_invitees_list = new_invitees.split(',');
+
     $.each(new_invitees_list, function(ndx, item) {
       existing_invitees.push(item);      
     });
@@ -51,7 +64,9 @@ var SendInvitesView = Backbone.View.extend({
   ,get_checked_email_addrs: function() {
     var return_list = [];
     $.each($('.invitee_email'), function(ndx, item) {
-      return_list.push($(item).val());
+      if ($(item).is(':checked')) {
+        return_list.push($(item).val());
+      }
     });
 
     return return_list;
