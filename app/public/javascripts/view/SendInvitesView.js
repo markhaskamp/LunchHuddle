@@ -11,8 +11,7 @@ var SendInvitesView = Backbone.View.extend({
 
   ,delete_email_address: function(e) {
     var deleted_addr = $(e.currentTarget).prev().text();
-    var old_invitee_string = DataStore.get_invitees_list();
-    var old_invitee_list = old_invitee_string.split(',');
+    var old_invitee_list = DataStore.get_invitees_list();
     var new_invitee_list = [];
 
     $.each(old_invitee_list, function(ndx, item) {
@@ -26,9 +25,8 @@ var SendInvitesView = Backbone.View.extend({
     $(e.currentTarget).parent().html('');
   }
 
-  ,display_invitee_list: function(invitees_email_string) {
-    if (invitees_email_string != null) {
-      var invitees_email_list = invitees_email_string.split(',');
+  ,display_invitee_list: function(invitees_email_list) {
+    if (invitees_email_list.length > 0) {
       var list_json = {};
       list_json.list = invitees_email_list;
       var checkbox_template = 
@@ -55,10 +53,25 @@ var SendInvitesView = Backbone.View.extend({
     $.each(new_invitees_list, function(ndx, item) {
       existing_invitees.push(item);      
     });
-    DataStore.save_invitees_list(existing_invitees);
+
+    if(this.view_has_new_invitees()) {
+      this.save_invitee_list(new_invitees_list);
+    }
 
     $('#hdnEmailAddr').val(existing_invitees.join(','));
     $('#frmSendInvite').submit();
+  }
+
+  ,view_has_new_invitees: function() {
+    var new_invitees = $('#txtEmailAddr').val();
+
+    return (new_invitees.trim().length > 0);
+  }
+
+  ,save_invitee_list: function(new_invitee_list) {
+    var existing_invitees = this.get_existing_invitees();
+    var all_invitees = existing_invitees.concat(new_invitee_list);
+    DataStore.save_invitees_list(all_invitees);
   }
 
   ,get_checked_email_addrs: function() {
@@ -67,6 +80,15 @@ var SendInvitesView = Backbone.View.extend({
       if ($(item).is(':checked')) {
         return_list.push($(item).val());
       }
+    });
+
+    return return_list;
+  }
+
+  ,get_existing_invitees: function() {
+    var return_list = [];
+    $.each($('.invitee_email'), function(ndx, item) {
+      return_list.push($(item).val());
     });
 
     return return_list;

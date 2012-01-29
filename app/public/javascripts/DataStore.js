@@ -14,7 +14,7 @@ var DataStore = {
   ,get_invitees_list: function(invitees_list) {
     if (Modernizr.localstorage) {
       var invitees_list = localStorage.getItem('lh_invitees');
-      return invitees_list;
+      return invitees_list.split(',');;
     }
     return null;
   }

@@ -12,7 +12,7 @@ $(document).ready(function() {
   //   $('#txtEmailAddr').val(previous_invitees);
   // }
 
-  var invitees_email_string = DataStore.get_invitees_list();
-  send_invites_view.display_invitee_list(invitees_email_string);
+  var invitees_email_list = DataStore.get_invitees_list();
+  send_invites_view.display_invitee_list(invitees_email_list);
 
 });
