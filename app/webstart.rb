@@ -16,7 +16,7 @@ class MyMailer < ActionMailer::Base
   def email to_addr, huddle
 
     puts "===== SENDGRID_DOMAIN #{ENV['SENDGRID_DOMAIN']}\n"
-    puts "===== SENDGRID_USERNAME #{ENV['SENDGRID_USERNAME ']}\n"
+    puts "===== SENDGRID_USERNAME #{ENV['SENDGRID_USERNAME']}\n"
 
     if (ENV['SENDGRID_DOMAIN'] == nil) 
       puts "===== SENDGRID_DOMAIN is nil."
