@@ -139,6 +139,6 @@ function handle_user_enters_root_page(huddle_name) {
     delete_saved_lunch_spot(ele);
   });
 
-  message_svc.send_join_huddle_message(huddle_name);
+  message_svc.process_history(huddle_name);
 }
 
