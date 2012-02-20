@@ -4,9 +4,6 @@ $(document).ready( function() {
   user_info_view.disable_join_huddle_action();
 
   $('#txtUniqueId').val($('#txtName').val() + '.' + new Date().getTime());
-  $('#txtName').blur( function() { UserInfo.enable_join_button(); });
-  // $('#txtEmailAddr').blur( function() { UserInfo.enable_join_button(); });
-  $('#txtHuddleName').blur( function() { UserInfo.enable_join_button(); });
 
 
   // pull name and id from cookies
