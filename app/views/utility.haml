@@ -2,26 +2,42 @@
 %html
   %head
     %link(rel="stylesheet" href="css/styles.css")
-    %script{:type => "text/javascript", :src =>"javascripts/jquery-1.7.1.min.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/jjquery.cookie-modified.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/underscore.min.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/Modernizr.dev.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.7.1.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/Modernizr.dev.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/UserInfoLib.js"}
     %script{:type => "text/javascript", :src =>"javascripts/utility.js"}
 
   %body
 
     %h3.main_title Lunch Huddle
-    %a{:href => "/?huddle=#{@huddle}"} Return to Huddle
-
     %h4 Utility Page
+
+    %p
+      %a{:href => "/?huddle=#{@huddle}"} Return to Huddle
+
     .div.section
       %h4 Information
-      this browser supports localstorage? 
-      %b
-        %span#local_storage
+      %p
+        this browser supports localstorage? 
+        %b
+          %span#local_storage
+
+      %p
+        Id
+        %b
+          %span#user_id
+
+      %p
+        Name
+        %b
+          %span#user_name
 
     .div.section
       %h4 Local Data
 
-      %div.cursor_hover#clear_local_storage clear saved lunch spots
+      
+      %div.cursor_hover
+        %input#clear_local_storage{:type => "button", :value => "clear saved lunch spots"}
