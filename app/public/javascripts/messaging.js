@@ -90,7 +90,7 @@ var PubnubSvc = {
   }
 
   , build_huddle_name: function(huddle_name) {
-    huddle_name = huddle_name.toLowerCase();
+    huddle_name.toLowerCase();
 
     var dt = new Date();
     var y  = dt.getFullYear();
@@ -98,7 +98,6 @@ var PubnubSvc = {
     var dy = dt.getDate();
     huddle_name = huddle_name + '_' + y + m + dy;
 
-    Logger.append('huddle_name: [' + huddle_name + ']');
     return huddle_name;
   }
 }
