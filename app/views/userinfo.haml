@@ -7,7 +7,6 @@
     %script{:type => "text/javascript", :src =>"javascripts/lib/backbone-min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/jjquery.cookie-modified.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/UserInfoLib.js"}
     %script{:type => "text/javascript", :src =>"javascripts/UserInfo.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/DataStore.js"}
@@ -48,10 +47,4 @@
             %input#joinHuddle{:type => "button",
                             :value => "join huddle"}
         
-          %div.clear
-
-          %div
-            %p#utility_link
-              %a{:href => "utility?huddle=#{@huddle}"}
-                %img{:src => "images/options.png" }
-
+        %div.clear

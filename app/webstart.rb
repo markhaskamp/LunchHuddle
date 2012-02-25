@@ -47,7 +47,7 @@ end
 
 get '/huddle' do
   @huddle = params[:huddle]
-  @huddle ||= ''
+  @huddle ||= 'lunch_huddle'
   haml :huddle
 end
 
@@ -61,7 +61,7 @@ end
 
 get '/utility' do
   @huddle = params[:huddle]
-  @huddle ||= ''
+  @huddle ||= 'lunch_huddle'
   haml :utility
 end
 
