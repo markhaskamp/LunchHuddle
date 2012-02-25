@@ -70,8 +70,9 @@ var PubnubSvc = {
                     // ,limit : 25
                    }
                    , function(messages) {
-                      var last_votes_packet = messages[messages.length-1];
-                      vote_handler(last_votes_packet);
+                      console.log('history messages.length');
+                      console.log(messages.length);
+                      console.log(messages);
                    })
 
   }
