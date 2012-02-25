@@ -59,10 +59,7 @@ var PubnubSvc = {
     huddle_name = this.build_huddle_name(huddle_name); 
     PUBNUB.publish({
       channel : huddle_name,
-      message : message_package,
-      callback: function(info) {
-        Logger.append('callback from publish\ninfo[0]: [' + info[0] + ']\ninfo[1]: [' + info[1] + ']');
-      }
+      message : message_package
     })
   }
 
