@@ -63,18 +63,17 @@ var PubnubSvc = {
     })
   }
 
-  , process_history: function(huddle_name) {
-    huddle_name = this.build_huddle_name(huddle_name); 
-    PUBNUB.history({
-                    channel : huddle_name
-                    // ,limit : 25
-                   }
-                   , function(messages) {
-                      console.log('history messages.length');
-                      console.log(messages.length);
-                      console.log(messages);
-                   })
+  , send_join_huddle_message: function(huddle_name) {
+    Logger.append('send_join_huddle_message. enter.');
+    Logger.append('lowercase huddle_name: ' + huddle_name.toLowerCase());
 
+    var message_package = {};
+    message_package.msg_type = 'join_huddle';
+    huddle_name = this.build_huddle_name(huddle_name); 
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
   }
 
   , send_veto_message: function(lunch_spot_list) {
