@@ -43,7 +43,7 @@ var SavedLunchSpotsView = Backbone.View.extend({
         // var html_val = $('#saved_lunch_spots').val();
         var html_val = '';
   
-        $.each(lunch_spot_list.sort(function(a,b) { return(a.toLowerCase() > b.toLowerCase()); }), 
+        $.each(lunch_spot_list.sort(function(a,b) { return(a > b); }), 
           function(ndx, spot) {
             var div_line = 
                 '<div id="saved_list">' +
