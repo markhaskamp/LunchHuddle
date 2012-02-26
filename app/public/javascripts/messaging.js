@@ -36,11 +36,10 @@ var PubnubSvc = {
   subscribe_to_huddle: function(huddle_name) {
 
     // LISTEN FOR MESSAGES
-    huddle_name = this.build_huddle_name(huddle_name); 
     PUBNUB.subscribe({
-        channel  : huddle_name,        // CONNECT TO THIS CHANNEL.
+        channel  : huddle_name.toLowerCase(),        // CONNECT TO THIS CHANNEL.
         error    : function() {        // LOST CONNECTION (auto reconnects)
-            alert("PUBNUB subscribe error. Connection Lost. Will auto-reconnect when Online.")
+            alert("Connection Lost. Will auto-reconnect when Online.")
         },
         callback : function(message) { // RECEIVED A MESSAGE.
             vote_handler(message)
@@ -51,29 +50,26 @@ var PubnubSvc = {
 
   , send_my_votes: function (huddle_name, existing_votes) {
     Logger.append('send_my_votes. enter.');
-
     var message_package = {};
     message_package.msg_type = 'votes';
     message_package.votes = existing_votes;
 
-    huddle_name = this.build_huddle_name(huddle_name); 
     PUBNUB.publish({
-      channel : huddle_name,
+      channel : huddle_name.toLowerCase(),
       message : message_package
     })
   }
 
-  , process_history: function(huddle_name) {
-    huddle_name = this.build_huddle_name(huddle_name); 
-    PUBNUB.history({
-                    channel : huddle_name
-                    // ,limit : 25
-                   }
-                   , function(messages) {
-                      var last_votes_packet = messages[messages.length-1];
-                      vote_handler(last_votes_packet);
-                   })
+  , send_join_huddle_message: function(huddle_name) {
+    Logger.append('send_join_huddle_message. enter.');
+    Logger.append('lowercase huddle_name: ' + huddle_name.toLowerCase());
 
+    var message_package = {};
+    message_package.msg_type = 'join_huddle';
+    PUBNUB.publish({
+      channel : huddle_name.toLowerCase(),
+      message : message_package
+    })
   }
 
   , send_veto_message: function(lunch_spot_list) {
@@ -82,24 +78,10 @@ var PubnubSvc = {
     message_package.msg_type   = 'veto';
     message_package.lunch_spot_list = lunch_spot_list;
 
-    huddle_name = this.build_huddle_name(vf_lunch_spots_view.get_huddle().toLowerCase()); 
     PUBNUB.publish({
-            channel: huddle_name
+            channel: vf_lunch_spots_view.get_huddle().toLowerCase()
             , message: message_package
     })
-  }
-
-  , build_huddle_name: function(huddle_name) {
-    huddle_name = huddle_name.toLowerCase();
-
-    var dt = new Date();
-    var y  = dt.getFullYear();
-    var m  = dt.getMonth();
-    var dy = dt.getDate();
-    huddle_name = huddle_name + '_' + y + m + dy;
-
-    Logger.append('huddle_name: [' + huddle_name + ']');
-    return huddle_name;
   }
 }
 
