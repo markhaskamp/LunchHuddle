@@ -13,6 +13,8 @@ $(document).ready(function() {
   // }
 
   var invitees_email_list = DataStore.get_invitees_list();
-  send_invites_view.display_invitee_list(invitees_email_list);
+  if (invitees_email_list !== null) {
+    send_invites_view.display_invitee_list(invitees_email_list);
+  }
 
 });
