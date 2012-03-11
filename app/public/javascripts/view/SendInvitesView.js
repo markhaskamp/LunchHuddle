@@ -3,10 +3,39 @@ var SendInvitesView = Backbone.View.extend({
   events: {
     "click #btnInvite": "on_btnInvite_click"
     ,"click .delete_email_addr": "delete_email_address"
+    ,"keyup #txtEmailAddr": "enable_send_invite_button"
+    ,"change .invitee_email": "enable_send_invite_button"
   }
 
   , initialize: function() {
     var cookie_name = $('#txtHuddle').val() + '_invitees';
+  }
+
+  ,enable_send_invite_button: function() {
+    if (this.no_emails_checked() && this.new_invitees_is_empty()) {
+      this.disable_send_invite_action();
+    }
+    else {
+      this.enable_send_invite_action();
+    }
+  }
+
+  ,no_emails_checked: function() {
+    var bool = ($('.invitee_email').is(':checked') === false);
+    return bool;
+  }
+
+  ,new_invitees_is_empty: function() {
+    var bool = ($('#txtEmailAddr').val().trim().length === 0);
+    return bool;
+  }
+
+  ,disable_send_invite_action: function() {
+    $('#btnInvite').hide();
+  }
+
+  ,enable_send_invite_action: function() {
+    $('#btnInvite').show();
   }
 
   ,delete_email_address: function(e) {

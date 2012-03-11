@@ -31,7 +31,7 @@
         %h4 Huddle Info
     
         %p Invite Others to <b>#{@huddle}</b> Huddle
-  
+
         %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
           %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
           %input#hdnEmailAddr{:type => "hidden", :name => "hdnEmailAddr"}
@@ -40,8 +40,10 @@
             %div#invitee_list
 
           %p 
-            along with
-            %textarea#txtEmailAddr{:name => "txtEmailAddr", :rows => 4, :placeholder => "person@yahoo.com, another_invitee@gmail.com"}
+            For new invitees, enter their email addresses in the box below
+            %textarea#txtEmailAddr{:name => "txtEmailAddr", 
+                                   :rows => 4, 
+                                   :placeholder => "person@yahoo.com, another_invitee@gmail.com"}
 
             %input#btnInvite{:type => "button", :value => "Send Invitation"}
         

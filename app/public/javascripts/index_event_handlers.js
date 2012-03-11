@@ -50,36 +50,38 @@ function i_vote() {
 }
 
 function vote_handler(message_package) {
-  Logger.append('vote_handler. enter. msg_type: [' + message_package.msg_type + ']');
-
-  if (message_package.msg_type === 'votes') {
-
-    var received_votes       = message_package.votes;
-    var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
-    var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
-
-    var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
-    $('#vote_list').html(html_val);
-
-    // set_style_for_my_vote();
-    $('.vote_item > .user_id').each(function(ndx) {
-      var ele = $(this);
-      if (ele.html() === cookie_user_id) {
-        ele.parent().find('.vote').first().removeClass('vote_color');
-        ele.parent().find('.vote').first().addClass('my_vote_color');
-
-        ele.parent().find('.user_name').first().removeClass('vote_color');
-        ele.parent().find('.user_name').first().addClass('my_vote_color');
-      }
-    });
-  }
-
-  if (message_package.msg_type === 'join_huddle') {
-    i_vote();
-  }
-
-  if (message_package.msg_type === 'veto') {
-    vetoed_lunch_spots_view.render(message_package.lunch_spot_list);
+  if (message_package !== undefined) {
+    Logger.append('vote_handler. enter. msg_type: [' + message_package.msg_type + ']');
+  
+    if (message_package.msg_type === 'votes') {
+  
+      var received_votes       = message_package.votes;
+      var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
+      var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
+  
+      var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
+      $('#vote_list').html(html_val);
+  
+      // set_style_for_my_vote();
+      $('.vote_item > .user_id').each(function(ndx) {
+        var ele = $(this);
+        if (ele.html() === cookie_user_id) {
+          ele.parent().find('.vote').first().removeClass('vote_color');
+          ele.parent().find('.vote').first().addClass('my_vote_color');
+  
+          ele.parent().find('.user_name').first().removeClass('vote_color');
+          ele.parent().find('.user_name').first().addClass('my_vote_color');
+        }
+      });
+    }
+  
+    if (message_package.msg_type === 'join_huddle') {
+      i_vote();
+    }
+  
+    if (message_package.msg_type === 'veto') {
+      vetoed_lunch_spots_view.render(message_package.lunch_spot_list);
+    }
   }
 }
 
