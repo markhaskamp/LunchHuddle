@@ -11,7 +11,7 @@ var SavedLunchSpotsView = Backbone.View.extend({
   }
 
   , on_toggle_view_click: function() {
-    console.log('eddie would go');
+
     $('.toggle_view').toggle();
     
     var $toggleDiv = $('#saved_lunch_spots_view #saved_lunch_spots');

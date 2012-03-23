@@ -35,51 +35,54 @@
       %div#log
         %div#log_toggle #{@log_toggle} 
         %div#log_content
+    %div#all_content.cols_2
+      %div.column
+ 
+        %div.section
+          %h3.main_title.header 
+            %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
   
-      %div.section
-        %h3.main_title.header 
-          %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
-
-        %div#vote_view.view.has_header
-          %form(action="#")
-            %span.drag_handle.foo
-              Welcome
-              %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
-
-            %p
-              %label where to eat? &nbsp;
-              %input#txtLunchSpot(type="text")
+          %div#vote_view.view.has_header
+            %form(action="#")
+              %span.drag_handle.foo
+                Welcome
+                %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
+  
+              %p
+                %label where to eat? &nbsp;
+                %input#txtLunchSpot(type="text")
+                
+              %p
+                %label comment: &nbsp;
+                %input#txtMessage(type="text")
+  
+              %input#btnVote.defaultButton{:type => "button", :value => "Send"}
               
-            %p
-              %label comment: &nbsp;
-              %input#txtMessage(type="text")
+            %div.clear
 
-            %input#btnVote.defaultButton{:type => "button", :value => "Send"}
-            
-          %div.clear
+        %div#saved_lunch_spots_view.section
+          %h4.drag_handle.header
+            %span#bar
+              %img.cursor_hover.toggle_view.open{:src => "images/toggle_open.png"}
+              %img.cursor_hover.toggle_view{:src => "images/toggle_collapse.png", :style => "display: none"}
   
-      %div.section
-        %div#vf_lunch_spots_view.view
-          %span.foo.drag_handle Huddle: 
-          %span#huddle_name.highlight #{@huddle}
-          %div#vote_list
-          %hr
-            %a.invite{:href => "/huddle?huddle=#{@huddle}"}invite others
+            %span#foo Saved Lunch Spots
   
-      %div.section
-        %h4.drag_handle.header
-          %span I Won't Eat There
+          %div#saved_lunch_spots.view.has_header
+                
+      %div.column
+      
+        %div.section
+          %div#vf_lunch_spots_view.view
+            %span.foo.drag_handle Huddle: 
+            %span#huddle_name.highlight #{@huddle}
+            %div#vote_list
+            %hr
+              %a.invite{:href => "/huddle?huddle=#{@huddle}"}invite others
 
-        %div#vetoed_lunch_spots_view.view.has_header
-          %div#veto_list
-
-      %div#saved_lunch_spots_view.section
-        %h4.drag_handle.header
-          %span#bar
-            %img.cursor_hover.toggle_view.open{:src => "images/toggle_open.png"}
-            %img.cursor_hover.toggle_view{:src => "images/toggle_collapse.png", :style => "display: none"}
-
-          %span#foo Saved Lunch Spots
-
-        %div#saved_lunch_spots.view.has_header
-
+        %div.section
+          %h4.drag_handle.header
+            %span I Won't Eat There
+  
+          %div#vetoed_lunch_spots_view.view.has_header
+            %div#veto_list

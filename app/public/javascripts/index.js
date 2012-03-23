@@ -74,7 +74,7 @@ $(document).ready(function() {
   vetoed_lunch_spots_view.set_position();
 
   handle_user_enters_root_page(huddle_name);
-
+  //saved_lunch_spots_view.on_toggle_view_click();
 });
 
 
