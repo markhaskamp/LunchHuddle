@@ -30,12 +30,11 @@
     %div(pub-key="pub-f692f5fb-58e7-4f72-b195-0b04d3960da8" sub-key="sub-a2494751-c5a0-11e0-b441-f562192438d2" ssl="off" origin="pubsub.pubnub.com" id="pubnub")
     %script{:type => "text/javascript", :src =>"http://cdn.pubnub.com/pubnub-3.1.min.js"}
 
-    %div#all_content
-  
+    %div#all_content.cols_2
       %div#log
         %div#log_toggle #{@log_toggle} 
         %div#log_content
-    %div#all_content.cols_2
+
       %div.column
  
         %div.section
@@ -44,7 +43,7 @@
   
           %div#vote_view.view.has_header
             %form(action="#")
-              %span.drag_handle.foo
+              %span.foo
                 Welcome
                 %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
   
@@ -61,27 +60,27 @@
             %div.clear
 
         %div#saved_lunch_spots_view.section
-          %h4.drag_handle.header
+          %h4.header.closed
             %span#bar
-              %img.cursor_hover.toggle_view.open{:src => "images/toggle_open.png"}
-              %img.cursor_hover.toggle_view{:src => "images/toggle_collapse.png", :style => "display: none"}
+              %img.cursor_hover.toggle_view.open{:src => "images/toggle_open.png", :style => "display: none"}
+              %img.cursor_hover.toggle_view{:src => "images/toggle_collapse.png"}
   
             %span#foo Saved Lunch Spots
   
-          %div#saved_lunch_spots.view.has_header
+          %div#saved_lunch_spots.view.has_header{:style => "display: none"}
                 
       %div.column
       
         %div.section
           %div#vf_lunch_spots_view.view
-            %span.foo.drag_handle Huddle: 
+            %span.foo Huddle: 
             %span#huddle_name.highlight #{@huddle}
             %div#vote_list
             %hr
               %a.invite{:href => "/huddle?huddle=#{@huddle}"}invite others
 
         %div.section
-          %h4.drag_handle.header
+          %h4.header
             %span I Won't Eat There
   
           %div#vetoed_lunch_spots_view.view.has_header

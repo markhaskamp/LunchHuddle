@@ -17,24 +17,6 @@ $(document).ready(function() {
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
   vetoed_lunch_spots_view = new VetoedLunchSpotsView( {"el": $("#vetoed_lunch_spots_view") });
 
-  $('.section').draggable(
-          { 'handle': '.drag_handle'
-            ,'stop': function() { 
-                    var $ele = $(this);
-                    var dragged_view = $ele.find('div').first().attr('id');
-
-                    var offset = $ele.offset();
-                    $.cookie(dragged_view + '_left', offset.left);
-                    $.cookie(dragged_view + '_top', offset.top);
-            }
-          });
-
-  $('.section .drag_handle').hover(
-          function() { $(this).addClass('draggable-hover');},
-          function() { $(this).removeClass('draggable-hover');}
-          );
-
-
   vetoed_lunch_spots_view.display({"display": false});
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
@@ -74,7 +56,6 @@ $(document).ready(function() {
   vetoed_lunch_spots_view.set_position();
 
   handle_user_enters_root_page(huddle_name);
-  //saved_lunch_spots_view.on_toggle_view_click();
 });
 
 

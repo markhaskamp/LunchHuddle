@@ -21,31 +21,31 @@
     %title Lunch Huddle, Huddle Info
 
   %body
+    %div#all_content
+      
+      %div.section#huddle_invite
+      
+        %h3.main_title.header
+          %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
     
-    %div.section#huddle_invite
-    
-      %h3.main_title.header
-        %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
+        %div#send_invites_view.view.has_header
+          %h4 Huddle Info
+      
+          %p Invite Others to <b>#{@huddle}</b> Huddle
   
-      %div#send_invites_view.view.has_header
-        %h4 Huddle Info
-    
-        %p Invite Others to <b>#{@huddle}</b> Huddle
-
-        %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
-          %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
-          %input#hdnEmailAddr{:type => "hidden", :name => "hdnEmailAddr"}
-          %p 
-            Send an invite from the list below
-            %div#invitee_list
-
-          %p 
-            For new invitees, enter their email addresses in the box below
+          %form#frmSendInvite{:action => "/huddle/invite", :method => "post"}
+            %input#txtHuddle{:type => "hidden", :name => "txtHuddle", :value => @huddle}
+            %input#hdnEmailAddr{:type => "hidden", :name => "hdnEmailAddr"}
+            %p 
+              Send an invite from the list below
+              %div#invitee_list
+  
+            %p For new invitees, enter their email addresses in the box below
             %textarea#txtEmailAddr{:name => "txtEmailAddr", 
                                    :rows => 4, 
                                    :placeholder => "person@yahoo.com, another_invitee@gmail.com"}
-
-            %input#btnInvite{:type => "button", :value => "Send Invitation"}
-        
-        %div.clear
-        
+            %p
+              %input#btnInvite{:type => "button", :value => "Send Invitation"}
+          
+          %div.clear
+          

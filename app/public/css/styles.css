@@ -77,21 +77,19 @@ input {
   width: 155px;
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 input:focus {
   border: 1px solid #FFA85C;
   box-shadow: 2px 2px 2px #DADADA;
-  outline: none;
-
 }
 
-/* hackety hack */
-#send_invites_view input {
-  float: none;
-  width: 250px;
+#user_info_view input[type=text]{
+  width: 235px;
 }
-
-#send_invites_view input[type=button],
-/* end hack */
 
 input[type=button] {
   cursor: pointer;
@@ -107,9 +105,10 @@ input[type=button] {
 }
 
 
+
 textarea {
   float: none;
-  width: 250px;
+  width: 335px;
   border-radius: 12px 0 0 12px;
 }
 
@@ -370,10 +369,6 @@ h3 span.foo {
 }
 
 .ui-draggable {
-}
-
-.section .drag_handle {
-  cursor: move;
 }
 
 .header #bar {

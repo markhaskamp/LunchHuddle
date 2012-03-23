@@ -11,33 +11,38 @@
     %script{:type => "text/javascript", :src =>"javascripts/utility.js"}
 
   %body
+    %div#all_content
+      %h3.main_title.header
+        %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
 
-    %h3.main_title Lunch Huddle
-    %h4 Utility Page
-
-    %p
-      %a{:href => "/?huddle=#{@huddle}"} Return to Huddle
-
-    .div.section
-      %h4 Information
-      %p
-        this browser supports localstorage? 
-        %b
-          %span#local_storage
-
-      %p
-        Id
-        %b
-          %span#user_id
-
-      %p
-        Name
-        %b
-          %span#user_name
-
-    .div.section
-      %h4 Local Data
-
+      %div.section
+        %div.view.has_header
+          %h4 Utility Page
       
-      %div.cursor_hover
-        %input#clear_local_storage{:type => "button", :value => "clear saved lunch spots"}
+          %p
+            %a{:href => "/?huddle=#{@huddle}"} Return to Huddle
+      
+          .div.section
+            %h4 Information
+            %p
+              this browser supports localstorage? 
+              %b
+                %span#local_storage
+      
+            %p
+              Id
+              %b
+                %span#user_id
+      
+            %p
+              Name
+              %b
+                %span#user_name
+      
+          .div.section
+            %h4 Local Data
+      
+            
+            %div.cursor_hover
+              %input#clear_local_storage{:type => "button", :value => "clear saved lunch spots"}
+            %div.clear
