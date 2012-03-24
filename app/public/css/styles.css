@@ -414,6 +414,9 @@ h3 span.foo {
 	  -webkit-text-size-adjust: none;
   }
 
+  #all_content {
+	width: 100%;
+  }
 
   /* disable floats */
   .column {
@@ -427,10 +430,6 @@ h3 span.foo {
 	display: block;
   }
   
-  .header #bar {
-	float: none;
-  }
-  
   #scratch_container #left {
 	float: none;
   }
@@ -440,6 +439,7 @@ h3 span.foo {
   
   /* reset width */
   input,
+  textarea,
   .column,
   #all-content,
   #all_content.cols_2 {
@@ -449,6 +449,20 @@ h3 span.foo {
   body {
 	margin: 0;
   }
+  
+  .user_info_explanation {
+	text-align: left;
+  }
+  
+  span#foo{
+	width: 50%;
+	margin: 0;
+  }
+  span#bar{
+	display: inline;
+	float: right;
+  }
+
 }
 
 #invitee_list input {
