@@ -41,14 +41,14 @@
         %div.section
           %h3.main_title.header 
             %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
-          %div.sub_menu{:style => "float:right; margin-right: 25px;"}
+          %div.sub_menu{:style => "float:right; margin-right: 10px;"}
             
             %a{:href => "/userinfo?huddle=#{@huddle}", :style => "float:left"}
-              %img{:src => "images/options.png"}
+              %span.ui-icon.ui-icon-gear
             %a{:href => "/utility?huddle=#{@huddle}", :style => "float:left"}
               %span.ui-icon.ui-icon-info
             %a{:href => ""}
-              %span.ui-icon.ui-icon-help
+              %span.ui-icon.ui-icon-help{:style => "float:left"}
 
           %div#vote_view.view.has_header
             %form(action="#")
