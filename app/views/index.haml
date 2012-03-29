@@ -2,8 +2,9 @@
 %html
   %head
     %link(rel="stylesheet" href="css/styles.css")
+    %link(rel="stylesheet" href="javascripts/lib/jqueryui/css/ui-lightness/jquery-ui-1.8.18.custom.css")
     %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-1.7.1.min.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/lib/jquery-ui-1.8.13.custom.min.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/lib/jqueryui/js/jquery-ui-1.8.18.custom.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/underscore.min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/backbone-min.js"}
     %script{:type => "text/javascript", :src =>"javascripts/lib/util.jquery.js"}
@@ -40,12 +41,20 @@
         %div.section
           %h3.main_title.header 
             %a.home_link{:href => "/?huddle=#{@huddle}"} Lunch Huddle
-  
+          %div.sub_menu{:style => "float:right; margin-right: 25px;"}
+            
+            %a{:href => "/userinfo?huddle=#{@huddle}", :style => "float:left"}
+              %img{:src => "images/options.png"}
+            %a{:href => "/utility?huddle=#{@huddle}", :style => "float:left"}
+              %span.ui-icon.ui-icon-info
+            %a{:href => ""}
+              %span.ui-icon.ui-icon-help
+
           %div#vote_view.view.has_header
             %form(action="#")
               %span.foo
                 Welcome
-                %a#txtName.highlight{:href => "/userinfo?huddle=#{@huddle}"} 
+                %span#txtName.highlight
   
               %p
                 %label where to eat? &nbsp;
