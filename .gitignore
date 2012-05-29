@@ -2,3 +2,4 @@
 *.swo
 logs/
 .DS_Store
+tags
