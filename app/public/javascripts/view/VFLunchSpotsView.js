@@ -39,7 +39,7 @@ var VFLunchSpotsView = Backbone.View.extend({
         return_html += 
             '<div id="vote_item_container">' +
               '<span class="vote_item">' +
-              '  <span class="vote vote_color">' + vote.lunch_spot + '</span>' +
+              '  <span class="vote vote_color">' + unescape(vote.lunch_spot) + '</span>' +
               '  <span class="user_name vote_color">' + vote.user_name + '</span>' +
               '  <span class="user_id">' + vote.user_id + '</span>' +
               '</span>';
@@ -50,7 +50,7 @@ var VFLunchSpotsView = Backbone.View.extend({
           return_html += ' <span class="veto_vote cursor_hover"><img src="../images/vote_no.png" alt="I won&apos;t eat there" /></span>';
         }
         return_html += '</div>';
-        return_html += '<div class="user_msg">' + vote.user_msg + '</div>';
+        return_html += '<div class="user_msg">' + unescape(vote.user_msg) + '</div>';
 
       });
       if (is_top_voted_lunch_spot && count_of_top_voted > 1) {

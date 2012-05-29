@@ -48,7 +48,7 @@ var SavedLunchSpotsView = Backbone.View.extend({
           function(ndx, spot) {
             var div_line = 
                 '<div id="saved_list">' +
-                  '<span class="lunch_spot">' + spot + '</span>' +
+                  '<span class="lunch_spot">' + unescape(spot) + '</span>' +
                   ' &nbsp; ' +
                   '<span class="vote_for_saved cursor_hover"><img src="../images/vote_yes.png" alt="I want to eat here"></img></span>' +
                   ' &nbsp; ' +

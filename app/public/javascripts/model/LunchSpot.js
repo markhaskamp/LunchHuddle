@@ -6,12 +6,11 @@ var LunchSpot = {
   clean: function(input_lunch_spot) {
     // Logger.append('LunchSpot.clean. before: [' + input_lunch_spot + ']');
     var str1 = input_lunch_spot.replace(/eval/gi, '');
-    var str2 = str1.replace(/script/gi, '');
-    var str3 = str2.replace(/java/gi, '');
-    var str4 = str3.replace(/[,\.\$#\{\};\(\)\$]/g, ' ');
-    var str5 = str4.replace(/['"]/g, '');
+    var str2 = str1.replace(/;/g, ' ');
+    var str3 = escape(str2);
+
     // Logger.append('LunchSpot.clean. after: [' + str5 + ']');
-    return(str5);
+    return(str3);
   },
 
   is_valid: function(s) {
