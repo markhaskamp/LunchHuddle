@@ -12,7 +12,7 @@ function vote_up_this_saved_lunch_spot(ele) {
 
 function delete_saved_lunch_spot(ele) {
     var lunch_spot = ele.prev().prev().text();
-    DataStore.remove_lunch_spot(lunch_spot);
+    DataStore.remove_lunch_spot(escape(lunch_spot));
 
     var saved_lunch_spots = DataStore.get_lunch_spots();
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
