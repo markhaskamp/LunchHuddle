@@ -10,14 +10,6 @@ function vote_up_this_saved_lunch_spot(ele) {
     i_vote();
 }
 
-function delete_saved_lunch_spot(ele) {
-    var lunch_spot = ele.prev().prev().text();
-    DataStore.remove_lunch_spot(escape(lunch_spot));
-
-    var saved_lunch_spots = DataStore.get_lunch_spots();
-    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
-}
-
 function set_cookie_for(json_var) {
   $.cookie(json_var.key, json_var.val, {expires: 1});
 }
@@ -136,10 +128,6 @@ function handle_user_enters_root_page(huddle_name) {
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   });
 
-  $('.delete_saved').live('click', function() {
-    var ele = $(this);
-    delete_saved_lunch_spot(ele);
-  });
 
   message_svc.process_history(huddle_name);
 }

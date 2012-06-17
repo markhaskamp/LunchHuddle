@@ -2,12 +2,23 @@
 var SavedLunchSpotsView = Backbone.View.extend({
   events: {
     "click .vote_for_saved": "on_vote_for_saved"
+    ,"click .delete_saved": "on_delete_saved"
     ,"click .toggle_view": "on_toggle_view_click"
   }
 
   , on_vote_for_saved: function() {
     var ele = $(arguments[0].currentTarget);
     vote_up_this_saved_lunch_spot(ele);
+  }
+
+  , on_delete_saved: function(event_object) {
+    var $ele = $(event_object.currentTarget);
+
+    var lunch_spot = $ele.prev().prev().text();
+    DataStore.remove_lunch_spot(escape(lunch_spot));
+
+    var saved_lunch_spots = DataStore.get_lunch_spots();
+    saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
   }
 
   , on_toggle_view_click: function() {
