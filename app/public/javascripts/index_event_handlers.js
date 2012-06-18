@@ -46,7 +46,6 @@ function vote_handler(message_package) {
     Logger.append('vote_handler. enter. msg_type: [' + message_package.msg_type + ']');
   
     if (message_package.msg_type === 'votes') {
-  
       var received_votes       = message_package.votes;
       var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
       var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
