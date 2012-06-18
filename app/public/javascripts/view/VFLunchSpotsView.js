@@ -102,7 +102,7 @@ var VFLunchSpotsView = Backbone.View.extend({
       var ele = $(this);
       v.user_id    = ele.find('.user_id').first().html();
       v.user_name  = ele.find('.user_name').first().html();
-      v.lunch_spot = ele.find('.vote').first().html();
+      v.lunch_spot = escape(ele.find('.vote').first().html());
       v.user_msg   = ele.parent().next().html();
 
       current_votes.push(v);
