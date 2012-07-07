@@ -20,7 +20,6 @@
     %script{:type => "text/javascript", :src =>"javascripts/model/LunchSpot.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VFLunchSpotsView.js"}
-    %script{:type => "text/javascript", :src =>"javascripts/view/VetoedLunchSpotsView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/SavedLunchSpotsView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VoteView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
@@ -89,9 +88,3 @@
             %hr
               %a.invite{:href => "/huddle?huddle=#{@huddle}"}invite others
 
-        %div.section
-          %h4.header
-            %span I Won't Eat There
-  
-          %div#vetoed_lunch_spots_view.view.has_header
-            %div#veto_list

@@ -1,7 +1,6 @@
 var cookie_user_id;
 var huddle_name;
 var vf_lunch_spots_view;
-var vetoed_lunch_spots_view;
 var saved_lunch_spots_view;
 var vote_view;
 var user_info_view;
@@ -15,9 +14,6 @@ $(document).ready(function() {
   saved_lunch_spots_view  = new SavedLunchSpotsView({"el": $("#saved_lunch_spots_view") });
   vote_view               = new VoteView( {"el": $("#vote_view") });
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
-  vetoed_lunch_spots_view = new VetoedLunchSpotsView( {"el": $("#vetoed_lunch_spots_view") });
-
-  vetoed_lunch_spots_view.display({"display": false});
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();
@@ -53,7 +49,6 @@ $(document).ready(function() {
   vote_view.set_position();
   saved_lunch_spots_view.set_position();
   vf_lunch_spots_view.set_position();
-  vetoed_lunch_spots_view.set_position();
 
   handle_user_enters_root_page(huddle_name);
 });

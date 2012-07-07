@@ -1,17 +1,5 @@
 var VFLunchSpotsView = Backbone.View.extend({
   events: {
-    "click #.veto_vote": "on_veto_vote"
-  }
-
-  , on_veto_vote: function(event_object) {
-    var ele_parent = $(event_object.currentTarget).parent();
-    var lunch_spot = Object.beget(LunchSpot);
-
-    lunch_spot.lunch_spot         = $(ele_parent).find('.vote').html();
-    lunch_spot.user_display_name  = user_info_view.get_name();
-    lunch_spot.user_id            = $.cookie('user_id');
-
-    vetoed_lunch_spots_view.on_veto_vote(lunch_spot);
   }
 
   ,get_display: function(my_user_id, my_user_name, all_votes) {
@@ -47,7 +35,6 @@ var VFLunchSpotsView = Backbone.View.extend({
 
         if ( vote.user_id !== my_user_id) {
           return_html += ' <span class="vote_for cursor_hover"><img src="../images/vote_yes.png" alt="this is where I want to eat" /></span>';
-          return_html += ' <span class="veto_vote cursor_hover"><img src="../images/vote_no.png" alt="I won&apos;t eat there" /></span>';
         }
         return_html += '</div>';
         return_html += '<div class="user_msg">' + unescape(vote.user_msg) + '</div>';
