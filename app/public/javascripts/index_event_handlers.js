@@ -69,10 +69,6 @@ function vote_handler(message_package) {
     if (message_package.msg_type === 'join_huddle') {
       i_vote();
     }
-  
-    if (message_package.msg_type === 'veto') {
-      vetoed_lunch_spots_view.render(message_package.lunch_spot_list);
-    }
   }
 }
 

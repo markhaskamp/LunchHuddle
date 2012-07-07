@@ -76,19 +76,6 @@ var PubnubSvc = {
 
   }
 
-  , send_veto_message: function(lunch_spot_list) {
-    Logger.append('send_veto_message. enter.');
-    var message_package = {};
-    message_package.msg_type   = 'veto';
-    message_package.lunch_spot_list = lunch_spot_list;
-
-    huddle_name = this.build_huddle_name(vf_lunch_spots_view.get_huddle().toLowerCase()); 
-    PUBNUB.publish({
-            channel: huddle_name
-            , message: message_package
-    })
-  }
-
   , build_huddle_name: function(huddle_name) {
     huddle_name = huddle_name.toLowerCase();
 
