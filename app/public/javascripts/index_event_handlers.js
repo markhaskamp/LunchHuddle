@@ -47,10 +47,11 @@ function vote_handler(message_package) {
   
     if (message_package.msg_type === 'votes') {
       var received_votes       = message_package.votes;
-      var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
-      var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
+      // var existing_lunch_spots = vf_lunch_spots_view.get_current_votes();
+      // var all_votes            = merge_in_new_votes(existing_lunch_spots, received_votes);
   
-      var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
+      // var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
+      var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, received_votes);
       $('#vote_list').html(html_val);
   
       // set_style_for_my_vote();
