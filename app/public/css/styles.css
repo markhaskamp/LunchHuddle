@@ -246,47 +246,6 @@ h3 span.foo {
   border-radius: 2px; */
 }
 
-.veto_color {
-  background-color: #6C6C6C;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#9F9F9F), to(#565656)); 
-  background-image: -webkit-linear-gradient(84deg, #565656, #9F9F9F); 
-  background-image: -moz-linear-gradient(84deg, #565656, #9F9F9F); 
-  background-image: -ms-linear-gradient(top, #565656, #9F9F9F); 
-  background-image: -o-linear-gradient(top, #565656, #9F9F9F); 
-  background-image: linear-gradient(to bottom, #9F9F9F, #565656);
-}
-
-.veto {
-  display: inline-block;
-  width: 145px;
-  color: white;
-  font-size: 85%;
-  margin: 1px;
-  padding: 3px;
-  padding-left: 5px;
-  border: 1px solid #5B5B5B;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-}
-
-.veto_user_name {
-  display: inline-block;
-  width: 60px;
-  background-color: #85000;
-  color: white;
-  font-size: 85%;
-  margin: 1px;
-  padding: 3px;
-  padding-left: 5px;
-  border: 1px solid #5B5B5B;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-}
-
-.veto_user_id {
-  display: none;
-}
-
 .vote_for_saved {
   /* font-size: 75%;
   color: white; */
