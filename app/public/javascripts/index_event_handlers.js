@@ -14,6 +14,19 @@ function set_cookie_for(json_var) {
   $.cookie(json_var.key, json_var.val, {expires: 1});
 }
 
+function i_send_message() {
+  Logger.append("i_send_message. enter.");
+
+  var user_json = UserInfo.pull_user_info_from_cookies();
+  var user_id = user_json.user_id;
+  var user_name = user_json.user_name;
+    
+  var user_message = vote_view.get_message();
+  user_message = LunchSpot.clean(user_message);
+  console.log('index_event_handlers. on_send_message(). message: ' + user_message);
+  message_svc.send_my_message(huddle_name, user_name, user_message);
+}
+
 function i_vote() {
   Logger.append("i_vote. enter.");
   var user_json = UserInfo.pull_user_info_from_cookies();
@@ -62,9 +75,16 @@ function vote_handler(message_package) {
       });
     }
   
+    if (message_package.msg_type === 'message') {
+      // console.log('index_event_handlers. msg_type = "message"');
+      // console.log(message_package);
+      // console.log('message: [' + message_package.message + ']');
+    }
+
     if (message_package.msg_type === 'join_huddle') {
       i_vote();
     }
+
   }
 }
 

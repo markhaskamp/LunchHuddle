@@ -21,6 +21,7 @@
     %script{:type => "text/javascript", :src =>"javascripts/view/UserInfoView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VFLunchSpotsView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/SavedLunchSpotsView.js"}
+    %script{:type => "text/javascript", :src =>"javascripts/view/MessageRollView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/view/VoteView.js"}
     %script{:type => "text/javascript", :src =>"javascripts/Logger.js"}
     %script{:type => "text/javascript", :src =>"javascripts/index.js"}
@@ -70,6 +71,12 @@
   
               
             %div.clear
+
+        %div#message_roll.section
+          %h4.header
+            %span Message Roll
+            %div#messages
+              
 
         %div#saved_lunch_spots_view.section
           %h4.header.closed

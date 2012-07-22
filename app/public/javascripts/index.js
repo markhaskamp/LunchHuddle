@@ -4,6 +4,7 @@ var vf_lunch_spots_view;
 var saved_lunch_spots_view;
 var vote_view;
 var user_info_view;
+var message_roll_view;
 
 var message_svc = MessageFactory.create('pubnub');
 // var message_svc = MessageFactory.create('mock');
@@ -14,6 +15,7 @@ $(document).ready(function() {
   saved_lunch_spots_view  = new SavedLunchSpotsView({"el": $("#saved_lunch_spots_view") });
   vote_view               = new VoteView( {"el": $("#vote_view") });
   user_info_view          = new UserInfoView({ "el": $('#user_info_view') });
+  message_roll_view       = new MessageRollView({"el": $('#message_roll_view') });
 
   Logger.append('Modernizr.localstorage: [' + Modernizr.localstorage + ']');
   huddle_name = $('#huddle_name').text();

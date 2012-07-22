@@ -1,6 +1,7 @@
 var VoteView = Backbone.View.extend ({
   events: {
     "click #btnVote": "on_vote"
+    ,"click #btnSendMessage": "on_send_message"
   }
 
   ,on_vote: function() {
@@ -8,6 +9,10 @@ var VoteView = Backbone.View.extend ({
 
     var saved_lunch_spots = DataStore.get_lunch_spots();
     saved_lunch_spots_view.display_lunch_spots(saved_lunch_spots);
+  }
+
+  ,on_send_message: function() {
+    i_send_message();
   }
 
   ,get_lunch_spot: function() {

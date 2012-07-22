@@ -14,6 +14,8 @@ var MockSvc = {
     return('MockSvc');
   },
 
+  send_join_huddle_message: function(huddle_name) {},
+
   send_my_votes: function(huddle_name, existing_votes) {
     var message_package = {};
     message_package.msg_type = 'votes';
@@ -22,7 +24,8 @@ var MockSvc = {
     vote_handler(message_package);
   },
 
-  send_join_huddle_message: function(huddle_name) {},
+  send_my_message: function(huddle_name, user_message) {
+  },
 
   subscribe_to_huddle: function(huddle_name){
   }
@@ -55,6 +58,21 @@ var PubnubSvc = {
     var message_package = {};
     message_package.msg_type = 'votes';
     message_package.votes = existing_votes;
+
+    huddle_name = this.build_huddle_name(huddle_name); 
+    PUBNUB.publish({
+      channel : huddle_name,
+      message : message_package
+    })
+  }
+
+  , send_my_message: function(huddle_name, user_name, user_message) {
+    Logger.append('send_my_votes. enter.');
+
+    var message_package = {};
+    message_package.msg_type = 'message';
+    message_package.message = user_message;
+    message_package.user_name = user_name;
 
     huddle_name = this.build_huddle_name(huddle_name); 
     PUBNUB.publish({
