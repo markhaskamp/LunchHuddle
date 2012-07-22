@@ -37,7 +37,6 @@ var VFLunchSpotsView = Backbone.View.extend({
           return_html += ' <span class="vote_for cursor_hover"><img src="../images/vote_yes.png" alt="this is where I want to eat" /></span>';
         }
         return_html += '</div>';
-        return_html += '<div class="user_msg">' + unescape(vote.user_msg) + '</div>';
 
       });
       if (is_top_voted_lunch_spot && count_of_top_voted > 1) {

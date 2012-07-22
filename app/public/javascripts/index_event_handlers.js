@@ -23,16 +23,12 @@ function i_vote() {
   var input_lunch_spot = vote_view.get_lunch_spot();
   var voted_lunch_spot = LunchSpot.clean(input_lunch_spot);
 
-  var user_msg = vote_view.get_message();
-  user_msg = LunchSpot.clean(user_msg);
-
   if (LunchSpot.is_valid(voted_lunch_spot)) {
     DataStore.save_lunch_spot(voted_lunch_spot);
     var current_vote = Object.beget(LunchSpot);
     current_vote.user_id = user_id;
     current_vote.user_name = user_name;
     current_vote.lunch_spot = voted_lunch_spot;
-    current_vote.user_msg = user_msg;
 
     var existing_votes = vf_lunch_spots_view.get_current_votes();
     RestaurantModel.add_vote(current_vote, existing_votes);
