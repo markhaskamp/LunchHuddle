@@ -56,13 +56,15 @@
                 Welcome
                 %span#txtName.highlight
   
-              %p
-                %label where to eat? &nbsp;
+              %div
+                %label where to eat?
+              %div
                 %input#txtLunchSpot(type="text")
                 %input#btnVote.defaultButton{:type => "button", :value => "Vote"}
                 
-              %p(style="margin-top: 60px;")
+              %div(style="margin-top: 30px;")
                 %label comment: &nbsp;
+              %div
                 %input#txtMessage(type="text")
                 %input#btnSendMessage.defaultButton{:type => "button", :value => "Send"}
   
