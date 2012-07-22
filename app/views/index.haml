@@ -59,12 +59,13 @@
               %p
                 %label where to eat? &nbsp;
                 %input#txtLunchSpot(type="text")
+                %input#btnVote.defaultButton{:type => "button", :value => "Vote"}
                 
-              %p
+              %p(style="margin-top: 60px;")
                 %label comment: &nbsp;
                 %input#txtMessage(type="text")
+                %input#btnSendMessage.defaultButton{:type => "button", :value => "Send"}
   
-              %input#btnVote.defaultButton{:type => "button", :value => "Send"}
               
             %div.clear
 
