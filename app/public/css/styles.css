@@ -423,6 +423,16 @@ h3 span.foo {
 
 }
 
+.msg_user_name {
+  color: black;
+  font-size: 0.75em;
+}
+
+.msg_user_message {
+  color: #2B869F;
+  font-size: 0.8em;
+}
+
 #invitee_list input {
   display: inline;
   width: 20px;

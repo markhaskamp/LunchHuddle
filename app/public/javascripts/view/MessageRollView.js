@@ -2,9 +2,16 @@ var MessageRollView = Backbone.View.extend({
   events: {
   }
 
-  , get_display: function(new_message) {
-    var existing_html = this.get_current_content();
-    var new_html = add_new_message(new_message, exsiting_html);
+  ,render: function(user_name, message) {
+    var existing_html = $('#messages').html();
+
+    var message_html = 
+      '<div class="msg_line">' +
+      '  <span class="msg_user_name">[' + user_name + ']</span>' + 
+      '  <span class="msg_user_message">' + unescape(message) + '</span>' +
+      '</div>\n';
+
+      $('#messages').html(existing_html + message_html);
   }
 });
 

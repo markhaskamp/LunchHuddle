@@ -79,6 +79,7 @@ function vote_handler(message_package) {
       // console.log('index_event_handlers. msg_type = "message"');
       // console.log(message_package);
       // console.log('message: [' + message_package.message + ']');
+      message_roll_view.render(message_package.user_name, message_package.message);
     }
 
     if (message_package.msg_type === 'join_huddle') {
