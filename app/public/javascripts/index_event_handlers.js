@@ -23,7 +23,7 @@ function i_send_message() {
     
   var user_message = vote_view.get_message();
   user_message = LunchSpot.clean(user_message);
-  console.log('index_event_handlers. on_send_message(). message: ' + user_message);
+  // console.log('index_event_handlers. on_send_message(). message: ' + user_message);
   message_svc.send_my_message(huddle_name, user_name, user_message);
 }
 
@@ -62,7 +62,6 @@ function vote_handler(message_package) {
       var html_val = vf_lunch_spots_view.get_display(cookie_user_id, cookie_user_name, all_votes);
       $('#vote_list').html(html_val);
   
-      // set_style_for_my_vote();
       $('.vote_item > .user_id').each(function(ndx) {
         var ele = $(this);
         if (ele.html() === cookie_user_id) {

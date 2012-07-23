@@ -19,6 +19,14 @@ function type(obj){
     return Object.prototype.toString.call(obj).match(/^\[object (.*)\]$/)[1]
 }
 
+function htmlEncode(value) {
+  return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value) {
+  return $('<div/>').html(value).text();
+}
+
 
 $('.cursor_hover').live('mouseover', function() { $(this).css('cursor', 'pointer'); });
 $('.cursor_hover').live('mouseout', function() { $(this).css('cursor', 'default'); });
