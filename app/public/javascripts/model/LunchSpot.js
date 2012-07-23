@@ -7,10 +7,11 @@ var LunchSpot = {
     // Logger.append('LunchSpot.clean. before: [' + input_lunch_spot + ']');
     var str1 = input_lunch_spot.replace(/eval/gi, '');
     var str2 = str1.replace(/;/g, ' ');
-    var str3 = escape(str2);
+    var str3 = str2.replace(/<\s*script/gi, '');
+    var str4 = escape(str3);
 
     // Logger.append('LunchSpot.clean. after: [' + str5 + ']');
-    return(str3);
+    return(str4);
   },
 
   is_valid: function(s) {
