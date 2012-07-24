@@ -13,6 +13,8 @@ var MessageRollView = Backbone.View.extend({
       '</div>\n';
 
       $('#messages').html(existing_html + message_html);
+
+      $('#messages').animate({scrollTop: 125}, 'slow');
   }
 });
 
