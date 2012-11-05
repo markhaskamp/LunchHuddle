@@ -423,6 +423,11 @@ h3 span.foo {
 
 }
 
+.msg_time {
+  color: black;
+  font-size: 0.75em;
+}
+
 .msg_user_name {
   color: black;
   font-size: 0.75em;
