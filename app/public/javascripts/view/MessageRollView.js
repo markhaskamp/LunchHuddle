@@ -6,8 +6,16 @@ var MessageRollView = Backbone.View.extend({
     var existing_html = $('#messages').html();
 
     
+    var current_date = new Date();
+    var hours = current_date.getHours();
+    var minutes = current_date.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes
+    }
+
     var message_html = 
       '<div class="msg_line">' +
+      '  <span class="msg_time">[' + hours + ":" + minutes + ']</span>' +
       '  <span class="msg_user_name">[' + user_name + ']</span>' + 
       '  <span class="msg_user_message">' + message + '</span>' +
       '</div>\n';
