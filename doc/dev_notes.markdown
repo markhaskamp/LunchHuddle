@@ -4,6 +4,12 @@
 
 ### Doing
 
+- when voting up somebody else's restaurant which has an ampersand in it, then 2 restaurants are added to my VF Lunch Spot
+  - one & two
+  - one &amp; two
+  - explanation
+    
+
 ### To Do
 
 - bugs

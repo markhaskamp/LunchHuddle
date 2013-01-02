@@ -28,7 +28,7 @@ var DataStore = {
   
       if (saved_lunch_spots_string !== null) {
         var saved_lunch_spots_list = saved_lunch_spots_string.split(',');
-        if (_.indexOf(saved_lunch_spots_list, lunch_spot) === -1) {
+        if (_.indexOf(saved_lunch_spots_list, unescape(lunch_spot)) === -1) {
           saved_lunch_spots_list.push(lunch_spot);
           localStorage.setItem('lh_lunch_spots', saved_lunch_spots_list);
         }
@@ -45,7 +45,9 @@ var DataStore = {
       var saved_lunch_spots = [];
       var saved_lunch_spots_string = localStorage.getItem('lh_lunch_spots');
       var saved_lunch_spots_list = saved_lunch_spots_string.split(',');
-      var new_list = _.reject(saved_lunch_spots_list, function(o) { return(o === lunch_spot); });
+      var new_list = _.reject(saved_lunch_spots_list, function(o) { 
+        return(o.replace(/[^A-Za-z]/g, '') === lunch_spot.replace(/[^A-Za-z]/g, '')); 
+      });
 
       if (new_list.length === 0) {
         localStorage.removeItem('lh_lunch_spots');
